@@ -1,0 +1,31 @@
+{
+	"header": {
+		"head": {
+			"LOGIN": "Đăng Nhập"
+		}
+	},
+	"offsidebar": {
+		"setting": {
+			"SETTINGS": "Cài đặt"
+		}
+	},
+	"sidebar": {
+		"WELCOME": "Chào mừng",
+		"heading": {
+			"HEADER": "Menu"
+		},
+		"nav": {
+			"SINGLEVIEW": "Vista Simple"
+		},
+		"LAYOUT":"Bố trí",
+		"THEMES" : "Chủ đề",
+		"ASIDE": "Sắp xếp"
+	},
+	"dashboard": {
+		"WELCOME": "Chào mừng"
+		},
+  "home":{
+      "INTRODUCE": "VÌ SAO NÊN ĐĂNG KÝ QUẢN LÝ SÂN BÓNG VỚI ASD ?",
+      "INTRODUCETWO": "Nhanh chóng - dễ dàng - thuận tiện"
+  }
+}

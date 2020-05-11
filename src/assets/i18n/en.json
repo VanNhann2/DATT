@@ -1,0 +1,31 @@
+{
+    "header": {
+        "head": {
+            "LOGIN": "Login"
+        }
+    },
+    "offsidebar": {
+        "setting": {
+            "SETTINGS": "Settings"
+        }
+    },
+    "sidebar": {
+        "WELCOME": "Welcome",
+        "heading": {
+            "HEADER": "Menu Heading"
+        },
+        "nav": {
+            "SINGLEVIEW": "Single View"
+        },
+        "LAYOUT":"Layout",
+        "THEMES" : "Themes",
+        "ASIDE": "Sort"
+    },
+    "dashboard": {
+        "WELCOME": "Welcome"
+    },
+    "home":{
+        "INTRODUCE": "WHY SHOULD REGISTER THE SOCIAL MANAGEMENT WITH ASD?",
+        "INTRODUCETWO": "Fast - Easy - Convenient"
+    }
+}

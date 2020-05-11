@@ -1,0 +1,553 @@
+<div class="wrapper" style="background: white;">
+    <!-- START Top Navbar-->
+    <nav class="navbar topnavbar" role="navigation">
+        <!-- START navbar header-->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/">
+                <div class="brand-logo text-white"  [routerLink]="'/home'">
+                    <!-- <img class="img-fluid" src="assets/img/png.png" alt="App Logo" /> &nbsp; -->
+                    Home
+                </div>
+            </a>
+        </div>
+        <ul class="navbar-nav flex-row">
+            <!-- Fullscreen (only desktops)-->
+            <li class="nav-item d-none d-md-block">
+                <a class="nav-link" #fsbutton (click)="toggleFullScreen($event)">
+                    <em class="fa fa-expand"></em>
+                </a>
+            </li>
+            <!-- START Alert menu-->
+            <li class="nav-item dropdown dropdown-list" dropdown>
+                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" dropdownToggle>
+                    <em class="icon-bell"></em>
+                    <span class="badge badge-danger">11</span>
+                </a>
+                <!-- START Dropdown menu-->
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right animated flipInX">
+                    <div class="dropdown-item">
+                        <!-- START list group-->
+                        <div class="list-group">
+                            <!-- list item-->
+                            <div class="list-group-item list-group-item-action">
+                                <div class="media">
+                                    <div class="align-self-start mr-2">
+                                        <em class="fab fa-twitter fa-2x text-info"></em>
+                                    </div>
+                                    <div class="media-body">
+                                        <p class="m-0">New followers</p>
+                                        <p class="m-0 text-muted text-sm">1 new follower</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- list item-->
+                            <div class="list-group-item list-group-item-action">
+                                <div class="media">
+                                    <div class="align-self-start mr-2">
+                                        <em class="fa fa-envelope fa-2x text-warning"></em>
+                                    </div>
+                                    <div class="media-body">
+                                        <p class="m-0">New e-mails</p>
+                                        <p class="m-0 text-muted text-sm">You have 10 new emails</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- list item-->
+                            <div class="list-group-item list-group-item-action">
+                                <div class="media">
+                                    <div class="align-self-start mr-2">
+                                        <em class="fa fa-tasks fa-2x text-success"></em>
+                                    </div>
+                                    <div class="media-body">
+                                        <p class="m-0">Pending Tasks</p>
+                                        <p class="m-0 text-muted text-sm">11 pending task</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- last list item-->
+                            <div class="list-group-item list-group-item-action">
+                                <span class="d-flex align-items-center">
+                                    <span class="text-sm">More notifications</span>
+                                    <span class="badge badge-danger ml-auto">14</span>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- END list group-->
+                    </div>
+                </div>
+                <!-- END Dropdown menu-->
+            </li>
+            <!-- END Alert menu-->
+            <!-- START Offsidebar button-->
+            <li class="nav-item">
+                <a class="nav-link" (click)="toggleOffsidebar(); $event.stopPropagation()">
+                    <em class="icon-notebook"></em>
+                </a>
+            </li>
+            <!-- END Offsidebar menu-->
+        </ul>
+        <!-- END Right Navbar-->
+    </nav>
+    <!-- END Top Navbar-->
+
+    <div class="container-fluid pt-3 pb-3 border-bottom px-lg-5">
+        <div class="row justify-content-md-center">
+            <div class="col-xl-9">
+                <div class="search-bar p-3 p-lg-1 pl-lg-4" style="border-radius: 0px !important;">
+                    <form id="main-search-form" action="/dat-san-online">
+                        <input type="hidden" name="city_id" value="50">
+                        <input type="hidden" name="input_type" value="string">
+                        <div class="row shadow p-2">
+                            <div class="col-lg-5 d-flex align-items-center form-group">
+                                <div class="input-wrapper">
+                                    <input type="text" name="search_string" value="" id="search-input"
+                                        placeholder="Tên Quận hoặc tên sân bóng"
+                                        class="form-control border-0 shadow-0 ui-autocomplete-input"
+                                        option="no-venue-redirect" autocomplete="off">
+                                    <!-- <button type="button" class="btn btn-reset btn-sm filter-reset filter-reset-btn"
+                                        style="">Bỏ chọn<i class="fa-times fas ml-1"></i></button> -->
+                                </div>
+                            </div>
+                            <div class="col-lg-3 d-flex align-items-center form-group">
+                                <div class="dropdown bootstrap-select main-search__datepicker"><select name="date"
+                                        title="Ngày đặt" data-style="btn-form-control" required=""
+                                        class="selectpicker main-search__datepicker" tabindex="-98">
+                                        <option class="bs-title-option" value=""></option>
+                                        <option value="2020-05-06 13:18:12 +0700" selected="">Hôm nay, 06/05/2020
+                                        </option>
+                                        <option value="2020-05-07">Ngày mai, 07/05/2020</option>
+                                        <option value="2020-05-08">Thứ Sáu, 08/05/2020</option>
+                                        <option value="2020-05-09">Thứ Bảy, 09/05/2020</option>
+                                        <option value="2020-05-10">Chủ Nhật, 10/05/2020</option>
+                                        <option value="2020-05-11">Thứ Hai, 11/05/2020</option>
+                                        <option value="2020-05-12">Thứ Ba, 12/05/2020</option>
+                                    </select>
+                                    <!-- <button type="button" class="btn dropdown-toggle btn-form-control"
+                                        data-toggle="dropdown" role="combobox" aria-owns="bs-select-1"
+                                        aria-haspopup="listbox" aria-expanded="false" title="Hôm nay,  06/05/2020">
+                                        <div class="filter-option">
+                                            <div class="filter-option-inner">
+                                                <div class="filter-option-inner-inner">Hôm nay, 06/05/2020</div>
+                                            </div>
+                                        </div>
+                                    </button> -->
+                                    <div class="dropdown-menu ">
+                                        <div class="inner show" role="listbox" id="bs-select-1" tabindex="-1">
+                                            <ul class="dropdown-menu inner show" role="presentation"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 d-flex align-items-center form-group no-divider">
+                                <input value="18:00" type="text" name="begin_time" title="Vào lúc" placeholder="Vào lúc"
+                                    data-style="btn-form-control"
+                                    class="form-control border-0 shadow-0 timepicker z-index-20"
+                                    style="z-index: 50; border-radius: 0.2rem;">
+                            </div>
+                            <div class="col-lg-2">
+                                <button type="submit" class="btn btn-primary btn-block h-100"
+                                    id="main-search__submit">Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="search-filter shadow mt-1 mb-1">
+                    <ul class="filter-list d-flex m-0 p-1">
+                        <li class="filter-list__item filter-list__item__district flex-fill p-0 no-divider dropdown">
+                            <button type="button" class="btn dropdown-toggle filter-item" id="district"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <strong class="filter-item__title">Quận / Huyện</strong><br>
+                                <span class="filter_value">
+                                    <span class="item-tag">Tp Hồ Chí Minh</span>
+                                </span>
+                            </button>
+                            <div id="district-dropdown" class="dropdown-menu dropdown-menu-left"
+                                aria-labelledby="district" style="max-width: 860px;">
+                                <div class="d-flex  dropdown-wrapper">
+                                    <div class="p-1 m-2 menu-left flex-wrap d-flex">
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="573"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="573" name="district_ids[]"
+                                                id="Huyện Bình Chánh">&nbsp;
+                                            <label for="Huyện Bình Chánh">Huyện Bình Chánh</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="575"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="575" name="district_ids[]"
+                                                id="Huyện Cần Giờ">&nbsp;
+                                            <label for="Huyện Cần Giờ">Huyện Cần Giờ</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="571"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="571" name="district_ids[]"
+                                                id="Huyện Củ Chi">&nbsp;
+                                            <label for="Huyện Củ Chi">Huyện Củ Chi</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="572"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="572" name="district_ids[]"
+                                                id="Huyện Hóc Môn">&nbsp;
+                                            <label for="Huyện Hóc Môn">Huyện Hóc Môn</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="574"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="574" name="district_ids[]"
+                                                id="Huyện Nhà Bè">&nbsp;
+                                            <label for="Huyện Nhà Bè">Huyện Nhà Bè</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="552"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="552" name="district_ids[]" id="Quận 1">&nbsp;
+                                            <label for="Quận 1">Quận 1</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="563"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="563" name="district_ids[]" id="Quận 10">&nbsp;
+                                            <label for="Quận 10">Quận 10</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="564"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="564" name="district_ids[]" id="Quận 11">&nbsp;
+                                            <label for="Quận 11">Quận 11</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="553"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="553" name="district_ids[]" id="Quận 12">&nbsp;
+                                            <label for="Quận 12">Quận 12</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="561"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="561" name="district_ids[]" id="Quận 2">&nbsp;
+                                            <label for="Quận 2">Quận 2</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="562"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="562" name="district_ids[]" id="Quận 3">&nbsp;
+                                            <label for="Quận 3">Quận 3</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="565"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="565" name="district_ids[]" id="Quận 4">&nbsp;
+                                            <label for="Quận 4">Quận 4</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="566"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="566" name="district_ids[]" id="Quận 5">&nbsp;
+                                            <label for="Quận 5">Quận 5</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="567"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="567" name="district_ids[]" id="Quận 6">&nbsp;
+                                            <label for="Quận 6">Quận 6</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="570"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="570" name="district_ids[]" id="Quận 7">&nbsp;
+                                            <label for="Quận 7">Quận 7</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="568"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="568" name="district_ids[]" id="Quận 8">&nbsp;
+                                            <label for="Quận 8">Quận 8</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="555"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="555" name="district_ids[]" id="Quận 9">&nbsp;
+                                            <label for="Quận 9">Quận 9</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="569"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="569" name="district_ids[]"
+                                                id="Quận Bình Tân">&nbsp;
+                                            <label for="Quận Bình Tân">Quận Bình Tân</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="557"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="557" name="district_ids[]"
+                                                id="Quận Bình Thạnh">&nbsp;
+                                            <label for="Quận Bình Thạnh">Quận Bình Thạnh</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="556"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="556" name="district_ids[]"
+                                                id="Quận Gò Vấp">&nbsp;
+                                            <label for="Quận Gò Vấp">Quận Gò Vấp</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="560"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="560" name="district_ids[]"
+                                                id="Quận Phú Nhuận">&nbsp;
+                                            <label for="Quận Phú Nhuận">Quận Phú Nhuận</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="558"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="558" name="district_ids[]"
+                                                id="Quận Tân Bình">&nbsp;
+                                            <label for="Quận Tân Bình">Quận Tân Bình</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="559"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="559" name="district_ids[]"
+                                                id="Quận Tân Phú">&nbsp;
+                                            <label for="Quận Tân Phú">Quận Tân Phú</label>
+                                        </div>
+                                        <div class="d-inline m-1 pl-2 district-checkbox__item" data-value="554"
+                                            tabindex="-1">
+                                            <input type="checkbox" value="554" name="district_ids[]"
+                                                id="Quận Thủ Đức">&nbsp;
+                                            <label for="Quận Thủ Đức">Quận Thủ Đức</label>
+                                        </div>
+                                    </div>
+                                    <div class="p-1 m-2 menu-right flex-grow">
+                                        <button type="button" class="btn btn-primary btn-block" id="district-submit">Tìm
+                                            kiếm</button>
+                                        <button type="button" class="btn btn-light btn-block" name="district-reset">Bỏ
+                                            chọn</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="filter-list__item  filter-list__item__district__venue_type flex-fill p-0">
+                            <button type="button" class="btn dropdown-toggle filter-item" id="venue_type_filter"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <strong class="filter-item__title">Loại Sân</strong><br>
+                                <span class="filter_value">5 người</span>
+                            </button>
+                            <input type="hidden" name="venue_type" value="5">
+                            <ul class="dropdown-menu dropdown-menu-right venue-type-dropdown"
+                                aria-labelledby="venue_type_selector">
+                                <button class="dropdown-item" value="5">5 người</button>
+                                <button class="dropdown-item" value="7">7 người</button>
+                                <button class="dropdown-item" value="11">11 người</button>
+                            </ul>
+                        </li>
+                        <li class="filter-list__item filter-list__item__district__duration flex-fill p-0">
+                            <button class="btn dropdown-toggle filter-item" id="duration_filter" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <strong class="filter-item__title">Trong bao lâu?</strong><br>
+                                <span class="filter_value">1 giờ</span>
+                            </button>
+                            <input type="hidden" name="duration" value="1">
+                            <ul class="dropdown-menu dropdown-menu-right duration-dropdown"
+                                aria-labelledby="duration_selector">
+                                <button class="dropdown-item" value="1">1 giờ</button>
+                                <button class="dropdown-item" value="1.5">1.5 giờ</button>
+                                <button class="dropdown-item" value="2">2 giờ</button>
+                            </ul>
+                        </li>
+                    </ul>
+                </div> -->
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" id="bookable" name="bookable" class="custom-control-input">
+                    <label for="bookable" class="custom-control-label">Chỉ hiển thị các địa điểm có thể đặt online và
+                        còn sân trống.</label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid pt-3 pb-3 border-bottom px-lg-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
+                <div class="mr-3">
+                    Có <b> 258 </b> kết quả tìm kiếm tại <b> Tp Hồ Chí Minh</b>
+                </div>
+            </div>
+
+
+
+            <li class="d-flex mb-2 venue-item bg-light row shadow">
+          
+                    <div class="col-8 row m-3">
+                        <div class="p-2 venue-item-image col-4">
+                            <img class="img-fluid"
+                                src="https://img.captain-droid.com/wp-content/uploads/2019/02/uk-photoscar-toon-editor-icon-124x124.png">
+                        </div>
+                        <div class="p-1 col-8">
+                            <div class="venue-item__name venue-item__link mb-1">
+                                <a href="/dhnonglam?check_day=2020-05-06" class="text-decoration-none">Sân bóng Đại học
+                                    Nông Lâm</a>
+                            </div>
+                            <div class="venue-item__address venue-item__link mb-2">
+                                <i class="fas fa-map-marker-alt"></i> Đại học Nông Lâm, khu phố 6, P. Linh Trung, Quận
+                                Thủ Đức
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="fas fa-mobile-alt mr-2"></div>
+                                <span class="text-muted">
+                                    <a href="/users/sign_in"><i>Đăng nhập để xem số điện thoại</i></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="venue-item-actions col-3 ml-5">
+                        <div class="p-3 venue-item-actions__wrapper">
+                            <div class="venue-item venue-item-actions__btn">
+                                <a class="btn btn-primary btn-block btn_type_primary" data-toggle="modal" data-target="#exampleModal"
+                                    href="/available_venues_check?asset_category_name=5&amp;begin_time=18%3A00&amp;city=50&amp;date=2020-05-06&amp;duration=1&amp;venue_id=135">Đặt
+                                    Sân</a>
+                            </div>
+                        </div>
+                    </div>
+              
+            </li>
+        </div>
+    </div>
+    <footer class="position-relative d-print-none mt-auto pt-5" style="background-color: #d0d0d052;">
+      <!-- Main block - menus, subscribe form-->
+      <div class="py-5 bg-gray-200 text-muted">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+              <h6 class="text-uppercase text-dark mb-3">Về ASD Football Club</h6>
+              <ul class="list-unstyled">
+                <li><a href="/pages/about-us" class="text-muted">Giới thiệu Về ASD Football Club</a></li>
+                <li><a href="/bai-viet/" class="text-muted">Blog</a></li>
+                <li><a href="/pages/dieu-khoan-su-dung" class="text-muted">Điều khoản sử dụng</a></li>
+                <li><a href="/pages/chinh-sach-bao-mat" class="text-muted">Chính sách bảo mật</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 mb-5 mb-lg-0">
+              <div class="font-weight-bold text-uppercase text-dark mb-3">Thông tin liên hệ</div>
+              <ul class="list-unstyled">
+                <li class="text-muted"><a href="https://www.facebook.com/sportavn/" target="_blank" title="facebook" class="text-muted text-hover-primary"><i class="fab fa-facebook"></i> /asdFootball</a></li>
+                <li class="text-muted"><a class="text-muted text-hover-primary" href="mailto:hello@sporta.vn"><i class="fas fa-envelope"></i> asdFootball@gmail.com</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+              <h6 class="text-uppercase text-dark mb-3">Thanh toán</h6>
+              <ul class="list-unstyled">
+                <li class="text-muted"><a class="text-muted text-hover-primary"><img style="height: 25px; margin-bottom: 10px" src="https://www.sporta.vn/assets/momo-f2c88c55af645265139d91c8ec6e31182b68283d335ef35dff10bc90da8ddb3b.png" alt="Momo"> Momo</a></li>
+                <li class="text-muted"><a class="text-muted text-hover-primary"><i class="fas fa-money-check-alt" style="font-size: 20px;"></i> Tiền mặt</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+              <h6 class="text-uppercase text-dark mb-3">Ứng dụng di động</h6>
+              <ul class="list-unstyled">
+                <li><a href="https://apple.co/2TaO0x3"><img style="width: 150px" src="https://www.sporta.vn/assets/icon-appstore-0ac658e90248e413db2bdc584e50b25b06a8229f6a74efb816b93194d0491829.svg" alt="Icon appstore"></a></li>
+                <li><a href="https://bit.ly/sporta-capkeo-android"><img style="width: 150px" src="https://www.sporta.vn/assets/icon-googleplaystore-87014b724e646f2c8dce71506e67424975dd3f81a59b3e8f356ce501a0c6e458.svg" alt="Icon googleplaystore"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright section of the footer-->
+      <div class="py-4 font-weight-light bg-gray-800 text-gray-300" style="background-color: #343A40; color: white">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-6 text-center text-md-center">
+              <p class="text-sm mb-md-0"><span>© 2019 Bản quyền của Công Ty TNHH ASD Football Club</span><br>
+                <span>Giấy chứng nhận Đăng ký Thông qua số 0236 3842 139 do Trường Đại Học Sư Phạm cấp ngày 11/05/2020</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Form đăng kí</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card card-default">
+            <div class="card-header">
+              <div class="card-body">
+                <form class="form-horizontal" method="get" action="/">
+                  <fieldset>
+                    <div class="form-group row">
+                      <label class="col-md-2 col-form-label" for="input-id-1">Họ Và Tên <span
+                          style="color: rgb(187, 0, 0);">*</span></label>
+                      <div class="col-md-10">
+                        <input class="form-control" id="input-id-1" type="text" />
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <div class="form-group row">
+                      <label class="col-md-2 col-form-label" for="input-id-1">Email <span
+                          style="color: rgb(187, 0, 0);">*</span></label>
+                      <div class="col-md-10">
+                        <input class="form-control" id="input-id-1" type="text" />
+                      </div>
+                    </div>
+                  </fieldset>
+                  <!-- <fieldset>
+                    <div class="form-group row">
+                      <label class="col-md-2 col-form-label">Password</label>
+                      <div class="col-md-10">
+                        <input class="form-control" type="password" name="password" />
+                      </div>
+                    </div>
+                  </fieldset> -->
+                  <fieldset>
+                    <div class="form-group row">
+                      <label class="col-md-2 col-form-label">Đối thủ <span style="color: rgb(187, 0, 0);">*</span></label>
+                      <div class="col-md-10">
+                        <label class="c-radio">
+                          <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked="checked" />
+                          <span class="fa fa-circle"></span>Đã có</label>
+                        <label class="c-radio">
+                          <input id="inlineradio2" type="radio" name="i-radio" value="option2" />
+                          <span class="fa fa-circle"></span>Chưa có</label>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <div class="form-group row">
+                      <label class="col-md-2 col-form-label">Thông Tin thêm</label>
+                      <div class="col-md-10">
+                        <div class="card">
+                          <div class="card-body mh0">
+                            <textarea class="form-control note-editor note-editor-margin" rows="10"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset class="last-child">
+                    <div class="form-group row">
+                      <label class="col-md-2 col-form-label">Chọn Khung Giờ <span
+                          style="color: rgb(187, 0, 0);">*</span></label>
+                      <div class="col-md-10">
+                        <select class="custom-select custom-select-sm">
+                          <option selected="">Khung Giờ</option>
+                          <option value="1">1h</option>
+                          <option value="2">2h</option>
+                          <option value="3">3h</option>
+                        </select>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <div class="form-group row">
+                      <label class="col-md-2 col-form-label">Sân <span style="color: rgb(187, 0, 0);">*</span></label>
+                      <div class="col-md-10">
+                        <select class="custom-select custom-select-sm">
+                          <option selected="">Sân</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Đăng kí</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
