@@ -10,12 +10,12 @@ import { catchError, map, tap } from 'rxjs/operators'
 export class BookPitchService {
 
   constructor(private http: HttpClient) { }
-  private bookPicth = environment.apiURL + "/pitch/bookPitch"
+  private url = environment.apiURL + "/pitch/"
 
-  findPitch(): Observable<any> {
-    return this.http.get<any>(this.bookPicth).pipe(
-      tap(received => received),
-      catchError(error => of([]))
-    )
+  bookPitch(form) {
+    return this.http.post<any>(this.url +'bookPitch', form);
+  }
+  historyBook(id) {
+    return this.http.get<any>(this.url +'bookPitch/' + id);
   }
 }

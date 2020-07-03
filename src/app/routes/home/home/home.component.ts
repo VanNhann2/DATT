@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PitchService } from '../../../service/pitch.service'
 
 
 @Component({
@@ -14,18 +15,24 @@ export class HomeComponent implements OnInit {
     isAccOpen5 = false;
     isAccOpen6 = false;
 
-    constructor() { }
+    search : any = {
+      page : 1,
+      page_size:10,
+      name:""
+    }
+
+    constructor(private PitchService : PitchService) { }
 
     ngOnInit() {
-    //   ngDialog.open({
-    //     template: 'openForm',
-    //     className: 'ngdialog-theme-plain',
-    //     scope: $scope
-    // });
-  
+      this.PitchService.findPitch(this.search).subscribe(
+        res => {
+          console.log(res)
+        }
+      )
+      this.PitchService.getPitch("5e461330bc3dc82a0b7a07c1").subscribe(
+        res => {
+          console.log(res)
+        }
+      )
     }
-  // ngDialog.open({
-  //       template: 'openForm',
-  //       className: 'ngdialog-theme-default',
-  //   });
 }

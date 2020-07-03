@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FindPitchService } from './find-pitch.service';
+import { PitchService } from './pitch.service';
 
-describe('FindPitchService', () => {
+describe('PitchService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: FindPitchService = TestBed.get(FindPitchService);
+    const service: PitchService = TestBed.get(PitchService);
     expect(service).toBeTruthy();
   });
 });
