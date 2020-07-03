@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PitchService } from '../../../service/pitch.service'
-
+import { UserService } from '../../../service/user.service'
+import {Router} from "@angular/router"
 
 @Component({
     selector: 'app-home',
@@ -21,7 +22,17 @@ export class HomeComponent implements OnInit {
       name:""
     }
 
-    constructor(private PitchService : PitchService) { }
+    username = ""
+    constructor(private PitchService : PitchService, private UserService : UserService, private router: Router) {
+        this.UserService.getUser().subscribe(
+          res => {
+            console.log(res)
+            this.username = res.username
+            console.log(this.username)
+          },
+          err => this.router.navigate(['login'])
+        )
+     }
 
     ngOnInit() {
       this.PitchService.findPitch(this.search).subscribe(

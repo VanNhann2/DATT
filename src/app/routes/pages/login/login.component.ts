@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../../../core/settings/settings.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
+import { UserService } from '../../../service/user.service'
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -12,10 +14,10 @@ export class LoginComponent implements OnInit {
 
     valForm: FormGroup;
 
-    constructor(public settings: SettingsService, fb: FormBuilder) {
+    constructor(public settings: SettingsService, fb: FormBuilder, private UserService: UserService, private router: Router) {
 
         this.valForm = fb.group({
-            'email': [null, Validators.compose([Validators.required, CustomValidators.email])],
+            'username': [null, Validators.required],
             'password': [null, Validators.required]
         });
 
@@ -29,6 +31,14 @@ export class LoginComponent implements OnInit {
         if (this.valForm.valid) {
             console.log('Valid!');
             console.log(value);
+            this.UserService.login(value).subscribe(
+                res => {
+                    console.log(res)
+                    localStorage.setItem('token',res.toString())
+                    this.router.navigate(['home'])
+                },
+                error => (console.log(error))
+            )
         }
     }
 
