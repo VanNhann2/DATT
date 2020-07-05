@@ -6,8 +6,8 @@ const Home = {
 };
 
 const Orgs = {
-    text: 'Orgs Management',
-    link: '/list/',
+    text: 'Danh Sách User',
+    link: '/list-user/',
     icon: 'icon-grid',
     
 };
@@ -34,7 +34,7 @@ const Dashboard = {
 
 const Widgets = {
     text: 'Tạo Sân',
-    link: '/create-pitch',
+    link: '/list-pitch',
     icon: 'icon-grid'
 };
 
@@ -213,7 +213,7 @@ const Pages = {
         },
         {
             text: 'Recover',
-            link: '/home-user'
+            link: '/home-page'
         },
         {
             text: 'Lock',

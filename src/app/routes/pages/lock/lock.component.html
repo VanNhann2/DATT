@@ -1,7 +1,7 @@
 <div class="wrapper" style="background: white;">
   <!-- menu user-->
   <div class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-white border-bottom shadow-sm pt-2">
-    <img class="my-0 mr-md-auto" style="width: 20%; height:auto" src="../../../../assets/img//Untitled-3.png">
+    <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;" src="../../../../assets/img//Untitled-3.png"  [routerLink]="'/home-page'">
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" href="#">Hồ Sơ</a>
       <!-- <a class="p-2 text-dark" href="#">Enterprise</a> -->
@@ -31,15 +31,99 @@
                             <h6>
                                 Web Developer and Designer
                             </h6>
-                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                        </li>
-                    </ul>
+                            <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
+                            <form class="card">
+                                <tabset [justified]="true" class="ie-fix-flex">
+                                    <tab>
+                                        <ng-template tabHeading>Thông Tin Người Dùng</ng-template >
+                                        <div>
+                                            <fieldset>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-2 col-form-label">Tên User</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control" type="text" placeholder="user name.." />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-2 col-form-label">Tên</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control" type="text" placeholder="firstname.." />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-2 col-form-label">Họ</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control" type="text" placeholder="lastname.." />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-2 col-form-label">Email</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control" type="text" placeholder="email.." />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-2 col-form-label">Số điện thoại</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control" type="text" placeholder="phone.." />
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-2 col-form-label">Ngày Tạo</label>
+                                                    <div class="col-lg-10">
+                                                        <div>25/05/1998</div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </tab>
+                                    <tab>
+                                        <ng-template tabHeading>Lịch Sử Đặt Sân</ng-template >
+                                        <div>
+                                            <table class="table">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">First</th>
+                                                    <th scope="col">Last</th>
+                                                    <th scope="col">Handle</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>@fat</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>Larry</td>
+                                                    <td>the Bird</td>
+                                                    <td>@twitter</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                        </div>
+                                    </tab>
+                                </tabset>
+                            </form>
                 </div>
             </div>
             <div class="col-md-2">
@@ -47,7 +131,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4"></div>
+            <!-- <div class="col-md-4">
                 <div class="profile-work">
                     <p>WORK LINK</p>
                     <a href="">Website Link</a><br/>
@@ -60,8 +145,8 @@
                     <a href="">WooCommerce</a><br/>
                     <a href="">PHP, .Net</a><br/>
                 </div>
-            </div>
-            <div class="col-md-8">
+            </div> -->
+            <!-- <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="row">
@@ -154,7 +239,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </form>           
 </div>

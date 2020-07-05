@@ -31,3 +31,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 search-result =>  error500
 home => RecoverComponent
 create Pitch => maps
+profile => LockComponent

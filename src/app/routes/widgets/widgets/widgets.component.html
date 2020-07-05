@@ -101,54 +101,102 @@
 </div> -->
 
 
-<button class="btn btn-info m-3 float-right" [routerLink]="['/createPitch']">Tạo Sân</button>
+<button class="btn btn-info m-3 float-right" [routerLink]="['/createPitch']">Tạo Tên Sân Bóng</button>
 
 <table class="table table-hover">
     <thead>
         <tr>
             <th style="width:80px">
-                <strong>ORDER ID</strong>
+                <strong>Tên Sân</strong>
             </th>
             <th>
-                <strong>PURCHASED ON</strong>
+                <strong>Địa Chỉ</strong>
             </th>
             <th>
-                <strong>CLIENT NAME</strong>
+                <strong>Ngày Tạo</strong>
             </th>
             <th>
-                <strong>AMOUNT</strong>
+                <strong>Quận</strong>
             </th>
             <th>
-                <strong>QUANTITY</strong>
+                <strong>Thành Phố</strong>
             </th>
             <th>
-                <strong>SHIPMENT</strong>
+                <strong>Số điện thoại</strong>
+            </th>
+            <th>
+                <strong>Sân</strong>
             </th>
             <th class="text-center">
-                <strong>STATUS</strong>
+                <strong>Tạo Sân/Sửa Đổi</strong>
+
             </th>
-            <th class="text-center">
-                <strong>VIEW</strong>
-            </th>
+            <!-- <th class="text-center">
+                <strong>Sửa Đổi</strong>
+            </th> -->
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0001</td>
-            <td>03/11/2015</td>
-            <td>Addison Nichols</td>
-            <td>$ 515.20</td>
-            <td>547</td>
-            <td>04/10/2015</td>
-            <td class="text-center">
-                <span class="badge badge-info">Standby</span>
+            <td>Sân A</td>
+            <td>2 Thạc Gián</td>
+            <td>12/05/1202</td>
+            <td>Thanh Khê</td>
+            <td>Đà Nẵng</td>
+            <td>013612134</td>
+            <td>
+                <li>sân 1</li>
+                <li>sân 2</li>
             </td>
             <td class="text-center">
-                <button class="btn btn-sm btn-secondary" type="button">
-                    <em class="fa fa-search"></em>
-                </button>
+                <button class="btn btn-sm btn-success" data-toggle="modal" data-target=".create-pitch"> <em
+                        class="fas fa-sm fa-plus"></em> Tạo Sân Con</button>
+                <button class="btn btn-sm btn-warning" [routerLink] ="['/createPitch']"> <em
+                        class="fas fa-sm fa-pencil-alt" ></em> Sửa Đổi</button>
+                <!-- <button class="btn btn-sm btn-warning" data-toggle="modal" data-target=".edit-pitch"> <em
+                        class="fas fa-sm fa-pencil-alt"></em> Sửa Đổi</button> -->
             </td>
         </tr>
-       
+
     </tbody>
 </table>
+
+<div class="modal fade create-pitch" tabindex="-1" role="dialog" aria-labelledby="createPitchLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="modal fade edit-pitch" tabindex="-1" role="dialog" aria-labelledby="editPitchLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div> -->

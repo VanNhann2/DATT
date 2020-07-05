@@ -1,8 +1,10 @@
+<!-- <div >   -->
+<div  class="web_homePage" (scroll)="onWindowScroll($event);">
 <!-- menu user-->
-<div class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-white border-bottom shadow-sm pt-2">
-    <img class="my-0 mr-md-auto" style="width: 20%; height:auto" src="../../../../assets/img/Untitled-1.png">
+<div class="d-flex flex-column flex-md-row align-items-center px-md-4 border-bottom shadow-sm pt-2 animated fadeInDown"  id="navbar">
+    <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;" src="../../../../assets/img/Untitled-1.png"  [routerLink]="'/home-page'">
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-white" href="#">Hồ Sơ</a>
+      <a class="p-2 text-white"  [routerLink]="'/profile'" href="#">Hồ Sơ</a>
       <!-- <a class="p-2 text-white" href="#">Enterprise</a> -->
       <a class="p-2 text-white" href="#">Hỗ Trợ</a>
       <!-- <a class="p-2 text-white" href="#">Pricing</a> -->
@@ -49,7 +51,7 @@
                 </div>
               </div>
               <div class="row mt-2 ml-1">
-                <label style="color: white;">Tại &nbsp; </label> <div class="text-warning" style="cursor: pointer;"> TP Đà Nẵng</div>
+                <label style="color: white;">Tại &nbsp; </label> <div class="text-warning" style="cursor: pointer;"> TP Đà Nẵng &nbsp; </div>, <div class="text-warning" style="cursor: pointer;"> &nbsp; Quận Thanh Khê</div>
               </div>
             </div>
           </div>
@@ -244,3 +246,4 @@
       </div>
     </div>
   </footer>
+</div>

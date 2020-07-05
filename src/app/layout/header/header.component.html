@@ -1,38 +1,43 @@
 <!-- START Top Navbar-->
 <nav class="navbar topnavbar" role="navigation">
-  <!-- START navbar header-->
   <div class="navbar-header">
     <a class="navbar-brand" href="#/">
-      <div class="brand-logo">
-        <!-- <img class="img-fluid" src="assets/img/png.png" alt="App Logo" /> &nbsp; -->
-      </div>
+        <div class="brand-logo">
+            <img style="width: auto; height: 34px;" class="img-fluid" src="assets/img/logi.png" alt="App Logo" />
+        </div>
+        <div class="brand-logo-collapsed">
+            <img style="width: auto; height: 44px;" class="img-fluid" src="assets/img/logi2.png" alt="App Logo" />
+        </div>
     </a>
-  </div>
-  <!-- END navbar header-->
-  <!-- START Left navbar-->
+</div>
+  
   <ul class="navbar-nav mr-auto flex-row">
-    <!-- START lock screen-->
-    <!-- <li style="color: #ffffff00">Bóng đá là đá bóng là bóng đá là đá bóng là bóng đá là đá bóngBóng đá là đá bóng là bóng đá là đá bóng là bóng đá là đá bónglà đá bóng là </li> -->
-    <!-- <li class="nav-item d-none d-md-block pull-right">
-      <a class="nav-link" title="Lock screen" [routerLink]="'/home'">
-        home
-      </a>
-    </li> -->
-
-    <li class="nav-item d-none d-md-block pull-right">
-      <a class="nav-link" title="Lock screen" [routerLink]="'/login'">
-        {{'header.head.LOGIN' | translate}}
-      </a>
+    <li class="nav-item">
+        <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+        <a class="nav-link d-none d-md-block d-lg-block d-xl-block" trigger-resize="" (click)="toggleCollapsedSideabar()" *ngIf="!isCollapsedText()">
+            <em class="fas fa-bars"></em>
+        </a>
+        <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+        <a class="nav-link sidebar-toggle d-md-none" (click)="settings.toggleLayoutSetting('asideToggled'); $event.stopPropagation()">
+            <em class="fas fa-bars"></em>
+        </a>
     </li>
-    <!-- <li class="nav-item d-none d-md-block pull-right">
-      <a class="nav-link" title="Lock screen" [routerLink]="'/profile'">
+    <!-- START User avatar toggle-->
+    <li class="nav-item d-none d-md-block">
+        <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+        <a  class="nav-link" (click)="toggleUserBlock($event)">
+            <em class="icon-user"></em>
+        </a>
+    </li>
+    <!-- END lock screen-->
+</ul>
+  <ul class="navbar-nav mr-auto flex-row">
+    <li class="nav-item d-none d-md-block pull-right">
+      <a class="nav-link" title="Lock screen" style="cursor: pointer;" [routerLink] = "'/profile-owner'">
         Hồ Sơ
       </a>
-    </li> -->
-    <!-- END lock screen-->
+    </li>
   </ul>
-  <!-- END Left navbar-->
-  <!-- START Right Navbar-->
   <ul class="navbar-nav flex-row">
     <!-- Fullscreen (only desktops)-->
     <li class="nav-item d-none d-md-block" style="cursor: pointer;">
@@ -40,67 +45,6 @@
         <em class="fa fa-expand"></em>
       </a>
     </li>
-    <!-- START Alert menu-->
-    <li class="nav-item dropdown dropdown-list" dropdown style="cursor: pointer;">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" dropdownToggle>
-        <em class="icon-bell"></em>
-        <span class="badge badge-danger">11</span>
-      </a>
-      <!-- START Dropdown menu-->
-      <div *dropdownMenu class="dropdown-menu dropdown-menu-right animated flipInX">
-        <div class="dropdown-item">
-          <!-- START list group-->
-          <div class="list-group">
-            <!-- list item-->
-            <div class="list-group-item list-group-item-action">
-              <div class="media">
-                <div class="align-self-start mr-2">
-                  <em class="fab fa-twitter fa-2x text-info"></em>
-                </div>
-                <div class="media-body">
-                  <p class="m-0">New followers</p>
-                  <p class="m-0 text-muted text-sm">1 new follower</p>
-                </div>
-              </div>
-            </div>
-            <!-- list item-->
-            <div class="list-group-item list-group-item-action">
-              <div class="media">
-                <div class="align-self-start mr-2">
-                  <em class="fa fa-envelope fa-2x text-warning"></em>
-                </div>
-                <div class="media-body">
-                  <p class="m-0">New e-mails</p>
-                  <p class="m-0 text-muted text-sm">You have 10 new emails</p>
-                </div>
-              </div>
-            </div>
-            <!-- list item-->
-            <div class="list-group-item list-group-item-action">
-              <div class="media">
-                <div class="align-self-start mr-2">
-                  <em class="fa fa-tasks fa-2x text-success"></em>
-                </div>
-                <div class="media-body">
-                  <p class="m-0">Pending Tasks</p>
-                  <p class="m-0 text-muted text-sm">11 pending task</p>
-                </div>
-              </div>
-            </div>
-            <!-- last list item-->
-            <div class="list-group-item list-group-item-action">
-              <span class="d-flex align-items-center">
-                <span class="text-sm">More notifications</span>
-                <span class="badge badge-danger ml-auto">14</span>
-              </span>
-            </div>
-          </div>
-          <!-- END list group-->
-        </div>
-      </div>
-      <!-- END Dropdown menu-->
-    </li>
-
 
      <!-- user login -->
     <li class="nav-item dropdown dropdown-list" dropdown style="cursor: pointer;">
@@ -118,7 +62,7 @@
                 <div class="align-self-start mr-2">
                   <em class="fa-2x mr-2 fas fa-info-circle"></em>
                 </div>
-                <div class="media-body" [routerLink]="'/profile'">
+                <div class="media-body">
                   <p class="m-0">Hồ Sơ Của Bạn</p>
                   <p class="m-0 text-muted text-sm">Xem thông tin</p>
                 </div>
@@ -128,32 +72,13 @@
             <div class="list-group-item list-group-item-action">
               <div class="media">
                 <div class="align-self-start mr-2">
-                  <em class="fa fa-envelope fa-2x text-warning"></em>
+                  <em class="fa-2x icon-logout mr-2 text-danger"></em>
                 </div>
                 <div class="media-body">
-                  <p class="m-0">New e-mails</p>
-                  <p class="m-0 text-muted text-sm">You have 10 new emails</p>
+                  <p class="m-0">Đăng Xuất</p>
+                  <p class="m-0 text-muted text-sm">Thoát khỏi tài khoản của bạn</p>
                 </div>
               </div>
-            </div>
-            <!-- list item-->
-            <div class="list-group-item list-group-item-action">
-              <div class="media">
-                <div class="align-self-start mr-2">
-                  <em class="fa fa-tasks fa-2x text-success"></em>
-                </div>
-                <div class="media-body">
-                  <p class="m-0">Pending Tasks</p>
-                  <p class="m-0 text-muted text-sm">11 pending task</p>
-                </div>
-              </div>
-            </div>
-            <!-- last list item-->
-            <div class="list-group-item list-group-item-action">
-              <span class="d-flex align-items-center">
-                <span class="text-sm">More notifications</span>
-                <span class="badge badge-danger ml-auto">14</span>
-              </span>
             </div>
           </div>
           <!-- END list group-->

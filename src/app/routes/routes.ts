@@ -9,6 +9,7 @@ import { Error404Component } from './pages/error404/error404.component';
 import { Error500Component } from './pages/error500/error500.component';
 import { ConfigListComponent } from './config-list/config-list/config-list.component';
 import { CreatePitchComponent} from './create-pitch/create-pitch.component'
+import { ProfileOwnerComponent } from './profile-owner/profile-owner.component';
 
 export const routes = [
 
@@ -19,9 +20,11 @@ export const routes = [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             // { path: 'home', loadChildren: './home/home.module#HomeModule' },
             { path: 'home', loadChildren: './home/home.module#HomeModule' },
-            { path: 'list', loadChildren: './list/list.module#ListModule' },
+            { path: 'list-user', loadChildren: './list/list.module#ListModule' },
             { path: 'config', component: ConfigListComponent },
-            { path: 'create-pitch', loadChildren: './widgets/widgets.module#WidgetsModule' },
+            { path: 'list-pitch', loadChildren: './widgets/widgets.module#WidgetsModule' },
+            { path: 'createPitch',component:CreatePitchComponent},
+            { path: 'profile-owner',component:ProfileOwnerComponent},
             // { path: 'config/:_id', component: ConfigListComponent },
 
             // không dùng
@@ -34,20 +37,19 @@ export const routes = [
             { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
             { path: 'ecommerce', loadChildren: './ecommerce/ecommerce.module#EcommerceModule' },
             { path: 'extras', loadChildren: './extras/extras.module#ExtrasModule' },
-            { path: 'createPitch',component:CreatePitchComponent}
         ]
     },
 
     // Not lazy-loaded routes
     { path: 'login', component: LoginComponent },   
     { path: 'register', component: RegisterComponent },
-    { path: 'home-user', component: RecoverComponent },
+    { path: 'home-page', component: RecoverComponent },
     { path: 'profile', component: LockComponent },   // profile có component là Lockcomponent
     { path: 'maintenance', component: MaintenanceComponent },
     { path: '404', component: Error404Component },
     { path: 'search-results', component: Error500Component },  // search-results có component là Error500Component
     
     // Not found
-    { path: '**', redirectTo: 'home-user' }
+    { path: '**', redirectTo: 'home-page' }
 
 ];

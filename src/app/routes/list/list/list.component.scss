@@ -1,131 +1,157 @@
-//FONT IMPORT
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:700&subset=latin,latin-ext);
-//HOVER TRANSITION
-$hover: all 0.2s ease-in;
-$slide:all 0.5s 0.1s cubic-bezier(0.55,0,0.1,1);
-//COLORS
-$grey: #4f4f4f;
-$white: #474747;
-$green: #39bda7;
-$transparent: rgba(255, 255, 255, 0);
-$black-05: rgba(0, 0, 0, 0.05);
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
 
-body {
-  background: url('http://thecodeplayer.com/uploads/media/geometry.png');
-  font-family: 'Ubuntu', sans-serif;
-}
-a {
-  text-decoration: none;
-  color: $grey;
+@import '../../../shared/styles/bootstrap/_functions';
+@import '../../../shared/styles/bootstrap/_variables';
+@import '../../../shared/styles/app/variables';
+
+.ngx-datatable.bootstrap {
+    background-color: transparent;
+    box-shadow: 0 0 0 #000;
 }
 
-//ELEMENTS
-.button-container {
-  padding: 1px 0;
-  text-align: left;
+.ngx-datatable.scroll-vertical {
+    height: 300px;
 }
 
-
-label {
-  text-align: center;
-  margin: auto;
+// workaround for use of detail rows
+// with other table in the same page
+.no-detail-row .datatable-row-detail {
+    display: none !important;
 }
 
-.button {
-  display: inline-block;
-  padding: 4px 24px;
-  border: 1px solid $grey;
-  border-radius: 4px;
-  transition: $hover;
-  position: relative;
-  overflow: hidden;
-  
-  &:before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%)scaleY(1)scaleX(1.25);
-    top: 100%;
-    width: 140%;
-    height: 180%;
-    background-color: $black-05;
-    border-radius: 50%;
-    display: block;
-    transition: $slide;
-    z-index: -1;
-  }
-  
-  &:after {
-    content: "";
-    position: absolute;
-    left: 55%;
-    transform: translateX(-50%)scaleY(1)scaleX(1.45);
-    top: 180%;
-    width: 160%;
-    height: 190%;
-    background-color: $green;
-    border-radius: 50%;
-    display: block;
-    transition: $slide;
-    z-index: -1;
-  }
-  
-  &:hover {
-    color: $white;
-    border: 1px solid $green;
-    
-    &:before {
-      top: -35%;
-      background-color: $green;
-      transform: translateX(-50%)scaleY(1.3)scaleX(0.8);
+// change color of active cells selected
+.ngx-datatable.bootstrap.single-selection .datatable-body-row.active, .ngx-datatable.bootstrap.single-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.bootstrap.multi-selection .datatable-body-row.active, .ngx-datatable.bootstrap.multi-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active, .ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.bootstrap.single-selection .datatable-body-row.active:hover, .ngx-datatable.bootstrap.single-selection .datatable-body-row.active:hover .datatable-row-group, .ngx-datatable.bootstrap.multi-selection .datatable-body-row.active:hover, .ngx-datatable.bootstrap.multi-selection .datatable-body-row.active:hover .datatable-row-group, .ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active:hover, .ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active:hover .datatable-row-group {
+    background-color: $primary !important;
+    .datatable-body-cell {
+        color: #fff;
+    }
+}
+// remove link decoration
+.datatable-icon-right {
+    text-decoration: none !important;
+}
+// align table with no data legend
+.ngx-datatable.bootstrap .empty-row {
+    text-align: center;
+    margin-top: 20px;
+}
+// tabele footer
+.ngx-datatable.bootstrap .datatable-footer {
+    background-color: transparent;
+    color: $body-color;
+}
+// table pagination
+
+.ngx-datatable.bootstrap .datatable-footer .datatable-pager a {
+    color: $pagination-color;
+}
+.pager li > a, .pager li > span {
+    border-color: $pagination-border-color;
+}
+.ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled).active a, .ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled):hover a {
+    background-color: $primary;
+    border-color: $primary;
+    color: #fff;
+}
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row {
+    border: 0;
+}
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row.datatable-row-even {
+    background-color: rgba(0, 0, 0, 0.025);
+}
+// @use postcss-color-function;
+// @use postcss-nested;
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
+
+/* Base styling */
+
+
+.search {
+    &__container {
+        padding-top: 30px;
     }
     
-    &:after {
-      top: -45%;
-      background-color: $green;
-      transform: translateX(-50%)scaleY(1.3)scaleX(0.8);
-    
+    &__title {
+        font-size: 22px;
+        font-weight: 900;
+        text-align: center;
+        color: #ff8b88;
     }
-  }
+    
+    &__input {
+        width: 100%;
+        padding: 12px 24px;
+
+        background-color: transparent;
+        transition: transform 250ms ease-in-out;
+        font-size: 14px;
+        line-height: 18px;
+        
+        color: #575756;
+        background-color: transparent;
+/*         background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg); */
+ 
+      // background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: 18px 18px;
+        background-position: 95% center;
+        border-radius: 50px;
+        border: 1px solid #575756;
+        transition: all 250ms ease-in-out;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        
+        &::placeholder {
+            color: color(#575756 a(0.8));
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        &:hover,
+        &:focus {
+            padding: 12px 0;
+            outline: 0;
+            border: 1px solid transparent;
+            border-bottom: 1px solid #575756;
+            border-radius: 0;
+            background-position: 100% center;
+        }
+    }
 }
 
-
-
-.trHeadTable{
-  background-color:#34BDE7
+.credits {
+    &__container {
+        margin-top: 24px;
+    }
+    
+    &__text {
+        text-align: center;
+        font-size: 13px;
+        line-height: 18px;
+    }
+    
+    &__link {
+        color: #ff8b88;
+        text-decoration: none;
+        transition: color 250ms ease-in;
+        
+        &:hover,
+        &:focus {
+            color: color(#ff8b88 blackness(+25%));
+        }
+    }
 }
-
-.card-header{
-   font-size: 20px; 
+button.btn.btn-outline-dark.csSearch {
+  height: 45px;
+  border-radius: 30px;
+  transition: 0.5s;
 }
-
-button.btn.btn-primary.custom {
-  border-radius: 3px;
-}
-
-
-input#filtertext {
-  width: 215px;
-  margin-right: 15px;
-  border-radius: 3px;
-}
-
-td.subdomain {
-  font-weight: bold;
-}
-
-small.listSub {
-  color: darkgray;
-  background: #151515;
-  padding: 2px 31px 2px 3px;
-  border-radius: 4px;
-}
-
-span.badge.badge-danger.ad, span.badge.badge-success.ad, span.badge.badge-dark.ad  {
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-}
-td.asd { 
-  text-align: center;
+button.btn.btn-outline-dark.csSearch:hover {
+  border-radius: 0px;
+  transition: 0.5s;
 }

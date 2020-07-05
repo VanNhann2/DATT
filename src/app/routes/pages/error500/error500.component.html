@@ -1,9 +1,9 @@
 <div class="wrapper" style="background: white;">
 <!-- menu user-->
 <div class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-white border-bottom shadow-sm pt-2">
-  <img class="my-0 mr-md-auto" style="width: 20%; height:auto" src="../../../../assets/img//Untitled-3.png">
+  <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;" src="../../../../assets/img//Untitled-3.png"  [routerLink]="'/home-page'">
   <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" href="#">Hồ Sơ</a>
+    <a class="p-2 text-dark"  [routerLink]="'/profile'">Hồ Sơ</a>
     <!-- <a class="p-2 text-dark" href="#">Enterprise</a> -->
     <a class="p-2 text-dark" href="#">Hỗ Trợ</a>
     <!-- <a class="p-2 text-dark" href="#">Pricing</a> -->
@@ -213,7 +213,7 @@
                       </div>
                     </div>
                   </fieldset> -->
-                  <fieldset>
+                  <!-- <fieldset>
                     <div class="form-group row">
                       <label class="col-md-2 col-form-label">Đối thủ <span
                           style="color: rgb(187, 0, 0);">*</span></label>
@@ -238,7 +238,7 @@
                         </div>
                       </div>
                     </div>
-                  </fieldset>
+                  </fieldset> -->
                   <fieldset class="last-child">
                     <div class="form-group row">
                       <label class="col-md-2 col-form-label">Chọn Khung Giờ <span

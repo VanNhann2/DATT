@@ -1,6 +1,3 @@
-<!-- <h3 style="text-align: center; color: rgb(255, 166, 0); font-size: 40px" class="mt-5 mb-5">Company List</h3> -->
-
-
 <div class="content-heading">
   <div>
     Danh Sách Công Ty!
@@ -9,84 +6,38 @@
 </div>
 
 
-<div class="col-12 mb-3 mt-3 row form-inline" style="margin:0; padding: 0;">
+<!-- <div class="col-12 mb-3 mt-3 row form-inline" style="margin:0; padding: 0;">
 
   <div class="input-group mb-3" style="text-align: center;">
-    <!-- <label>Subdomain</label> -->
     <input [(ngModel)]="filter" (keyup.enter)="getPagiOrg(page, null)" id="filtertext" class="form-control" type="text"
       placeholder="Search Subdomain" aria-label="Recipient's username" aria-describedby="basic-addon2" />
     <div class=" ">
       <button class="btn btn-primary custom" (click)="getPagiOrg(page, null)" type="button">Tìm Kiếm</button>
     </div>
   </div>
-
-
+</div> -->
+<div class="mb-5 mt-3 ml-2 mr-2 row" style="margin:0; padding: 0;">
+  <div class="search__container col-10">
+    <input class="search__input" type="text" placeholder="Search">
+  </div>
+  <div class="search__container col-2"><button class="btn btn-outline-dark csSearch" >Tìm Kiếm</button></div>
 </div>
-<div  class="card card-default">
-  <!-- <div  class="card-header">Organization List</div> -->
-  <div  class="table-responsive">
-    <table  class="table table-striped table-bordered" >
-      <thead class="">
-        <tr  style="text-align: center;">
-          <th scope="col">Subdomain</th>
-          <th scope="col">Tên Công Ty</th>
-          <th scope="col" style="width:8%">Tổng User</th>
-          <th scope="col" style="width:8%">User Active</th>
-          <th scope="col" style="width:9%">User Suspend</th>
-          <th scope="col"  style="width:17%">Ngày Tạo</th>
-          <th scope="col"  style="width: 10%;">Action</th>
-        </tr>
-      </thead>
-      <tbody  *ngFor="let org of orgs">
-        <tr >
-          <td  class="subdomain" style="word-break: break-word;" >subdomain<br> <small class="listSub">Giới hạn user active: limitUsers</small> </td>
-          <td  class="subdomain"  style="word-break: break-word;"> name <br> <small class="listSub">owner: owner</small> </td>
-          <td class="asd">  <span class="badge badge-success ad">numberUsers</span>   </td>
-          <td class="asd"> <span class="badge badge-danger ad"> activeUsers</span> </td>
-          <td class="asd">  <span class="badge badge-dark ad">supendUsers}</span> </td>
-          <td>createdAt}</td>
-          <!-- <td> <ui-switch color="#2BB7E5"  size="small" disabled></ui-switch></td> -->
-          <td  class="text-center">
-            <div class="button-container">
-            <!-- <a [routerLink]="['/config',org._id]" class="button"> -->
-              <a [routerLink]="['/config']" class="button">
-              config
-            </a>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+
+<div class="card card-default">
+  <div class="card-header">
+      <div class="card-title">Client-side Search and Filtering</div>
   </div>
-
-  <div  class="card-footer">
-    <div  class="d-flex">
-      <div >
-        <div  class="input-group"><select  class="custom-select"
-            id="inputGroupSelect04" [(ngModel)]="pageSize" (change)="getPagiOrg(page, null)">
-            <option  value="5">5</option>
-            <option  value="10">10</option>
-            <option  value="20">20</option>
-          </select>
-        </div>
+  <div class="card-body">
+      <div class="row mb-4">
+          <div class="col-lg-4">
+              <input type='text' class="form-control" placeholder='Type to filter the name column...' (keyup)='updateFilter($event)' />
+          </div>
       </div>
-      <div  class="ml-auto">
-        <pagination class="pagination-sm" [(ngModel)]="page" [totalItems]="totalPageNumber" [itemsPerPage]="pageSize"
-          [maxSize]="5" [boundaryLinks]="true" [rotate]="false" (pageChanged)="getPagiOrg(page, $event)">
-        </pagination>
-        <!-- </ul> -->
-      </div>
-    </div>
+      <ngx-datatable #table class='bootstrap no-detail-row' [columns]="columns" [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='rowsFilter'>
+          <ngx-datatable-column name="Name" [width]="300"></ngx-datatable-column>
+          <ngx-datatable-column name="Gender"></ngx-datatable-column>
+          <ngx-datatable-column name="Age"></ngx-datatable-column>
+          <ngx-datatable-column name="Company" [width]="300"></ngx-datatable-column>
+      </ngx-datatable>
   </div>
-  <div class="my-container">
-    <ng-template #customLoadingTemplate>
-      <div class="custom-class">
-      </div>
-    </ng-template>
-
-    <!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate">
-    </ngx-loading> -->
-  </div>
-
-
 </div>
