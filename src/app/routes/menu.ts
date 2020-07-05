@@ -183,7 +183,7 @@ const Tables = {
 };
 
 const Maps = {
-    text: 'Sân',
+    text: 'Sân Của Bạn',
     link: '/maps',
     icon: 'icon-map',
     submenu: [
@@ -406,7 +406,7 @@ export const menu = [
     headingMain,
     Home,
     Orgs,
-    // Widgets,
+    Widgets,
     // Dashboard,
     // Widgets,
     // headingComponents,
@@ -414,7 +414,7 @@ export const menu = [
     // Forms,
     // Charts,
     // Tables,
-    Maps,
+    // Maps,
     // headingMore,
     // Pages,
     // Blog,
