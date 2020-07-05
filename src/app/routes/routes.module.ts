@@ -9,6 +9,7 @@ import { ConfigListModule } from './config-list/config-list.module'
 import { menu } from './menu';
 import { routes } from './routes';
 import { ToasterService } from 'angular2-toaster/angular2-toaster';
+import { CreatePitchComponent } from './create-pitch/create-pitch.component';
 
 @NgModule({
     imports: [
@@ -17,7 +18,7 @@ import { ToasterService } from 'angular2-toaster/angular2-toaster';
         PagesModule,
         ConfigListModule
     ],
-    declarations: [],
+    declarations: [CreatePitchComponent],
     exports: [
         RouterModule
     ],
