@@ -1,275 +1,161 @@
-  <nav class="navbar topnavbar" role="navigation">
-    <!-- START navbar header-->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#/">
-        <div class="brand-logo">
-          <!-- <img class="img-fluid" src="assets/img/png.png" alt="App Logo" /> &nbsp; -->
-        </div>
-      </a>
-    </div>
-    <ul class="navbar-nav mr-auto flex-row">
-      <!-- <li style="color: #ffffff00">Bóng đá là đá bóng là bóng đá là đá bóng là bóng đá là đá bóngBóng đá là đá bóng là bóng đá là đá bóng là bóng đá là đá bónglà đá bóng là </li> -->
-      <li class="nav-item d-none d-md-block pull-right">
-        <a class="nav-link"  title="Lock screen" [routerLink]="'/home'">
-            home
-        </a>
-    </li>
-      <li class="nav-item d-none d-md-block pull-right">
-        <a class="nav-link" title="Lock screen" [routerLink]="'/login'">
-          {{'header.head.LOGIN' | translate}}
-        </a>
-      </li>
-      <li class="nav-item d-none d-md-block pull-right">
-        <a class="nav-link" title="Lock screen" [routerLink]="'/profile'">
-          Hồ Sơ
-        </a>
-      </li>
-    </ul>
-    <ul class="navbar-nav flex-row">
-      <!-- Fullscreen (only desktops)-->
-      <li class="nav-item d-none d-md-block">
-        <a class="nav-link" #fsbutton (click)="toggleFullScreen($event)">
-          <em class="fa fa-expand"></em>
-        </a>
-      </li>
-      <li class="nav-item dropdown dropdown-list" dropdown>
-        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" dropdownToggle>
-          <em class="icon-bell"></em>
-          <span class="badge badge-danger">11</span>
-        </a>
-        <!-- START Dropdown menu-->
-        <div *dropdownMenu class="dropdown-menu dropdown-menu-right animated flipInX">
-          <div class="dropdown-item">
-            <div class="list-group">
-              <div class="list-group-item list-group-item-action">
-                <div class="media">
-                  <div class="align-self-start mr-2">
-                    <em class="fab fa-twitter fa-2x text-info"></em>
-                  </div>
-                  <div class="media-body">
-                    <p class="m-0">New followers</p>
-                    <p class="m-0 text-muted text-sm">1 new follower</p>
-                  </div>
-                </div>
-              </div>
-              <!-- list item-->
-              <div class="list-group-item list-group-item-action">
-                <div class="media">
-                  <div class="align-self-start mr-2">
-                    <em class="fa fa-envelope fa-2x text-warning"></em>
-                  </div>
-                  <div class="media-body">
-                    <p class="m-0">New e-mails</p>
-                    <p class="m-0 text-muted text-sm">You have 10 new emails</p>
-                  </div>
-                </div>
-              </div>
-              <!-- list item-->
-              <div class="list-group-item list-group-item-action">
-                <div class="media">
-                  <div class="align-self-start mr-2">
-                    <em class="fa fa-tasks fa-2x text-success"></em>
-                  </div>
-                  <div class="media-body">
-                    <p class="m-0">Pending Tasks</p>
-                    <p class="m-0 text-muted text-sm">11 pending task</p>
-                  </div>
-                </div>
-              </div>
-              <!-- last list item-->
-              <div class="list-group-item list-group-item-action">
-                <span class="d-flex align-items-center">
-                  <span class="text-sm">More notifications</span>
-                  <span class="badge badge-danger ml-auto">14</span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="toggleOffsidebar(); $event.stopPropagation()">
-          <em class="icon-notebook"></em>
-        </a>
-      </li>
-    </ul>
-
-    <!-- <app-navsearch [visible]="getNavSearchVisible()" (onclose)="setNavSearchVisible(false)"></app-navsearch> -->
-
-  </nav>
-  <!-- END Top Navbar-->
-  <div class="content-wrapper">
-
-  <div class="row">
-    <div class="col-lg-4">
-      <div class="card card-default">
-        <div class="card-body text-center">
-          <div class="py-4">
-            <img class="img-fluid rounded-circle img-thumbnail thumb96" src="assets/img/user/02.jpg" alt="Contact" />
-          </div>
-          <h3 class="m-0 text-bold">Audrey Hunt</h3>
-          <div class="my-3">
-            <p>Hello, I'm a just a dummy contact in your contact list and this is my presentation text. Have fun!</p>
-          </div>
-          <!-- <div class="text-center">
-            <a class="btn btn-primary" href="#">Send message</a>
-          </div> -->
-        </div>
-      </div>
-      <div class="card card-default d-none d-lg-block">
-        <div class="card-header">
-          <div class="card-title text-center">lịch sử đặt sân</div>
-        </div>
-        <div class="card-body">
-          <div class="media">
-            <img class="align-self-center mr-2 rounded img-thumbnail thumb48" src="https://1.bp.blogspot.com/-6-PZWyVAlsU/XIH0awn52oI/AAAAAAAAAZo/FVq1Hc6vkYQJkc6vY1pFV6EnAvYnZUV2gCLcBGAs/s1600/San-van-dong-thanh-pho-Manchester-Etihad.jpg"
-              alt="Contact" />
-            <div class="media-body py-2">
-              <div class="text-bold">Old Trafford
-                <div class="text-sm text-muted">3/11/2020</div>
-              </div>
-            </div>
-          </div>
-          <div class="media">
-            <img class="align-self-center mr-2 rounded img-thumbnail thumb48" src="https://lh3.googleusercontent.com/proxy/_askwoFsh8G2YR4Okxp1xEyFIMECtI2BUSWQgzy3fz71xO2YI1ZGFf8EWadbOvoItIoWY65fK_C5U4kGpQm76m6xyo8RFIB07pec0iigqMhjmde6sQAy4RVc-aI-PQDHtjePTSYh4W2ebTY"
-              alt="Contact" />
-            <div class="media-body py-2">
-              <div class="text-bold">Hy Lạc
-                <div class="text-sm text-muted">5/7/2020</div>
-              </div>
-            </div>
-          </div>
-          <div class="media">
-            <img class="align-self-center mr-2 rounded img-thumbnail thumb48" src="https://media.thethao247.vn/upload/thanhtung/2019/03/12/kich-thuoc-san-da-bong.jpg"
-              alt="Contact" />
-            <div class="media-body py-2">
-              <div class="text-bold">Etihad
-                <div class="text-sm text-muted">3/3/2020</div>
-              </div>
-            </div>
-          </div>
-          <div class="media">
-            <img class="align-self-center mr-2 rounded img-thumbnail thumb48" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5cAF6wGXjgse9pH5WYCBa5TtSkxa0N8YfVDADuPxX-sizeat_&usqp=CAU"
-              alt="Contact" />
-            <div class="media-body py-2">
-              <div class="text-bold">Minh Tử
-                <div class="text-sm text-muted">3/1/2020</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-8">
-      <div class="card card-default">
-        <div class="card-header d-flex align-items-center">
-          <div class="d-flex justify-content-center col">
-            <div class="h4 m-0 text-center">Contact Information</div>
-          </div>
-          <div class="d-flex justify-content-end">
-            <div class="btn-group" dropdown>
-              <button class="btn btn-link" dropdownToggle>
-                <em class="fa fa-ellipsis-v fa-lg text-muted"></em>
-              </button>
-              <ul *dropdownMenu class="dropdown-menu dropdown-menu-right-forced animated fadeInLeft" role="menu">
-                <a class="dropdown-item" href="#">
-                  <span>Send by message</span>
-                </a>
-                <a class="dropdown-item" href="#">
-                  <span>Share contact</span>
-                </a>
-                <a class="dropdown-item" href="#">
-                  <span>Block contact</span>
-                </a>
-                <a class="dropdown-item" href="#">
-                  <span class="text-warning">Delete contact</span>
-                </a>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row py-4 justify-content-center">
-            <div class="col-12 col-sm-10">
-              <form class="form-horizontal">
-                <div class="form-group row">
-                  <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
-                    for="inputContact1">Name</label>
-                  <div class="col-xl-10 col-md-9 col-8">
-                    <input class="form-control" id="inputContact1" type="text" placeholder="" value="Audrey Hunt" />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
-                    for="inputContact2">Email</label>
-                  <div class="col-xl-10 col-md-9 col-8">
-                    <input class="form-control" id="inputContact2" type="email" value="mail@example.com" />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
-                    for="inputContact3">Phone</label>
-                  <div class="col-xl-10 col-md-9 col-8">
-                    <input class="form-control" id="inputContact3" type="text" value="(123) 465 789" />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
-                    for="inputContact4">Mobile</label>
-                  <div class="col-xl-10 col-md-9 col-8">
-                    <input class="form-control" id="inputContact4" type="text" value="(12) 123 987 465" />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
-                    for="inputContact5">Website</label>
-                  <div class="col-xl-10 col-md-9 col-8">
-                    <input class="form-control" id="inputContact5" type="text" value="http://some.wesbite.com" />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
-                    for="inputContact6">Address</label>
-                  <div class="col-xl-10 col-md-9 col-8">
-                    <textarea class="form-control" id="inputContact6" row="4">Some nice Street, 1234</textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
-                    for="inputContact7">Social</label>
-                  <div class="col-xl-10 col-md-9 col-8">
-                    <input class="form-control" id="inputContact7" type="text" value="@Social" />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
-                    for="inputContact8">Company</label>
-                  <div class="col-xl-10 col-md-9 col-8">
-                    <input class="form-control" id="inputContact8" type="text" placeholder="No Company" />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-xl-2 col-md-3 col-4"></div>
-                  <div class="col-xl-10 col-md-9 col-8">
-                    <div class="custom-control custom-checkbox">
-                      <input class="custom-control-input" id="customCheck1" type="checkbox" />
-                      <label class="custom-control-label" for="customCheck1">Favorite contact?</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-10">
-                    <button class="btn btn-info" type="submit">Update</button>
-                  </div>
-                </div>
-              </form>
-              <div class="text-right">
-                <a class="text-muted" href="#">ASD football @2020</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="wrapper" style="background: white;">
+  <!-- menu user-->
+  <div class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-white border-bottom shadow-sm pt-2">
+    <img class="my-0 mr-md-auto" style="width: 20%; height:auto" src="../../../../assets/img//Untitled-3.png">
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-dark" href="#">Hồ Sơ</a>
+      <!-- <a class="p-2 text-dark" href="#">Enterprise</a> -->
+      <a class="p-2 text-dark" href="#">Hỗ Trợ</a>
+      <!-- <a class="p-2 text-dark" href="#">Pricing</a> -->
+    </nav>
+    <a class="btn btn-outline-primary" href="#">Đăng Nhập/Đăng Ký</a>
   </div>
+
+  <div class="emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img  [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" alt=""/>
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input style="z-index: 100;" class="p-2" type="file" (change)="onSelectFile($event)"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                            <h5>
+                                Kshiti Ghelani
+                            </h5>
+                            <h6>
+                                Web Developer and Designer
+                            </h6>
+                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Lưu thay đổi"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p>WORK LINK</p>
+                    <a href="">Website Link</a><br/>
+                    <a href="">Bootsnipp Profile</a><br/>
+                    <a href="">Bootply Profile</a>
+                    <p>SKILLS</p>
+                    <a href="">Web Designer</a><br/>
+                    <a href="">Web Developer</a><br/>
+                    <a href="">WordPress</a><br/>
+                    <a href="">WooCommerce</a><br/>
+                    <a href="">PHP, .Net</a><br/>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>User Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Kshiti123</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Kshiti Ghelani</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>kshitighelani@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Phone</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>123 456 7890</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Profession</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Web Developer and Designer</p>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Experience</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Hourly Rate</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>10$/hr</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Total Projects</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>230</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>English Level</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Availability</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>6 months</p>
+                                    </div>
+                                </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Your Bio</label><br/>
+                                <p>Your detail description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>           
+</div>
 </div>

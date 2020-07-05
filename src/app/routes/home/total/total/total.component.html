@@ -1,0 +1,416 @@
+<!-- button next page -->
+<div class="content-heading">
+    <div>
+        Số Liệu Hôm Nay!
+        <!-- <small>welcome to !!</small> -->
+    </div>
+</div>
+
+<!-- START cards box-->
+<div class="row">
+    <!-- 1 -->
+    <div class="col-xl-3 col-lg-6 col-md-12 cardTotal">
+        <!-- START card-->
+        <div class="card flex-row align-items-center align-items-stretch border-0">
+            <div class="col-4 d-flex align-items-center bg-success justify-content-center rounded-left">
+                <i class="fas fa-tasks fa-3x "></i>
+            </div>
+            <div class="col-8 py-3 bg-success rounded-right">
+                <div class="h2 mt-0 leadTotal" (click)="DetailSummaryAll('lead')" data-toggle="modal"
+                    data-target="#ModalOLC">et</div>
+                <div class="text-uppercase">lead</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="col-xl-3 col-lg-6 col-md-12 cardTotal">
+        <!-- START card-->
+        <div class="card flex-row align-items-center align-items-stretch border-0">
+            <div class="col-4 d-flex align-items-center bg-danger justify-content-center rounded-left">
+                <i class="fas fa-id-card fa-3x"></i>
+            </div>
+            <div class="col-8 py-3 bg-danger rounded-right">
+                <div class="h2 mt-0" (click)="DetailSummaryAll('contact')" data-toggle="modal" data-target="#ModalOLC">
+                    qt
+                    <!-- <small>GB</small> -->
+                </div>
+                <div class="text-uppercase">contact</div>
+            </div>
+        </div>
+    </div>
+    <!-- 3 -->
+    <div class="col-xl-3 col-lg-6 col-md-12 cardTotal">
+        <!-- START card-->
+        <div class="card flex-row align-items-center align-items-stretch border-0">
+            <div class="col-4 d-flex align-items-center bg-purple justify-content-center rounded-left">
+                <i class="fas fa-building fa-3x"></i>
+            </div>
+            <div class="col-8 py-3 bg-purple rounded-right">
+                <div class="h2 mt-0" (click)="DetailSummaryOrg()" data-toggle="modal" data-target="#exampleModalorg">
+                    te</div>
+                <div class="text-uppercase">org</div>
+            </div>
+        </div>
+    </div>
+    <!-- 4 -->
+    <div class="col-xl-3 col-lg-6 col-md-12 cardTotal">
+        <!-- START card-->
+        <div class="card flex-row align-items-center align-items-stretch border-0">
+            <div class="col-4 d-flex align-items-center bg-green justify-content-center rounded-left">
+                <i class="fas fa-sitemap fa-3x "></i>
+            </div>
+            <div class="col-8 py-3 bg-green rounded-right">
+                <div class="h2 mt-0" (click)="DetailSummaryOmni('omni')" data-toggle="modal" data-target="#ModalOmni">
+                    tw</div>
+                <div class="text-uppercase">omni</div>
+            </div>
+        </div>
+    </div>
+    <!-- 5 -->
+    <div class="col-xl-3 col-lg-6 col-md-12 cardTotal">
+        <!-- START card-->
+        <div class="card flex-row align-items-center align-items-stretch border-0">
+            <div class="col-4 d-flex align-items-center bg-primary justify-content-center rounded-left">
+                <i class="fas fa-envelope-open fa-3x "></i>
+            </div>
+            <div class="col-8 py-3 bg-primary rounded-right">
+                <div class="h2 mt-0" (click)="DetailSummaryAll('email')" data-toggle="modal" data-target="#ModalETU">
+                    t</div>
+                <div class="text-uppercase ">email</div>
+            </div>
+        </div>
+    </div>
+    <!-- 6 -->
+    <div class="col-xl-3 col-lg-6 col-md-12 cardTotal">
+        <!-- START card-->
+        <div class="card flex-row align-items-center align-items-stretch border-0">
+            <div class="col-4 d-flex align-items-center bg-pink justify-content-center rounded-left">
+                <i class="fas fa-sms fa-3x "></i>
+            </div>
+            <div class="col-8 py-3 bg-pink rounded-right">
+                <div class="h2 mt-0" (click)="DetailSummarySMS('sms')" data-toggle="modal" data-target="#ModalSMS">
+                    qw</div>
+                <div class="text-uppercase ">sms</div>
+            </div>
+        </div>
+    </div>
+    <!-- 7 -->
+    <div class="col-xl-3 col-lg-6 col-md-12 cardTotal">
+        <!-- START card-->
+        <div class="card flex-row align-items-center align-items-stretch border-0">
+            <div class="col-4 d-flex align-items-center bg-warning justify-content-center rounded-left">
+                <i class="fas fa-user fa-3x "></i>
+            </div>
+            <div class="col-8 py-3 bg-warning rounded-right">
+                <div class="h2 mt-0" (click)="DetailSummaryAll('user')" data-toggle="modal" data-target="#ModalETU">
+                    qwr
+                    <!-- <small>GB</small> -->
+                </div>
+                <div class="text-uppercase">user</div>
+            </div>
+        </div>
+    </div>
+    <!-- 8 -->
+    <div class="col-xl-3 col-lg-6 col-md-12 cardTotal">
+        <!-- START card-->
+        <div class="card flex-row align-items-center align-items-stretch border-0">
+            <div class="col-4 d-flex align-items-center bg-dark justify-content-center rounded-left">
+                <i class="fas fa-ticket-alt fa-3x "></i>
+            </div>
+            <div class="col-8 py-3 bg-dark rounded-right">
+                <div class="h2 mt-0 animated bounce delay-3s" (click)="DetailSummaryAll('ticket')" data-toggle="modal"
+                    data-target="#ModalETU">q
+                    <!-- <small>GB</small> -->
+                </div>
+                <div class="text-uppercase ">Ticket</div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Modal EMail - Ticket - User  -->
+<div class="modal fade" id="ModalETU" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Chi tiết qr</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- START card-->
+
+                <!-- START table-responsive-->
+                <div class="table-responsive">
+                    <table class="table table-striped" style="text-align: center">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th id="myId">STT</th>
+                                <th>Org Name</th>
+                                <th>Subdomain</th>
+                                <th>Số lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{i + 1}}</td>
+                                <td>ads</td>
+                                <td>ads</td>
+                                <td>ads</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END table-responsive-->
+
+                <!-- END card-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal SMS-->
+<div class="modal fade" id="ModalSMS" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelorg"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Chi tiết as</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- START card-->
+                <!-- START table-responsive-->
+                <div class="table-responsive">
+                    <table class="table table-striped" style="text-align: center">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>STT</th>
+                                <th>Org Name</th>
+                                <th>Subdomain</th>
+                                <th>Success</th>
+                                <th>Fail</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ i + 1}}</td>
+                                <td>dasd</td>
+                                <td>das</td>
+                                <td>das</td>
+                                <td>dasasd</td>
+                                <td>ga</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END table-responsive-->
+
+                <!-- END card-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal org-->
+<div class="modal fade" id="exampleModalorg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelorg"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-info text-bold" id="exampleModalScrollableTitle">Chi tiết Organization</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- START card-->
+                <div class="table-responsive">
+                    <table class="table table-striped" style="text-align: center">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>STT</th>
+                                <th>Org Name</th>
+                                <th>Subdomain</th>
+                                <th>Onboarding</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-dark text-bold">{{ i + 1}}</td>
+                                <td class="text-dark text-bold">ads</td>
+                                <td class="text-dark text-bold">qw</td>
+                                <td>
+                                    <table class="table table-bordered">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">Service</th>
+                                                <th scope="col">Ngành nghề</th>
+                                                <th scope="col">Channels</th>
+                                                <th scope="col">Steps</th>
+                                                <th scope="col">Isdone</th>
+                                            </tr>
+                                        </thead>
+                                        <tr>
+                                            <td class="text-info text-bold">r</td>
+                                            <td class="text-info text-bold">jr <span
+                                                    class="badge badge-purple"
+                                                    >wete</span>
+                                            </td>
+                                            <td><span
+                                                    class="text-primary float-left rounded badge bg-gray-lighter px-4 mr-2 text-sm d-none d-lg-inline"
+                                                    >tq</span>
+                                            </td>
+                                            <td><span
+                                                    class="text-primary float-left rounded badge bg-gray-lighter px-4 mr-2 text-sm d-none d-lg-inline"
+                                                    >tew</span>
+                                            </td>
+                                            <td>ww</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END table-responsive-->
+
+                <!-- END card-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal   Lead - Contact  -->
+<div class="modal fade" id="ModalOLC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelorg"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Chi tiết qt</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- START card-->
+
+
+                <!-- START table-responsive-->
+                <div class="table-responsive">
+                    <table class="table table-striped" style="text-align: center">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>STT</th>
+                                <th>Org Name</th>
+                                <th>Subdomain</th>
+                                <th>Total</th>
+                                <th>Channel</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr >
+                                <td>{{ i + 1}}</td>
+                                <td>t</td>
+                                <td>t</td>
+                                <td>ewt</td>
+                                <td>
+                                    <ul>
+                                        <li>te</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END table-responsive-->
+
+                <!-- END card-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Model omni -->
+<div class="modal fade" id="ModalOmni" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelorg"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Chi tiết qt</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- START card-->
+
+
+                <!-- START table-responsive-->
+                <div class="table-responsive">
+                    <table class="table table-striped" style="text-align: center">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>STT</th>
+                                <th>Org Name</th>
+                                <th>Subdomain</th>
+                                <th>Total</th>
+                                <th>Channel</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>yw</td>
+                                <td>b</td>
+                                <td>r</td>
+                                <td>q</td>
+                                <td>
+                                    <ul>
+                                        <li>qr : q</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END table-responsive-->
+
+                <!-- END card-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>

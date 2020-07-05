@@ -5,6 +5,13 @@ const Home = {
     icon: 'icon-home'
 };
 
+const Orgs = {
+    text: 'Orgs Management',
+    link: '/list/',
+    icon: 'icon-grid',
+    
+};
+
 const Dashboard = {
     text: 'Dashboard',
     link: '/dashboard',
@@ -206,7 +213,7 @@ const Pages = {
         },
         {
             text: 'Recover',
-            link: '/recover'
+            link: '/home-user'
         },
         {
             text: 'Lock',
@@ -381,7 +388,7 @@ const Extras = {
 
 
 const headingMain = {
-    text: 'Main Navigation',
+    text: 'Menu Điều Hướng',
     heading: true
 };
 
@@ -398,17 +405,18 @@ const headingMore = {
 export const menu = [
     headingMain,
     Home,
-    Dashboard,
-    Widgets,
-    headingComponents,
-    Elements,
-    Forms,
-    Charts,
-    Tables,
-    Maps,
-    headingMore,
-    Pages,
-    Blog,
-    Ecommerce,
-    Extras
+    Orgs
+    // Dashboard,
+    // Widgets,
+    // headingComponents,
+    // Elements,
+    // Forms,
+    // Charts,
+    // Tables,
+    // Maps,
+    // headingMore,
+    // Pages,
+    // Blog,
+    // Ecommerce,
+    // Extras
 ];

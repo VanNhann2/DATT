@@ -7,6 +7,7 @@ import { LockComponent } from './pages/lock/lock.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { Error404Component } from './pages/error404/error404.component';
 import { Error500Component } from './pages/error500/error500.component';
+import { ConfigListComponent } from './config-list/config-list/config-list.component';
 
 export const routes = [
 
@@ -15,7 +16,13 @@ export const routes = [
         component: LayoutComponent,
         children: [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
+            // { path: 'home', loadChildren: './home/home.module#HomeModule' },
             { path: 'home', loadChildren: './home/home.module#HomeModule' },
+            { path: 'list', loadChildren: './list/list.module#ListModule' },
+            { path: 'config', component: ConfigListComponent },
+            // { path: 'config/:_id', component: ConfigListComponent },
+
+            // không dùng
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
             { path: 'elements', loadChildren: './elements/elements.module#ElementsModule' },
@@ -32,13 +39,13 @@ export const routes = [
     // Not lazy-loaded routes
     { path: 'login', component: LoginComponent },   
     { path: 'register', component: RegisterComponent },
-    { path: 'recover', component: RecoverComponent },
+    { path: 'home-user', component: RecoverComponent },
     { path: 'profile', component: LockComponent },   // profile có component là Lockcomponent
     { path: 'maintenance', component: MaintenanceComponent },
     { path: '404', component: Error404Component },
     { path: 'search-results', component: Error500Component },  // search-results có component là Error500Component
  
     // Not found
-    { path: '**', redirectTo: 'home' }
+    { path: '**', redirectTo: 'home-user' }
 
 ];
