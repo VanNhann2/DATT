@@ -33,7 +33,7 @@ const Dashboard = {
 };
 
 const Widgets = {
-    text: 'Widgets',
+    text: 'Tạo Sân',
     link: '/widgets',
     icon: 'icon-grid'
 };
@@ -405,7 +405,8 @@ const headingMore = {
 export const menu = [
     headingMain,
     Home,
-    Orgs
+    Orgs,
+    Widgets
     // Dashboard,
     // Widgets,
     // headingComponents,

@@ -20,11 +20,11 @@ export const routes = [
             { path: 'home', loadChildren: './home/home.module#HomeModule' },
             { path: 'list', loadChildren: './list/list.module#ListModule' },
             { path: 'config', component: ConfigListComponent },
+            { path: 'create-pitch', loadChildren: './widgets/widgets.module#WidgetsModule' },
             // { path: 'config/:_id', component: ConfigListComponent },
 
             // không dùng
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
-            { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
             { path: 'elements', loadChildren: './elements/elements.module#ElementsModule' },
             { path: 'forms', loadChildren: './forms/forms.module#FormsModule' },
             { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
