@@ -1,61 +1,99 @@
-<div class="content-heading">
-    <div>Google Maps
-        <small>This directive allows you to add Google Maps Javascript API elements.</small></div>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="card card-default">
-                <div class="card-header">Classic Map</div>
-                <div class="card-body">
-                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="scrollwheel" class="gmap">
-                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                    </agm-map>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card card-default">
+            <div class="card-body text-center">
+                <div class="py-4">
+                    <img class="img-fluid rounded-circle img-thumbnail thumb96" src="https://conhantaogiagoc.com/wp-content/uploads/2016/04/thu-nhap-cao-nho-kinh-doanh-san-bong-da-co-nhan-tao.jpg" alt="Contact" />
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="card card-default">
-                <div class="card-header">Custom zoom</div>
-                <div class="card-body">
-                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="19" [scrollwheel]="scrollwheel" class="gmap">
-                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                    </agm-map>
+                <h3 class="m-0 text-bold">Audrey Hunt</h3>
+                <div class="my-3">
+                    <p>Hello, I'm a just a dummy contact in your contact list and this is my presentation text. Have fun!</p>
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="#">Thêm ảnh</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="card card-default">
-                <div class="card-header">Different Map Type (not supported yet)</div>
-                <div class="card-body">
-                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="scrollwheel" class="gmap">
-                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                    </agm-map>
+    <div class="col-lg-8">
+        <div class="card card-default">
+            <div class="card-header d-flex align-items-center">
+                <div class="d-flex justify-content-center col">
+                    <div class="h4 m-0 text-center">Tạo sân </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="btn-group" dropdown>
+                        <button class="btn btn-link" dropdownToggle>
+                            <em class="fa fa-ellipsis-v fa-lg text-muted"></em>
+                        </button>
+                        <ul *dropdownMenu class="dropdown-menu dropdown-menu-right-forced animated fadeInLeft" role="menu">
+                            <a class="dropdown-item" href="#">
+                                <span>Send by message</span>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span>Share contact</span>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span>Block contact</span>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="text-warning">Delete contact</span>
+                            </a>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="card card-default">
-                <div class="card-header">Multiple Markers</div>
-                <div class="card-body">
-                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="scrollwheel" class="gmap">
-                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                        <agm-marker [latitude]="33.787453" [longitude]="lng"></agm-marker>
-                    </agm-map>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card card-default">
-                <div class="card-header">Styled Maps</div>
-                <div class="card-body">
-                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="scrollwheel" [styles]="mapStyles" class="gmap">
-                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                    </agm-map>
+            <div class="card-body">
+                <div class="row py-4 justify-content-center">
+                    <div class="col-12 col-sm-10">
+                        <form class="form-horizontal">
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact1">Tên</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                    <input class="form-control" id="inputContact1" type="text" placeholder="" value="Audrey Hunt" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact2">Địa Chỉ</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                    <input class="form-control" id="inputContact2" type="email" value="mail@example.com" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact3">Số điện thoại</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                    <input class="form-control" id="inputContact3" type="text" value="(123) 465 789" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact4">Thành phố</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                    <select class="form-control" id="inputContact4" type="text" value="(12) 123 987 465">
+                                        <option value="">1</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact5">Quận</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                    <select class="form-control" id="inputContact5" type="text" value="http://some.wesbite.com">
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact5">Thông tin thêm</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-10">
+                                    <button class="btn btn-info" type="submit">Tạo</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

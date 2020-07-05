@@ -34,7 +34,7 @@ const Dashboard = {
 
 const Widgets = {
     text: 'Tạo Sân',
-    link: '/widgets',
+    link: '/create-pitch',
     icon: 'icon-grid'
 };
 
@@ -183,16 +183,16 @@ const Tables = {
 };
 
 const Maps = {
-    text: 'Maps',
+    text: 'Sân',
     link: '/maps',
     icon: 'icon-map',
     submenu: [
         {
-            text: 'Google',
+            text: 'Tạo Sân',
             link: '/maps/google'
         },
         {
-            text: 'Vector',
+            text: 'Danh Sách Sân',
             link: '/maps/vector'
         }
     ]
@@ -406,7 +406,7 @@ export const menu = [
     headingMain,
     Home,
     Orgs,
-    Widgets
+    // Widgets,
     // Dashboard,
     // Widgets,
     // headingComponents,
@@ -414,7 +414,7 @@ export const menu = [
     // Forms,
     // Charts,
     // Tables,
-    // Maps,
+    Maps,
     // headingMore,
     // Pages,
     // Blog,
