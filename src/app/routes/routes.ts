@@ -8,6 +8,7 @@ import { MaintenanceComponent } from './pages/maintenance/maintenance.component'
 import { Error404Component } from './pages/error404/error404.component';
 import { Error500Component } from './pages/error500/error500.component';
 import { ConfigListComponent } from './config-list/config-list/config-list.component';
+import { CreatePitchComponent} from './widgets/widgets/create-pitch/create-pitch.component'
 
 export const routes = [
 
@@ -44,7 +45,7 @@ export const routes = [
     { path: 'maintenance', component: MaintenanceComponent },
     { path: '404', component: Error404Component },
     { path: 'search-results', component: Error500Component },  // search-results có component là Error500Component
- 
+    { path: 'createPitch', component:CreatePitchComponent},
     // Not found
     { path: '**', redirectTo: 'home-user' }
 

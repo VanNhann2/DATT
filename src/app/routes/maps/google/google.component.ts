@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+import { validatePhone, phoneValid} from '../../forms/validation/phone.validation'
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import {Router} from "@angular/router"
+import { ToasterService, ToasterConfig } from 'angular2-toaster';
+import { CustomValidators } from 'ng2-validation';
 @Component({
     selector: 'app-google',
     templateUrl: './google.component.html',
@@ -7,17 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoogleComponent implements OnInit {
 
-    lat: number = 33.790807;
-    lng: number = -117.835734;
-    zoom: number = 14;
-    scrollwheel = false;
+    valForm: FormGroup;
+    passwordForm: FormGroup;
+    toaster: any;
+    toasterConfig: any;
+    toasterconfig: ToasterConfig = new ToasterConfig({
+        positionClass: 'toast-bottom-right',
+        showCloseButton: true
+    });
 
-    // custom map style
-    mapStyles = [{ 'featureType': 'water', 'stylers': [{ 'visibility': 'on' }, { 'color': '#bdd1f9' }] }, { 'featureType': 'all', 'elementType': 'labels.text.fill', 'stylers': [{ 'color': '#334165' }] }, { featureType: 'landscape', stylers: [{ color: '#e9ebf1' }] }, { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#c5c6c6' }] }, { featureType: 'road.arterial', elementType: 'geometry', stylers: [{ color: '#fff' }] }, { featureType: 'road.local', elementType: 'geometry', stylers: [{ color: '#fff' }] }, { featureType: 'transit', elementType: 'geometry', stylers: [{ color: '#d8dbe0' }] }, { featureType: 'poi', elementType: 'geometry', stylers: [{ color: '#cfd5e0' }] }, { featureType: 'administrative', stylers: [{ visibility: 'on' }, { lightness: 33 }] }, { featureType: 'poi.park', elementType: 'labels', stylers: [{ visibility: 'on' }, { lightness: 20 }] }, { featureType: 'road', stylers: [{ color: '#d8dbe0', lightness: 20 }] }];
 
-    constructor() { }
+    constructor(private fb: FormBuilder, private router: Router, public toasterService: ToasterService) {
+        this.valForm = fb.group({
+            'name': [null, Validators.required],
+            'address': [null, Validators.required],
+            'phone':['', [Validators.required, phoneValid('VN')]],
+            'city':[null, Validators.required],
+            'district':[null, Validators.required],
+            'decs':[null, Validators.required]
+        });
+    }
 
     ngOnInit() {
+        this.valForm = this.fb.group({
+            'name': [null, Validators.required],
+            'address': [null, Validators.required],
+            'phone':['', [Validators.required, phoneValid('VN')]],
+            'city':[null, Validators.required],
+            'district':[null, Validators.required],
+            'decs':[null, Validators.required]
+        });
     }
 
 }

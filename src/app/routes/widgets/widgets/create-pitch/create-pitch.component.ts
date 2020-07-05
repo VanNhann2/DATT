@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { validatePhone, phoneValid} from '../../forms/validation/phone.validation'
+import { validatePhone, phoneValid} from '../../../forms/validation/phone.validation'
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import {Router} from "@angular/router"
 import { ToasterService, ToasterConfig } from 'angular2-toaster';
 import { CustomValidators } from 'ng2-validation';
-@Component({
-    selector: 'app-widgets',
-    templateUrl: './widgets.component.html',
-    styleUrls: ['./widgets.component.scss']
-})
-export class WidgetsComponent implements OnInit {
 
-    valForm: FormGroup;
+@Component({
+  selector: 'app-create-pitch',
+  templateUrl: './create-pitch.component.html',
+  styleUrls: ['./create-pitch.component.scss']
+})
+export class CreatePitchComponent implements OnInit {
+
+  valForm: FormGroup;
     passwordForm: FormGroup;
     toaster: any;
     toasterConfig: any;
@@ -42,5 +43,5 @@ export class WidgetsComponent implements OnInit {
             'decs':[null, Validators.required]
         });
     }
-    
+
 }
