@@ -19,7 +19,7 @@
                     <img  [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" alt=""/>
                     <div class="file btn btn-lg btn-primary">
                         Change Photo
-                        <input style="z-index: 100;" class="p-2" type="file" (change)="onSelectFile($event)"/>
+                        <input style="z-index: 100;" class="p-2" type="file" (change)="fileProgress($event)"/>
                     </div>
                 </div>
             </div>
