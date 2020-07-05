@@ -33,7 +33,8 @@ export const routes = [
             { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
             { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
             { path: 'ecommerce', loadChildren: './ecommerce/ecommerce.module#EcommerceModule' },
-            { path: 'extras', loadChildren: './extras/extras.module#ExtrasModule' }
+            { path: 'extras', loadChildren: './extras/extras.module#ExtrasModule' },
+            { path: 'createPitch',component:CreatePitchComponent}
         ]
     },
 
@@ -45,7 +46,7 @@ export const routes = [
     { path: 'maintenance', component: MaintenanceComponent },
     { path: '404', component: Error404Component },
     { path: 'search-results', component: Error500Component },  // search-results có component là Error500Component
-    { path: 'createPitch',component:CreatePitchComponent},
+    
     // Not found
     { path: '**', redirectTo: 'home-user' }
 
