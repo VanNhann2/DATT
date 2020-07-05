@@ -7,15 +7,16 @@ import { catchError, map, tap } from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
-export class HistoryPitchService {
+export class LocationService {
 
   constructor(private http: HttpClient) { }
-  private historyPitch = environment.apiURL + "/pitch/history/:id"
+  private url = environment.apiURL + "/"
 
-  findPitch(): Observable<any> {
-    return this.http.get<any>(this.historyPitch).pipe(
-      tap(received => received),
-      catchError(error => of([]))
-    )
+  getCity() {
+    return this.http.get<any>(this.url +'city/');
+  }
+
+  getDistrict(id) {
+    return this.http.get<any>(this.url + 'district/' + id);
   }
 }

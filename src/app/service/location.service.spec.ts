@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HistoryPitchService } from './history-pitch.service';
+import { LocationService } from './location.service';
 
-describe('HistoryPitchService', () => {
+describe('LocationService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: HistoryPitchService = TestBed.get(HistoryPitchService);
+    const service: LocationService = TestBed.get(LocationService);
     expect(service).toBeTruthy();
   });
 });

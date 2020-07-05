@@ -19,7 +19,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         HttpClientModule,
@@ -34,7 +34,7 @@ export function createTranslateLoader(http: HttpClient) {
                 useFactory: (createTranslateLoader),
                 deps: [HttpClient]
             }
-        })
+        }),
     ],
     providers: [],
     bootstrap: [AppComponent]

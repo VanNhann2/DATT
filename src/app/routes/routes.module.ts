@@ -8,6 +8,7 @@ import { ConfigListModule } from './config-list/config-list.module'
 
 import { menu } from './menu';
 import { routes } from './routes';
+import { ToasterService } from 'angular2-toaster/angular2-toaster';
 
 @NgModule({
     imports: [
@@ -19,6 +20,9 @@ import { routes } from './routes';
     declarations: [],
     exports: [
         RouterModule
+    ],
+    providers: [
+        ToasterService
     ]
 })
 
