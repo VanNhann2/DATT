@@ -7,6 +7,7 @@ import { ColorsService } from '../../../shared/colors/colors.service';
     templateUrl: './widgets.component.html',
     styleUrls: ['./widgets.component.scss']
 })
+
 export class WidgetsComponent implements OnInit {
 
     lat: number = 33.790807;

@@ -151,8 +151,8 @@
             <td class="text-center">
                 <button class="btn btn-sm btn-success" data-toggle="modal" data-target=".create-pitch"> <em
                         class="fas fa-sm fa-plus"></em> Tạo Sân Con</button>
-                <button class="btn btn-sm btn-warning" [routerLink] ="['/createPitch']"> <em
-                        class="fas fa-sm fa-pencil-alt" ></em> Sửa Đổi</button>
+                <button class="btn btn-sm btn-warning" [routerLink]="['/createPitch']"> <em
+                        class="fas fa-sm fa-pencil-alt"></em> Sửa Đổi</button>
                 <!-- <button class="btn btn-sm btn-warning" data-toggle="modal" data-target=".edit-pitch"> <em
                         class="fas fa-sm fa-pencil-alt"></em> Sửa Đổi</button> -->
             </td>
@@ -171,11 +171,221 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <div class="col-lg-12">
+                    <div class="card card-default">
+                        <div class="card-header d-flex align-items-center">
+                            <div class="d-flex justify-content-center col">
+                                <div class="h4 m-0 text-center">Tạo Sân Bóng </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row py-4 justify-content-center">
+                                <div class="col-12 col-sm-10">
+                                    <form class="form-horizontal">
+                                        <div class="form-group row">
+                                            <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
+                                                for="inputContact1">Tên</label>
+                                            <div class="col-xl-10 col-md-9 col-8">
+                                                <input [ngModel]="name" class="form-control" id="inputContact1"
+                                                    type="text" name="name" placeholder="Nhập Tên" autocomplete="off"
+                                                    formControlName="name" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
+                                                for="inputContact4">Loại Sân</label>
+                                            <div class="col-xl-10 col-md-9 col-8">
+                                                <select class="form-control" id="inputContact4" type="text"
+                                                    value="Loại Sân">
+                                                    <option value="">Sân 5</option>
+                                                    <option value="">Sân 7</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- switch -->
+                                        <div class="form-group row">
+                                            <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
+                                                for="inputContact4">Kích Hoạt</label>
+                                            <div class="col-xl-10 col-md-9 col-8">
+                                                    <label class="switch m-0" style="width: 50px;">
+                                                        <input type="checkbox"   [(ngModel)]="abc"/>
+                                                        <span></span>
+                                                    </label>
+                                                    <table class="table" *ngIf="abc">
+                                                        <thead>
+                                                          <tr>
+                                                            <th scope="col">Khung Giờ (h)</th>
+                                                            <th scope="col">Giá Cả ($)</th>
+                                                            <th scope="col">Kích Hoạt</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          <tr>
+                                                            <th scope="row">6h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <th scope="row">7h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">8h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">9h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">10h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">11h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">12h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">13h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">14h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">15h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">16h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">17h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">18h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">19h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">20h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">21h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                          <tr>
+                                                            <th scope="row">22h</th>
+                                                            <td><input class="form-control" ></td>
+                                                            <td><label class="switch m-0" style="width: 50px;">
+                                                                <input type="checkbox" checked="checked" />
+                                                                <span></span>
+                                                            </label></td>
+                                                          </tr>
+                                                         
+                                                        </tbody>
+                                                      </table>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary">Tạo Sân</button>
             </div>
         </div>
     </div>
