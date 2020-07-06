@@ -1,123 +1,123 @@
 <div class="row">
 
-  <div class="col-lg-4">
-      <div class="card card-default">
-          <div class="card-body text-center">
-              <div class="py-4">
-                  <img class="img-fluid rounded-circle img-thumbnail thumb96" src="https://conhantaogiagoc.com/wp-content/uploads/2016/04/thu-nhap-cao-nho-kinh-doanh-san-bong-da-co-nhan-tao.jpg"  [class.rounded-circle]="cropperSettings.rounded"  [src]="data1.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight" alt="Contact" />
-              </div>
-              <h3 class="m-0 text-bold">{{name}}</h3>
-              <div class="my-3">
-                  <p>{{decription}}</p>
-              </div>
-              <div class="text-center">
-                <label for="image-input" class="file-upload">
-                    <button class="btn btn-secondary btn-block">Tải Ảnh Lên</button>
-                    <input id="image-input" type="file" (change)="fileChangeListener($event)">
-                </label>
+    <div class="col-lg-4">
+        <div class="card card-default">
+            <div class="card-body text-center">
+                <div class="py-4">
+                    <img class="img-fluid rounded-circle img-thumbnail thumb96" src="https://conhantaogiagoc.com/wp-content/uploads/2016/04/thu-nhap-cao-nho-kinh-doanh-san-bong-da-co-nhan-tao.jpg"  [class.rounded-circle]="cropperSettings.rounded"  [src]="data1.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight" alt="Contact" />
+                </div>
+                <h3 class="m-0 text-bold">{{name}}</h3>
+                <div class="my-3">
+                    <p>{{decription}}</p>
+                </div>
+                <div class="text-center">
+                  <label for="image-input" class="file-upload">
+                      <button class="btn btn-secondary btn-block">Tải Ảnh Lên</button>
+                      <input id="image-input" type="file" (change)="fileChangeListener($event)">
+                  </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="">
+          <div class="card">
+              <div class="card-body">
+                  <img-cropper #cropper [image]="data1" [settings]="cropperSettings" (onCrop)="cropped($event)"></img-cropper>
               </div>
           </div>
       </div>
-      
-      <div class="">
-        <div class="card">
+    </div>
+    <div class="col-lg-8">
+        <div class="card card-default">
+            <div class="card-header d-flex align-items-center">
+                <div class="d-flex justify-content-center col">
+                    <div class="h4 m-0 text-center">Tạo Tên Sân Bóng </div>
+                </div>
+                <!-- <div class="d-flex justify-content-end">
+                    <div class="btn-group" dropdown>
+                        <button class="btn btn-link" dropdownToggle>
+                            <em class="fa fa-ellipsis-v fa-lg text-muted"></em>
+                        </button>
+                        <ul *dropdownMenu class="dropdown-menu dropdown-menu-right-forced animated fadeInLeft" role="menu">
+                            <a class="dropdown-item" href="#">
+                                <span>Send by message</span>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span>Share contact</span>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span>Block contact</span>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="text-warning">Delete contact</span>
+                            </a>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
             <div class="card-body">
-                <img-cropper #cropper [image]="data1" [settings]="cropperSettings" (onCrop)="cropped($event)"></img-cropper>
+                <div class="row py-4 justify-content-center">
+                    <div class="col-12 col-sm-10">
+                        <form class="form-horizontal">
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact1">Tên</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                    <input  class="form-control" id="inputContact1" type="text" name="name" placeholder="Nhập Tên" autocomplete="off" required=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact2">Địa Chỉ</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                    <input class="form-control" id="inputContact2" type="text" name="address" placeholder="Enter address" autocomplete="off" required=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact3">Số điện thoại</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                    <input class="form-control" id="inputContact3" type="text" value="(123) 465 789" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact4">Thành phố</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                    <select class="form-control" id="inputContact4" type="text" value="(12) 123 987 465">
+                                        <option value="">1</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact5">Quận</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                    <select class="form-control" id="inputContact5" type="text" value="http://some.wesbite.com">
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact5">Thông tin thêm</label>
+                                <div class="col-xl-10 col-md-9 col-8">
+                                  <fieldset>
+                                      <div class="form-group row">
+                                        <div class="col-md-12">
+                                          <div class="card">
+                                            <div class="card-body mh0">
+                                              <textarea class="form-control note-editor note-editor-margin" rows="5"></textarea>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-10">
+                                    <button class="btn btn-info" type="submit" [routerLink] = "'/list-pitch'">Tạo Sân</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
   </div>
-  <div class="col-lg-8">
-      <div class="card card-default">
-          <div class="card-header d-flex align-items-center">
-              <div class="d-flex justify-content-center col">
-                  <div class="h4 m-0 text-center">Tạo Sân Bóng </div>
-              </div>
-              <!-- <div class="d-flex justify-content-end">
-                  <div class="btn-group" dropdown>
-                      <button class="btn btn-link" dropdownToggle>
-                          <em class="fa fa-ellipsis-v fa-lg text-muted"></em>
-                      </button>
-                      <ul *dropdownMenu class="dropdown-menu dropdown-menu-right-forced animated fadeInLeft" role="menu">
-                          <a class="dropdown-item" href="#">
-                              <span>Send by message</span>
-                          </a>
-                          <a class="dropdown-item" href="#">
-                              <span>Share contact</span>
-                          </a>
-                          <a class="dropdown-item" href="#">
-                              <span>Block contact</span>
-                          </a>
-                          <a class="dropdown-item" href="#">
-                              <span class="text-warning">Delete contact</span>
-                          </a>
-                      </ul>
-                  </div>
-              </div> -->
-          </div>
-          <div class="card-body">
-              <div class="row py-4 justify-content-center">
-                  <div class="col-12 col-sm-10">
-                      <form class="form-horizontal">
-                          <div class="form-group row">
-                              <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact1">Tên Sân</label>
-                              <div class="col-xl-10 col-md-9 col-8">
-                                  <input  [ngModel]="name" class="form-control" id="inputContact1" type="text" name="name" placeholder="Nhập Tên" autocomplete="off" required=""/>
-                              </div>
-                          </div>
-                          <div class="form-group row">
-                              <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact2">Địa Chỉ</label>
-                              <div class="col-xl-10 col-md-9 col-8">
-                                  <input class="form-control" id="inputContact2" type="text" name="address" placeholder="Enter address" autocomplete="off" required=""/>
-                              </div>
-                          </div>
-                          <div class="form-group row">
-                              <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact3">Số điện thoại</label>
-                              <div class="col-xl-10 col-md-9 col-8">
-                                  <input class="form-control" id="inputContact3" type="text" value="(123) 465 789" />
-                              </div>
-                          </div>
-                          <div class="form-group row">
-                              <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact4">Thành phố</label>
-                              <div class="col-xl-10 col-md-9 col-8">
-                                  <select class="form-control" id="inputContact4" type="text" value="(12) 123 987 465">
-                                      <option value="">1</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="form-group row">
-                              <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact5">Quận</label>
-                              <div class="col-xl-10 col-md-9 col-8">
-                                  <select class="form-control" id="inputContact5" type="text" value="http://some.wesbite.com">
-                                      <option value="2">2</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="form-group row">
-                              <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact5">Thông tin thêm</label>
-                              <div class="col-xl-10 col-md-9 col-8">
-                                <fieldset>
-                                    <div class="form-group row">
-                                      <div class="col-md-12">
-                                        <div class="card">
-                                          <div class="card-body mh0">
-                                            <textarea  [ngModel]="decription" class="form-control note-editor note-editor-margin" rows="5"></textarea>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </fieldset>
-                              </div>
-                          </div>
-                          <div class="form-group row">
-                              <div class="col-md-10">
-                                  <button class="btn btn-info" type="submit" [routerLink] = "'/list-pitch'">Tạo Sân</button>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
