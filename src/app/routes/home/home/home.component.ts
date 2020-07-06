@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
       name:""
     }
 
-    username = ""
+    username = undefined
     constructor(private PitchService : PitchService, private UserService : UserService, private router: Router) {
         this.UserService.getUser().subscribe(
           res => {

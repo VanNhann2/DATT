@@ -33,8 +33,7 @@
 </ul>
   <ul class="navbar-nav mr-auto flex-row">
     <li class="nav-item d-none d-md-block pull-right">
-      <a class="nav-link" title="Lock screen" style="cursor: pointer;" [routerLink] = "'/profile-owner'">
-        Hồ Sơ
+      <a class="nav-link" title="Lock screen" style="cursor: pointer;">
       </a>
     </li>
   </ul>
@@ -63,7 +62,7 @@
                   <em class="fa-2x mr-2 fas fa-info-circle"></em>
                 </div>
                 <div class="media-body">
-                  <p class="m-0">Hồ Sơ Của Bạn</p>
+                  <p class="m-0" [routerLink] = "'/profile-owner'">Hồ Sơ Của Bạn</p>
                   <p class="m-0 text-muted text-sm">Xem thông tin</p>
                 </div>
               </div>
@@ -74,7 +73,7 @@
                 <div class="align-self-start mr-2">
                   <em class="fa-2x icon-logout mr-2 text-danger"></em>
                 </div>
-                <div class="media-body">
+                <div class="media-body" (click)="logout()">
                   <p class="m-0">Đăng Xuất</p>
                   <p class="m-0 text-muted text-sm">Thoát khỏi tài khoản của bạn</p>
                 </div>

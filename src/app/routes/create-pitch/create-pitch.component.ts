@@ -14,7 +14,6 @@ import { ImageCropperComponent, CropperSettings, Bounds } from 'ng2-img-cropper'
 })
 export class CreatePitchComponent implements OnInit {
 
-  valForm: FormGroup;
     passwordForm: FormGroup;
     toaster: any;
     toasterConfig: any;
@@ -24,17 +23,9 @@ export class CreatePitchComponent implements OnInit {
     });
 
 
-    constructor(private fb: FormBuilder, private router: Router, public toasterService: ToasterService) {
-      this.valForm = fb.group({
-          'name': [null, Validators.required],
-          'address': [null, Validators.required],
-          'phone':['', [Validators.required, phoneValid('VN')]],
-          'city':[null, Validators.required],
-          'district':[null, Validators.required],
-          'decs':[null, Validators.required]
-      });
+    constructor(private router: Router, public toasterService: ToasterService) {
+
       
-      this.name = 'Tên Sân';
       this.cropperSettings = new CropperSettings();
 
       this.cropperSettings.noFileInput = true;
@@ -60,14 +51,7 @@ export class CreatePitchComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.valForm = this.fb.group({
-          'name': [null, Validators.required],
-          'address': [null, Validators.required],
-          'phone':['', [Validators.required, phoneValid('VN')]],
-          'city':[null, Validators.required],
-          'district':[null, Validators.required],
-          'decs':[null, Validators.required]
-      });
+      
     }
 
 

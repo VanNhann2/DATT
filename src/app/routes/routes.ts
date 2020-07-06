@@ -10,6 +10,9 @@ import { Error500Component } from './pages/error500/error500.component';
 import { ConfigListComponent } from './config-list/config-list/config-list.component';
 import { CreatePitchComponent} from './create-pitch/create-pitch.component'
 import { ProfileOwnerComponent } from './profile-owner/profile-owner.component';
+import { HomepageComponent } from './homepage/homepage.component'
+import { ListpitchComponent } from './listpitch/listpitch.component'
+import { ProfileComponent } from './profile/profile.component'
 
 export const routes = [
 
@@ -37,19 +40,20 @@ export const routes = [
             { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
             { path: 'ecommerce', loadChildren: './ecommerce/ecommerce.module#EcommerceModule' },
             { path: 'extras', loadChildren: './extras/extras.module#ExtrasModule' },
+            
         ]
     },
 
     // Not lazy-loaded routes
     { path: 'login', component: LoginComponent },   
     { path: 'register', component: RegisterComponent },
-    { path: 'home-page', component: RecoverComponent },
-    { path: 'profile', component: LockComponent },   // profile có component là Lockcomponent
+    { path: 'homepage',component:HomepageComponent},
+    { path: 'profile', component: ProfileComponent },   // profile có component là Lockcomponent
     { path: 'maintenance', component: MaintenanceComponent },
     { path: '404', component: Error404Component },
-    { path: 'search-results', component: Error500Component },  // search-results có component là Error500Component
+    { path: 'search-results', component: ListpitchComponent },  // search-results có component là Error500Component
     
     // Not found
-    { path: '**', redirectTo: 'home-page' }
+    { path: '**', redirectTo: 'homepage' }
 
 ];

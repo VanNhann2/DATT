@@ -1,17 +1,16 @@
 import { Component, OnInit, Injector } from '@angular/core';
-import { SettingsService } from '../../../core/settings/settings.service';
+import { SettingsService } from '../../core/settings/settings.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
 @Component({
-    selector: 'app-lock',
-    templateUrl: './lock.component.html',
-    styleUrls: ['./lock.component.scss']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
-export class LockComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
-    valForm: FormGroup;
+  valForm: FormGroup;
     router: Router;
 
     constructor(public settings: SettingsService, fb: FormBuilder, public injector: Injector, private http: HttpClient) {
@@ -62,16 +61,5 @@ export class LockComponent implements OnInit {
       this.previewUrl = reader.result; 
     }
 }
-    // let url = '' ;
-    // onSelectFile(event) {
-    //     if (event.target.files && event.target.files[0]) {
-    //       var reader = new FileReader();
-    
-    //       reader.readAsDataURL(event.target.files[0]); // read file as data url
-    
-    //       reader.onload = (event) => { // called once readAsDataURL is completed
-    //         this.url = event.target.result;
-    //       }
-    //     }
-    //   }
+
 }

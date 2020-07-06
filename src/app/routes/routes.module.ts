@@ -12,6 +12,9 @@ import { routes } from './routes';
 import { ToasterService } from 'angular2-toaster/angular2-toaster';
 import { CreatePitchComponent } from './create-pitch/create-pitch.component';
 import { ProfileOwnerComponent } from './profile-owner/profile-owner.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { ListpitchComponent } from './listpitch/listpitch.component';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
     imports: [
         SharedModule,
@@ -20,7 +23,7 @@ import { ProfileOwnerComponent } from './profile-owner/profile-owner.component';
         ConfigListModule,
         ImageCropperModule
     ],
-    declarations: [CreatePitchComponent, ProfileOwnerComponent],
+    declarations: [CreatePitchComponent, ProfileOwnerComponent, HomepageComponent, ListpitchComponent, ProfileComponent],
     exports: [
         RouterModule
     ],

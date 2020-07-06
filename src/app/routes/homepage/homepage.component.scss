@@ -1,0 +1,37 @@
+@import "../../shared/styles/bootstrap/_functions.scss";
+@import "../../shared/styles/bootstrap/_variables.scss";
+@import "../../shared/styles/bootstrap/_mixins";
+@import '../../shared/styles/app/variables.scss';
+
+.jumbotron-mchange{
+    background-image: url("../../../assets/img/bg-home.png");
+    background-size: cover;
+    height: 768px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.mg-tital{
+    margin-top: 12%;
+}
+.home-text-big {
+    font-size: 3.9375rem;
+    color: white;
+}
+.lead{
+    color: white;
+    font-size: 2rem;
+}
+.change-size{
+    font-size: 15px;
+}
+.sticky {
+    background: #505050;
+    box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
+    position: fixed;
+    top: 0;
+    height: 60px;
+    width: 100%;
+    z-index: 101;
+}
+
+
