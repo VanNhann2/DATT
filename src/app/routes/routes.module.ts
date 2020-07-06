@@ -15,13 +15,16 @@ import { ProfileOwnerComponent } from './profile-owner/profile-owner.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ListpitchComponent } from './listpitch/listpitch.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
     imports: [
         SharedModule,
         RouterModule.forRoot(routes),
         PagesModule,
         ConfigListModule,
-        ImageCropperModule
+        ImageCropperModule,
+        FormsModule
     ],
     declarations: [CreatePitchComponent, ProfileOwnerComponent, HomepageComponent, ListpitchComponent, ProfileComponent],
     exports: [

@@ -113,9 +113,6 @@
                 <strong>Địa Chỉ</strong>
             </th>
             <th>
-                <strong>Ngày Tạo</strong>
-            </th>
-            <th>
                 <strong>Quận</strong>
             </th>
             <th>
@@ -123,6 +120,9 @@
             </th>
             <th>
                 <strong>Số điện thoại</strong>
+            </th>
+            <th>
+                <strong>Ngày Tạo</strong>
             </th>
             <th>
                 <strong>Sân</strong>
@@ -137,21 +137,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Sân A</td>
-            <td>2 Thạc Gián</td>
-            <td>12/05/1202</td>
-            <td>Thanh Khê</td>
-            <td>Đà Nẵng</td>
-            <td>013612134</td>
-            <td>
-                <li>sân 1</li>
-                <li>sân 2</li>
+        <tr *ngFor="let item of listPitch">
+            <td>{{item.name}}</td>
+            <td>{{item.address}}</td>
+            <td>{{item.district}}</td>
+            <td>{{item.city}}</td>
+            <td>{{item.phone_number}}</td>
+            <td>{{item.createdAt}}</td>
+            <td  *ngFor="let i of item.subpitch">
+                <li>sad</li>
             </td>
+            <td *ngIf="!item.subpitch.length"></td>
             <td class="text-center">
                 <button class="btn btn-sm btn-success" data-toggle="modal" data-target=".create-pitch"> <em
                         class="fas fa-sm fa-plus"></em> Tạo Sân Con</button>
-                <button class="btn btn-sm btn-warning" [routerLink]="['/createPitch']"> <em
+                <button class="btn btn-sm btn-warning" [routerLink]="['/createPitch',item._id]"> <em
                         class="fas fa-sm fa-pencil-alt"></em> Sửa Đổi</button>
                 <!-- <button class="btn btn-sm btn-warning" data-toggle="modal" data-target=".edit-pitch"> <em
                         class="fas fa-sm fa-pencil-alt"></em> Sửa Đổi</button> -->
@@ -186,7 +186,7 @@
                                             <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right"
                                                 for="inputContact1">Tên</label>
                                             <div class="col-xl-10 col-md-9 col-8">
-                                                <input [ngModel]="name" class="form-control" id="inputContact1"
+                                                <input class="form-control" id="inputContact1"
                                                     type="text" name="name" placeholder="Nhập Tên" autocomplete="off" required="" />
                                             </div>
                                         </div>
@@ -207,7 +207,7 @@
                                                 for="inputContact4">Kích Hoạt</label>
                                             <div class="col-xl-10 col-md-9 col-8">
                                                     <label class="switch m-0" style="width: 50px;">
-                                                        <input type="checkbox"   [(ngModel)]="abc"/>
+                                                        <input type="checkbox"/>
                                                         <span></span>
                                                     </label>
                                                     <table class="table" *ngIf="abc">

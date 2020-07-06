@@ -12,9 +12,8 @@ export class LayoutComponent implements OnInit {
       constructor(private UserService : UserService, private router: Router) {
           this.UserService.getUser().subscribe(
             res => {
-              console.log(res)
               this.username = res.username
-              console.log(this.username)
+              localStorage.setItem('user_id',res.user_id)
             },
             err => this.router.navigate(['login'])
           )

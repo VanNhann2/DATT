@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ColorsService } from '../../../shared/colors/colors.service';
+import { PitchService } from '../../../service/pitch.service'
+import { Pitch } from '../../../model/pitch'
 
 @Component({
     selector: 'app-widgets',
@@ -48,9 +50,20 @@ export class WidgetsComponent implements OnInit {
         barWidth: 6,
         barSpacing: 6
     };
-
-    constructor(public colors: ColorsService) { }
-
+    listPitch : Pitch[]
+    request = {
+        page:1,
+        page_size : 20,
+        user_id :localStorage.getItem('user_id')
+    }
+    constructor(public colors: ColorsService, private PitchService : PitchService) { 
+        PitchService.listPitch(this.request).subscribe(
+            res => {
+                console.log(res)
+                this.listPitch = res.infoPitchs
+            }
+        )
+    }
     ngOnInit() {
     }
 

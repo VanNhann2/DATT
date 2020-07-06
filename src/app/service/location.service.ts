@@ -16,7 +16,9 @@ export class LocationService {
     return this.http.get<any>(this.url +'city/');
   }
 
-  getDistrict(id) {
-    return this.http.get<any>(this.url + 'district/' + id);
+  getDistrict(request) {
+    return this.http.get<any>(this.url + 'district',{
+      params: request
+    });
   }
 }

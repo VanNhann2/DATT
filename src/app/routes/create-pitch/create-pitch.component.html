@@ -60,36 +60,36 @@
                     <div class="col-12 col-sm-10">
                         <form class="form-horizontal">
                             <div class="form-group row">
-                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact1">Tên</label>
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right">Tên</label>
                                 <div class="col-xl-10 col-md-9 col-8">
-                                    <input  class="form-control" id="inputContact1" type="text" name="name" placeholder="Nhập Tên" autocomplete="off" required=""/>
+                                    <input  class="form-control" type="text" name="name" placeholder="Nhập Tên" [(ngModel)]="form.name" [ngModelOptions]="{standalone: true}"/>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact2">Địa Chỉ</label>
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right">Địa Chỉ</label>
                                 <div class="col-xl-10 col-md-9 col-8">
-                                    <input class="form-control" id="inputContact2" type="text" name="address" placeholder="Enter address" autocomplete="off" required=""/>
+                                    <input class="form-control" type="text" name="address" placeholder="Enter address" [(ngModel)]="form.address" [ngModelOptions]="{standalone: true}"/>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact3">Số điện thoại</label>
+                                <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right">Số điện thoại</label>
                                 <div class="col-xl-10 col-md-9 col-8">
-                                    <input class="form-control" id="inputContact3" type="text" value="(123) 465 789" />
+                                    <input class="form-control" type="text" placeholder="Enter phone number" [(ngModel)]="form.phone" [ngModelOptions]="{standalone: true}"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact4">Thành phố</label>
                                 <div class="col-xl-10 col-md-9 col-8">
-                                    <select class="form-control" id="inputContact4" type="text" value="(12) 123 987 465">
-                                        <option value="">1</option>
+                                    <select class="form-control" id="inputContact4" [(ngModel)]="form.city" [ngModelOptions]="{standalone: true}" (change)="changeCity()">
+                                        <option *ngFor="let item of city" value="{{ item._id}}">{{ item.name }}</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact5">Quận</label>
                                 <div class="col-xl-10 col-md-9 col-8">
-                                    <select class="form-control" id="inputContact5" type="text" value="http://some.wesbite.com">
-                                        <option value="2">2</option>
+                                    <select class="form-control" id="inputContact4" [(ngModel)]="form.district" [ngModelOptions]="{standalone: true}">
+                                        <option *ngFor="let item of district" value="{{ item._id}}">{{ item.name }}</option>
                                     </select>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                         <div class="col-md-12">
                                           <div class="card">
                                             <div class="card-body mh0">
-                                              <textarea class="form-control note-editor note-editor-margin" rows="5"></textarea>
+                                              <textarea class="form-control note-editor note-editor-margin" rows="5" [(ngModel)]="form.desc" [ngModelOptions]="{standalone: true}"></textarea>
                                             </div>
                                           </div>
                                         </div>
@@ -111,7 +111,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-10">
-                                    <button class="btn btn-info" type="submit" [routerLink] = "'/list-pitch'">Tạo Sân</button>
+                                    <button class="btn btn-info" (click)="create()" [routerLink] = "'/list-pitch'">Tạo</button>
                                 </div>
                             </div>
                         </form>

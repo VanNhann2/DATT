@@ -1,11 +1,10 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import { validatePhone, phoneValid} from '../forms/validation/phone.validation'
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import {Router} from "@angular/router"
+import { Router, ActivatedRoute } from "@angular/router"
 import { ToasterService, ToasterConfig } from 'angular2-toaster';
-import { CustomValidators } from 'ng2-validation';
 import { ImageCropperComponent, CropperSettings, Bounds } from 'ng2-img-cropper';
-
+import { PitchService} from '../../service/pitch.service'
+import { Pitch} from '../../model/pitch'
+import { LocationService } from '../../service/location.service'
 
 @Component({
   selector: 'app-create-pitch',
@@ -14,7 +13,6 @@ import { ImageCropperComponent, CropperSettings, Bounds } from 'ng2-img-cropper'
 })
 export class CreatePitchComponent implements OnInit {
 
-    passwordForm: FormGroup;
     toaster: any;
     toasterConfig: any;
     toasterconfig: ToasterConfig = new ToasterConfig({
@@ -22,8 +20,26 @@ export class CreatePitchComponent implements OnInit {
         showCloseButton: true
     });
 
+    form : Pitch = {
+      name : null,
+      address : null,
+      phone: null,
+      city:null,
+      district:null,
+      desc : null,
+      image: null,
+      user_id : localStorage.getItem('user_id'),
+      createdAt: null,
+      updatedAt: null,
+      subPitch:[]
+    }
 
-    constructor(private router: Router, public toasterService: ToasterService) {
+    city = []
+    district = []
+
+    constructor(private router: Router, public toasterService: ToasterService, private PitchService: PitchService, private LocationService : LocationService, private route: ActivatedRoute,
+
+      ) {
 
       
       this.cropperSettings = new CropperSettings();
@@ -48,13 +64,53 @@ export class CreatePitchComponent implements OnInit {
       this.cropperSettings.rounded = false;
 
       this.data1 = {};
+      LocationService.getCity().subscribe(
+        data => 
+        {
+          this.city = data  
+          console.log(data)  
+        }                                                                                    
+      )
     }
 
     ngOnInit() {
-      
+      //this.route.snapshot.paramMap.get('_id');
+      this.PitchService.getPitch(this.route.snapshot.paramMap.get('id')).subscribe(
+        res => {
+          console.log(res)
+          if(res){
+            this.form.name = res.name
+            this.form.phone =res.phone_number
+            this.form.city = res.city
+            this.form.district =res.district
+            this.LocationService.getDistrict({city:this.form.city}).subscribe(                                                                
+              data => {
+                this.district = data
+              }
+            )
+            this.form.desc = res.desc
+            this.form.image = res.image_url
+            this.form.address = res.address
+          }
+        }
+      )
     }
 
+    changeCity() {
+      this.LocationService.getDistrict({city:this.form.city}).subscribe(                                                                
+        data => {
+          this.district = data
+        }
+      )
+    }
 
+    create() {
+      this.PitchService.create(this.form).subscribe(
+        data => {
+          console.log(data)
+        }
+      )
+    }
     
     name: string;
     data1: any;
@@ -78,6 +134,7 @@ export class CreatePitchComponent implements OnInit {
         myReader.onloadend = function(loadEvent: any) {
             image.src = loadEvent.target.result;
             that.cropper.setImage(image);
+            that.form.image = loadEvent.target.result
         };
 
         myReader.readAsDataURL(file);

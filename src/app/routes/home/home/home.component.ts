@@ -19,7 +19,9 @@ export class HomeComponent implements OnInit {
     search : any = {
       page : 1,
       page_size:10,
-      name:""
+      name:"",
+      district: null,
+      city:null
     }
 
     username = undefined
