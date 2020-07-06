@@ -3,17 +3,27 @@
       <div class="card card-default">
           <div class="card-body text-center">
               <div class="py-4">
-                  <img class="img-fluid rounded-circle img-thumbnail thumb96" src="assets/img/user/01.jpg" alt="Contact" />
+                  <img class="img-fluid rounded-circle img-thumbnail thumb96" src=""  [class.rounded-circle]="cropperSettings.rounded"  [src]="data1.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight" alt="Contact" />
               </div>
               <h3 class="m-0 text-bold">John</h3>
               <div class="my-3">
-                  <p>Hello, I'm a just a dummy contact in your contact list and this is my presentation text. Have fun!</p>
+                  <p>Xin chào đến với thông tin cá nhân của bạn. Xóa dòng này và thay đổi như bạn muốn!!</p>
               </div>
               <div class="text-center">
-                  <a class="btn btn-primary" href="#">Thay Đổi Ảnh Đại Diện</a>
+                <label for="image-input" class="file-upload">
+                    <button class="btn btn-secondary btn-block">Tải Ảnh Lên</button>
+                    <input id="image-input" type="file" (change)="fileChangeListener($event)">
+                </label>
               </div>
           </div>
       </div>
+      <div class="">
+        <div class="card">
+            <div class="card-body">
+                <img-cropper #cropper [image]="data1" [settings]="cropperSettings" (onCrop)="cropped($event)"></img-cropper>
+            </div>
+        </div>
+    </div>
   </div>
   <div class="col-lg-8">
       <div class="card card-default">
