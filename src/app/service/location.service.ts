@@ -13,10 +13,19 @@ export class LocationService {
   private url = environment.apiURL + "/"
 
   getCity() {
-    return this.http.get<any>(this.url +'city/');
+    return this.http.get<any>(this.url +'city/')
   }
 
-  getDistrict(id) {
-    return this.http.get<any>(this.url + 'district/' + id);
+  // getDbOrgById(orgId: String): Observable<DbOrganization> {
+  //   return this.http.get<DbOrganization>(this.getOrgURL + "/" + orgId).pipe(
+  //     tap(received => {
+  //     }),
+  //     catchError(err => of(null))
+  //   )
+  // }
+  getDistrict(request) {
+    return this.http.get<any>(this.url + 'district',{
+      params: request
+    });
   }
 }

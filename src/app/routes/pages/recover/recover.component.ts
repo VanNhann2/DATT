@@ -4,16 +4,22 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { trigger, state, transition, style, animate } from '@angular/animations';  
 import { DOCUMENT } from '@angular/common';
+
+import { LocationService } from '../../../service/location.service'
+
 @Component({
     selector: 'app-recover',
     templateUrl: './recover.component.html',
     styleUrls: ['./recover.component.scss']
 })
+
 export class RecoverComponent implements OnInit {
-
+    getCitys = []
+    getDistricts = []
+    district = []
+    city: String
     valForm: FormGroup;
-
-    constructor(public settings: SettingsService, fb: FormBuilder, @Inject(DOCUMENT) document) {
+    constructor( private locationService: LocationService ,public settings: SettingsService, fb: FormBuilder, @Inject(DOCUMENT) document) {
         this.valForm = fb.group({
             'email': [null, Validators.compose([Validators.required, CustomValidators.email])]
         });
@@ -30,12 +36,16 @@ export class RecoverComponent implements OnInit {
         }
     }
 
+  
+
     ngOnInit() {
+        this.getCity();
+        this.getDistrict()
     }
 
     @HostListener('window:scroll', ['$event'])
     onWindowScroll(e) {
-        if (window.pageYOffset > 350) {
+        if (window.pageYOffset > 250) {
           let element = document.getElementById('navbar');
           element.classList.add('sticky');
         } else {
@@ -43,5 +53,36 @@ export class RecoverComponent implements OnInit {
            element.classList.remove('sticky'); 
         }
      }
+     getCity(){
+        this.locationService.getCity().subscribe(
+            (doc) => {
+                this.getCitys = doc
+                console.log(this.getCitys);
+            }, err =>{
+                console.log(err);
+            }
+        )
+    }
+
+    // changeCity() {
+    //     // console.log(this.form)
+    //     this.locationService.getDistrict({city : object id}).subscribe(                                                                
+    //       data => {
+    //         this.getDistricts = data
+    //         console.log(data)
+    //       }sao lai lam trong file nay
+    //     )
+    // doi xi
+    //   }
+    getDistrict(){
+        this.locationService.getDistrict(this.city ='5eaefbe3b822cc8a2df19be4').subscribe(
+            (doc) => {
+                this.getDistricts = doc
+                console.log(this.getDistricts);
+            }, err =>{
+                console.log(err);
+            }
+        )
+    }
     
 }

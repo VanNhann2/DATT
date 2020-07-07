@@ -1,249 +1,257 @@
 <!-- <div >   -->
-  <div  class="web_homePage" (scroll)="onWindowScroll($event);">
+  <div class="web_homePage" (scroll)="onWindowScroll($event);">
     <!-- menu user-->
-    <div class="d-flex flex-column flex-md-row align-items-center px-md-4 border-bottom shadow-sm pt-2 animated fadeInDown"  id="navbar">
-        <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;" src="../../../../assets/img/Untitled-1.png"  [routerLink]="'/homepage'">
-        <nav class="my-2 my-md-0 mr-md-3">
-          <a class="p-2 text-white"  [routerLink]="'/profile'" href="#">Hồ Sơ</a>
-          <!-- <a class="p-2 text-white" href="#">Enterprise</a> -->
-          <!-- <a class="p-2 text-white" href="#">Hỗ Trợ</a> -->
-          <!-- <a class="p-2 text-white" href="#">Pricing</a> -->
-        </nav>
-        <a *ngIf="!username" class="btn btn-outline-primary" [routerLink] = "'/login'">Đăng Nhập/Đăng Ký</a>
-      </div>
-    
-      <div class="" style="margin-top: -5%;">
-        <div class="jumbotron-mchange">
-          <div class="row">
-            <div class="col-xl-6 col-lg-8 mg-tital">
-              <div class="text-left ml-5">
-                <!-- <img alt="Fooball" class="img-fluid home-logo" src="assets/img/angular.svg" /> -->
-                <h1 class="home-text-big">ASD Website</h1>
-                <p class="lead">
-                  {{'home.INTRODUCE' | translate}}
-                  <br> <small class="text-warning change-size">* {{'home.INTRODUCETWO' | translate}}</small>
-                </p>
-              </div>
-            </div>
-            
-            <div class="col-xl-9 col-lg-12">
-              <div class="text-left ml-5">
-                <div>
-                  <div class="row find-pitch">
-                    <div class="col-lg-4 col-10" style="margin-left: 0; margin-right: -25px; ">
-                      <input class="form-control custom-input-sm" type="text" placeholder="Tên sân" style="height: calc(1.5em + 0.625rem + 2px);"/>
-                    </div>
-                    <div class="col-lg-3 col-10" style="margin-left: 0; margin-right: -25px;">
-                      <select class="custom-select custom-select-sm">
-                        <option value="">Ngày</option>
-                        <option>Hôm nay (01/05/2020)</option>
-                      </select>
-                    </div>
-                    <div class="col-lg-2 col-10" style="margin-left: 0; margin-right: -25px;">
-                      <select class="custom-select custom-select-sm">
-                        <option value="">Giờ</option>
-                        <option>15 : 00</option>
-                        <option>16 : 00</option>
-                      </select>
-                    </div>
-                    <div class="col-lg-2 col-10" style="margin-left: 0; margin-right: -25px;">
-                      <button class="btn btn-info"  [routerLink]="'/search-results'">Tìm Sân</button>
-                    </div>
-                  </div>
-                  <div class="row mt-2 ml-1">
-                    <label style="color: white;">Tại &nbsp; </label> <div class="text-warning" style="cursor: pointer;"> TP Đà Nẵng &nbsp; </div>, <div class="text-warning" style="cursor: pointer;"> &nbsp; Quận Thanh Khê</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          
-          
-        
-        </div>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="card b">
-              <div class="card-header">
-                <h3>Quản lý hiệu quả</h3>
-              </div>
-              <div class="card-body">
-                Giải pháp quản lý sân đơn giản, dễ dàng mọi lúc mọi nơi.
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card b">
-              <div class="card-header">
-                <h3>Tăng trưởng doanh thu</h3>
-              </div>
-              <div class="card-body">
-                Doanh thu tăng từ 10% trở lên! Cắt giảm chi phí, thời gian quản lý.
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card b">
-              <div class="card-header">
-                <h3>Quảng bá hiệu quả</h3>
-              </div>
-              <div class="card-body">
-                Trang thông tin sân bóng riêng biệt với hàng ngàn người truy cập hằng ngày!
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="card b">
-              <div class="card-header">
-                <h3>Dễ dàng sử dụng</h3>
-              </div>
-              <div class="card-body">
-                Giao diện thân thiện, dễ dàng làm quen dễ dàng sử dụng.
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card b">
-              <div class="card-header">
-                <h3>An toàn tin cậy</h3>
-              </div>
-              <div class="card-body">
-                Đảm bảo hoạt động kinh doanh của bạn được thuận lợi là ưu tiên hàng đầu của chúng tôi.
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card b">
-              <div class="card-header">
-                <h3>Hỗ trợ 24/7</h3>
-              </div>
-              <div class="card-body">
-                Luôn luôn sẵn sàng hỗ trợ bạn bất cứ lúc nào ở đâu, bất cứ khi nào.
-              </div>
-            </div>
-          </div>
-        </div>
-      
-        <div class="row">
-          <div class="col-3"></div>
-          <div class="col-6">
-            <div class="container">
-              <div class="card b  ">
-                <div class="card-header text-center">
-                  <h3>Tính năng</h3>
-                </div>
-                <div class="card-body " style="line-height: 30px; font-size: 15px;">
-                  <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-8">
-                      <div><em class=" mr-2 fas fa-check"></em>Nhận lịch đặt sân online</div>
-                      <div><em class=" mr-2 fas fa-check"></em> Quản lý lịch đặt sân</div>
-                      <div><em class=" mr-2 fas fa-check"></em> Tùy chỉnh giá theo ngày giờ</div>
-                      <div><em class=" mr-2 fas fa-check"></em> Hỗ trợ tìm kiếm với người chơi mới</div>
-                      <div><em class=" mr-2 fas fa-check"></em> Kết nối với khách hàng thân thiết</div>
-                      <div><em class=" mr-2 fas fa-check"></em> Thống kê, báo cáo doanh thu</div>
-                      <div><em class=" mr-2 fas fa-check"></em> Miễn phí sử dụng</div>
-                    </div>
-                    <div class="col-2"></div>
-                  </div>
-                </div>
-                <div class="btn btn-primary text-center" style="cursor: pointer;" data-toggle="modal"
-                  data-target="#exampleModal">Tìm Sân Ngay</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-3"></div>
-        </div>
-      
-        <div class="jumbotron text-center">
-          <h2 class="home-text-big">Đăng kí đặt sân ASD Football Club trong 3 bước</h2>
-          <div class="row mt-5">
-            <div class="col-lg-4">
-              <div class="">
-                <div class="card-header" style="background: mediumpurple; color: white;">
-                  <h3>Bước 1</h3>
-                </div>
-                <div class="card-body">
-                  Điền thông tin đầy đủ và chính xác.
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="">
-                <div class="card-header" style="background: mediumpurple; color: white;">
-                  <h3>Bước 2</h3>
-                </div>
-                <div class="card-body">
-                  ASD Football Club liên hệ và xác nhận thông tin.
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="">
-                <div class="card-header" style="background: mediumpurple; color: white;">
-                  <h3>Bước 3</h3>
-                </div>
-                <div class="card-body">
-                  Đợi tìm kiếm đối thủ.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      
-        <h4 class="my-3 py-3 text-dark">Some presale Questions</h4>
-      </div>
-      <footer class="position-relative d-print-none mt-auto pt-5" style="background-color: #d0d0d052;">
-        <!-- Main block - menus, subscribe form-->
-        <div class="py-5 bg-gray-200 text-muted">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                <h6 class="text-uppercase text-dark mb-3">Về ASD Football Club</h6>
-                <ul class="list-unstyled">
-                  <li><a href="/pages/about-us" class="text-muted">Giới thiệu Về ASD Football Club</a></li>
-                  <li><a href="/bai-viet/" class="text-muted">Blog</a></li>
-                  <li><a href="/pages/dieu-khoan-su-dung" class="text-muted">Điều khoản sử dụng</a></li>
-                  <li><a href="/pages/chinh-sach-bao-mat" class="text-muted">Chính sách bảo mật</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-3 mb-5 mb-lg-0">
-                <div class="font-weight-bold text-uppercase text-dark mb-3">Thông tin liên hệ</div>
-                <ul class="list-unstyled">
-                  <li class="text-muted"><a href="https://www.facebook.com/sportavn/" target="_blank" title="facebook" class="text-muted text-hover-primary"><i class="fab fa-facebook"></i> /asdFootball</a></li>
-                  <li class="text-muted"><a class="text-muted text-hover-primary" href="mailto:hello@sporta.vn"><i class="fas fa-envelope"></i> asdFootball@gmail.com</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                <h6 class="text-uppercase text-dark mb-3">Thanh toán</h6>
-                <ul class="list-unstyled">
-                  <li class="text-muted"><a class="text-muted text-hover-primary"><img style="height: 25px; margin-bottom: 10px" src="https://www.sporta.vn/assets/momo-f2c88c55af645265139d91c8ec6e31182b68283d335ef35dff10bc90da8ddb3b.png" alt="Momo"> Momo</a></li>
-                  <li class="text-muted"><a class="text-muted text-hover-primary"><i class="fas fa-money-check-alt" style="font-size: 20px;"></i> Tiền mặt</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                <h6 class="text-uppercase text-dark mb-3">Ứng dụng di động</h6>
-                <ul class="list-unstyled">
-                  <li><a href="https://apple.co/2TaO0x3"><img style="width: 150px" src="https://www.sporta.vn/assets/icon-appstore-0ac658e90248e413db2bdc584e50b25b06a8229f6a74efb816b93194d0491829.svg" alt="Icon appstore"></a></li>
-                  <li><a href="https://bit.ly/sporta-capkeo-android"><img style="width: 150px" src="https://www.sporta.vn/assets/icon-googleplaystore-87014b724e646f2c8dce71506e67424975dd3f81a59b3e8f356ce501a0c6e458.svg" alt="Icon googleplaystore"></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Copyright section of the footer-->
-        <div class="py-4 font-weight-light bg-gray-800 text-gray-300" style="background-color: #343A40; color: white">
-          <div class="container">
-            <div class="row align-items-center justify-content-center">
-              <div class="col-md-6 text-center text-md-center">
-                <p class="text-sm mb-md-0"><span>© 2019 Bản quyền của Công Ty TNHH ASD Football Club</span><br>
-                  <span>Giấy chứng nhận Đăng ký Thông qua số 0236 3842 139 do Trường Đại Học Sư Phạm cấp ngày 11/05/2020</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+    <div
+      class="d-flex flex-column flex-md-row align-items-center px-md-4 border-bottom shadow-sm pt-2 animated fadeInDown"
+      id="navbar">
+      <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;"
+        src="../../../../assets/img/Untitled-1.png" [routerLink]="'/home-page'">
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-white" [routerLink]="'/profile'" href="#">Hồ Sơ</a>
+        <!-- <a class="p-2 text-white" href="#">Enterprise</a> -->
+        <a class="p-2 text-white" href="#">Hỗ Trợ</a>
+        <!-- <a class="p-2 text-white" href="#">Pricing</a> -->
+      </nav>
+      <a class="btn btn-outline-primary" href="#">Đăng Nhập/Đăng Ký</a>
     </div>
+  
+    <div class="" style="margin-top: -5%;">
+      <div class="jumbotron-mchange">
+        <div class="row" style="margin: 0;">
+          <div class="col-xl-6 col-lg-8 mg-tital">
+            <div class="text-left ml-5">
+              <!-- <img alt="Fooball" class="img-fluid home-logo" src="assets/img/angular.svg" /> -->
+              <h1 class="home-text-big">ASD Website</h1>
+              <p class="lead">
+                {{'home.INTRODUCE' | translate}}
+                <br> <small class="text-warning change-size">* {{'home.INTRODUCETWO' | translate}}</small>
+              </p>
+            </div>
+          </div>
+  
+          <div class="col-xl-9 col-lg-12">
+            <div class="text-left ml-5">
+              <div>
+                <div class="row find-pitch">
+                  <div class="col-lg-4 col-10" style="margin-left: 0; margin-right: -25px; ">
+                    <input class="form-control custom-input-sm" type="text" placeholder="Tên sân"
+                      style="height: calc(1.5em + 0.625rem + 2px);" [(ngModel)]="search.name"  [ngModelOptions]="{standalone: true}" />
+                  </div>
+                  <div class="col-lg-2 col-10" style="margin-left: 0; margin-right: -25px;">
+                    <button class="btn btn-info" [routerLink]="'/search-results'" (click)="findPitch()">Tìm Sân</button>
+                  </div>
+                </div>
+                <div class="row mt-2 ml-1">
+                  <label style="color: white;">Tại &nbsp; </label>
+                  <div class="text-warning" style="cursor: pointer;">
+                    <select class="text-warning" style="background: #00ffff00; color: orange;border:0px"  (change) = "changeCity()" [(ngModel)]="search.city"  [ngModelOptions]="{standalone: true}">
+                      <option *ngFor="let item of getCitys" value ="{{item._id}}">{{item.name}}</option>
+                    </select>
+                    &nbsp; </div>
+                  <div class="text-warning" style="cursor: pointer;" > &nbsp;
+                    <select class=" text-warning" style="margin-top: -30px; background: #00ffff00; color: orange;border:0px" [(ngModel)]="search.district"  [ngModelOptions]="{standalone: true}">
+                      <option  *ngFor="let item of getDistricts" value ="{{item._id}}">{{item.name}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5" style="margin-right: 0;">
+        <div class="col-lg-4">
+          <div class="card b">
+            <div class="card-header">
+              <h3>Quản lý hiệu quả</h3>
+            </div>
+            <div class="card-body">
+              Giải pháp quản lý sân đơn giản, dễ dàng mọi lúc mọi nơi.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card b">
+            <div class="card-header">
+              <h3>Tăng trưởng doanh thu</h3>
+            </div>
+            <div class="card-body">
+              Doanh thu tăng từ 10% trở lên! Cắt giảm chi phí, thời gian quản lý.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card b">
+            <div class="card-header">
+              <h3>Quảng bá hiệu quả</h3>
+            </div>
+            <div class="card-body">
+              Trang thông tin sân bóng riêng biệt với hàng ngàn người truy cập hằng ngày!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-right: 0;">
+        <div class="col-lg-4">
+          <div class="card b">
+            <div class="card-header">
+              <h3>Dễ dàng sử dụng</h3>
+            </div>
+            <div class="card-body">
+              Giao diện thân thiện, dễ dàng làm quen dễ dàng sử dụng.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card b">
+            <div class="card-header">
+              <h3>An toàn tin cậy</h3>
+            </div>
+            <div class="card-body">
+              Đảm bảo hoạt động kinh doanh của bạn được thuận lợi là ưu tiên hàng đầu của chúng tôi.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card b">
+            <div class="card-header">
+              <h3>Hỗ trợ 24/7</h3>
+            </div>
+            <div class="card-body">
+              Luôn luôn sẵn sàng hỗ trợ bạn bất cứ lúc nào ở đâu, bất cứ khi nào.
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row" style="margin-right: 0;">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <div class="container">
+            <div class="card b  ">
+              <div class="card-header text-center">
+                <h3>Tính năng</h3>
+              </div>
+              <div class="card-body " style="line-height: 30px; font-size: 15px;">
+                <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-8">
+                    <div><em class=" mr-2 fas fa-check"></em>Nhận lịch đặt sân online</div>
+                    <div><em class=" mr-2 fas fa-check"></em> Quản lý lịch đặt sân</div>
+                    <div><em class=" mr-2 fas fa-check"></em> Tùy chỉnh giá theo ngày giờ</div>
+                    <div><em class=" mr-2 fas fa-check"></em> Hỗ trợ tìm kiếm với người chơi mới</div>
+                    <div><em class=" mr-2 fas fa-check"></em> Kết nối với khách hàng thân thiết</div>
+                    <div><em class=" mr-2 fas fa-check"></em> Thống kê, báo cáo doanh thu</div>
+                    <div><em class=" mr-2 fas fa-check"></em> Miễn phí sử dụng</div>
+                  </div>
+                  <div class="col-2"></div>
+                </div>
+              </div>
+              <div class="btn btn-primary text-center" style="cursor: pointer;" data-toggle="modal"
+                data-target="#exampleModal">Tìm Sân Ngay</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+  
+      <div class="jumbotron text-center">
+        <h2 class="home-text-big">Đăng kí đặt sân ASD Football Club trong 3 bước</h2>
+        <div class="row mt-5">
+          <div class="col-lg-4">
+            <div class="">
+              <div class="card-header" style="background: mediumpurple; color: white;">
+                <h3>Bước 1</h3>
+              </div>
+              <div class="card-body">
+                Điền thông tin đầy đủ và chính xác.
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="">
+              <div class="card-header" style="background: mediumpurple; color: white;">
+                <h3>Bước 2</h3>
+              </div>
+              <div class="card-body">
+                ASD Football Club liên hệ và xác nhận thông tin.
+              </div>
+            </div> 
+          </div>
+          <div class="col-lg-4">
+            <div class="">
+              <div class="card-header" style="background: mediumpurple; color: white;">
+                <h3>Bước 3</h3>
+              </div>
+              <div class="card-body">
+                Đợi tìm kiếm đối thủ.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <h4 class="my-3 py-3 text-dark">Some presale Questions</h4>
+    </div>
+    <footer class="position-relative d-print-none mt-auto pt-5" style="background-color: #d0d0d052;">
+      <!-- Main block - menus, subscribe form-->
+      <div class="py-5 bg-gray-200 text-muted">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+              <h6 class="text-uppercase text-dark mb-3">Về ASD Football Club</h6>
+              <ul class="list-unstyled">
+                <li><a href="/pages/about-us" class="text-muted">Giới thiệu Về ASD Football Club</a></li>
+                <li><a href="/bai-viet/" class="text-muted">Blog</a></li>
+                <li><a href="/pages/dieu-khoan-su-dung" class="text-muted">Điều khoản sử dụng</a></li>
+                <li><a href="/pages/chinh-sach-bao-mat" class="text-muted">Chính sách bảo mật</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 mb-5 mb-lg-0">
+              <div class="font-weight-bold text-uppercase text-dark mb-3">Thông tin liên hệ</div>
+              <ul class="list-unstyled">
+                <li class="text-muted"><a href="https://www.facebook.com/sportavn/" target="_blank" title="facebook"
+                    class="text-muted text-hover-primary"><i class="fab fa-facebook"></i> /asdFootball</a></li>
+                <li class="text-muted"><a class="text-muted text-hover-primary" href="mailto:hello@sporta.vn"><i
+                      class="fas fa-envelope"></i> asdFootball@gmail.com</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+              <h6 class="text-uppercase text-dark mb-3">Thanh toán</h6>
+              <ul class="list-unstyled">
+                <li class="text-muted"><a class="text-muted text-hover-primary"><img
+                      style="height: 25px; margin-bottom: 10px"
+                      src="https://www.sporta.vn/assets/momo-f2c88c55af645265139d91c8ec6e31182b68283d335ef35dff10bc90da8ddb3b.png"
+                      alt="Momo"> Momo</a></li>
+                <li class="text-muted"><a class="text-muted text-hover-primary"><i class="fas fa-money-check-alt"
+                      style="font-size: 20px;"></i> Tiền mặt</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+              <h6 class="text-uppercase text-dark mb-3">Ứng dụng di động</h6>
+              <ul class="list-unstyled">
+                <li><a href="https://apple.co/2TaO0x3"><img style="width: 150px"
+                      src="https://www.sporta.vn/assets/icon-appstore-0ac658e90248e413db2bdc584e50b25b06a8229f6a74efb816b93194d0491829.svg"
+                      alt="Icon appstore"></a></li>
+                <li><a href="https://bit.ly/sporta-capkeo-android"><img style="width: 150px"
+                      src="https://www.sporta.vn/assets/icon-googleplaystore-87014b724e646f2c8dce71506e67424975dd3f81a59b3e8f356ce501a0c6e458.svg"
+                      alt="Icon googleplaystore"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright section of the footer-->
+      <div class="py-4 font-weight-light bg-gray-800 text-gray-300" style="background-color: #343A40; color: white">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-6 text-center text-md-center">
+              <p class="text-sm mb-md-0"><span>© 2019 Bản quyền của Công Ty TNHH ASD Football Club</span><br>
+                <span>Giấy chứng nhận Đăng ký Thông qua số 0236 3842 139 do Trường Đại Học Sư Phạm cấp ngày
+                  11/05/2020</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>

@@ -26,9 +26,12 @@
                       autocomplete="off">
                   </div>
                 </div>
-                <div class="col-lg-3 d-flex align-items-center form-group">
-                  <div class="dropdown bootstrap-select main-search__datepicker"><select name="date" title="Ngày đặt"
-                      data-style="btn-form-control" required="" class="selectpicker main-search__datepicker"
+                <div class="col-lg-3"></div>
+                <div class="col-lg-2"></div>
+                <!-- <div class="col-lg-3 d-flex align-items-center form-group">
+                  <div class="dropdown bootstrap-select main-search__datepicker ">
+                    <select name="date" title="Ngày đặt"
+                      data-style="btn-form-control" required="" class="form-control selectpicker main-search__datepicker"
                       tabindex="-98">
                       <option class="bs-title-option" value=""></option>
                       <option value="2020-05-06 13:18:12 +0700" selected="">Hôm nay, 06/05/2020 </option>
@@ -50,7 +53,7 @@
                   <input value="18:00" type="text" name="begin_time" title="Vào lúc" placeholder="Vào lúc"
                     data-style="btn-form-control" class="form-control border-0 shadow-0 timepicker z-index-20"
                     style="z-index: 50; border-radius: 0.2rem;">
-                </div>
+                </div> -->
                 <div class="col-lg-2">
                   <button type="submit" class="btn btn-primary btn-block h-100" id="main-search__submit">Tìm kiếm</button>
                 </div>
@@ -60,7 +63,8 @@
           <div class="mt-2">
             <label>Tại <small class="text-warning" style="cursor: pointer;">TP Đà Nẵng</small></label>
           </div>
-  
+          <!-- <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" name="dp-basic" [bsConfig]="bsConfig" style="z-index: 1600;"> -->
+
         </div>
       </div>
     </div>
@@ -265,6 +269,14 @@
                         </div>
                       </div>
                     </fieldset>
+                    <fieldset>
+                      <div class="form-group row mb">
+                          <label class="col-md-2 col-form-label">Datepicker</label>
+                          <div class="col-md-6">
+                              <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" name="dp-basic" [bsConfig]="bsConfig" style="z-index: 1600;">
+                          </div>
+                      </div>
+                  </fieldset>
                   </form>
                 </div>
               </div>

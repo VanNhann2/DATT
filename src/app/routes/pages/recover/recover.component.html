@@ -1,10 +1,13 @@
 <!-- <div >   -->
-<div  class="web_homePage" (scroll)="onWindowScroll($event);">
-<!-- menu user-->
-<div class="d-flex flex-column flex-md-row align-items-center px-md-4 border-bottom shadow-sm pt-2 animated fadeInDown"  id="navbar">
-    <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;" src="../../../../assets/img/Untitled-1.png"  [routerLink]="'/home-page'">
+<div class="web_homePage" (scroll)="onWindowScroll($event);">
+  <!-- menu user-->
+  <div
+    class="d-flex flex-column flex-md-row align-items-center px-md-4 border-bottom shadow-sm pt-2 animated fadeInDown"
+    id="navbar">
+    <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;"
+      src="../../../../assets/img/Untitled-1.png" [routerLink]="'/home-page'">
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-white"  [routerLink]="'/profile'" href="#">Hồ Sơ</a>
+      <a class="p-2 text-white" [routerLink]="'/profile'" href="#">Hồ Sơ</a>
       <!-- <a class="p-2 text-white" href="#">Enterprise</a> -->
       <a class="p-2 text-white" href="#">Hỗ Trợ</a>
       <!-- <a class="p-2 text-white" href="#">Pricing</a> -->
@@ -25,42 +28,37 @@
             </p>
           </div>
         </div>
-        
+
         <div class="col-xl-9 col-lg-12">
           <div class="text-left ml-5">
             <div>
               <div class="row find-pitch">
                 <div class="col-lg-4 col-10" style="margin-left: 0; margin-right: -25px; ">
-                  <input class="form-control custom-input-sm" type="text" placeholder="Tên sân" style="height: calc(1.5em + 0.625rem + 2px);"/>
-                </div>
-                <div class="col-lg-3 col-10" style="margin-left: 0; margin-right: -25px;">
-                  <select class="custom-select custom-select-sm">
-                    <option value="">Ngày</option>
-                    <option>Hôm nay (01/05/2020)</option>
-                  </select>
+                  <input class="form-control custom-input-sm" type="text" placeholder="Tên sân"
+                    style="height: calc(1.5em + 0.625rem + 2px);" />
                 </div>
                 <div class="col-lg-2 col-10" style="margin-left: 0; margin-right: -25px;">
-                  <select class="custom-select custom-select-sm">
-                    <option value="">Giờ</option>
-                    <option>15 : 00</option>
-                    <option>16 : 00</option>
-                  </select>
-                </div>
-                <div class="col-lg-2 col-10" style="margin-left: 0; margin-right: -25px;">
-                  <button class="btn btn-info"  [routerLink]="'/search-results'">Tìm Sân</button>
+                  <button class="btn btn-info" [routerLink]="'/search-results'">Tìm Sân</button>
                 </div>
               </div>
               <div class="row mt-2 ml-1">
-                <label style="color: white;">Tại &nbsp; </label> <div class="text-warning" style="cursor: pointer;"> TP Đà Nẵng &nbsp; </div>, <div class="text-warning" style="cursor: pointer;"> &nbsp; Quận Thanh Khê</div>
+                <label style="color: white;">Tại &nbsp; </label>
+                <div class="text-warning" style="cursor: pointer;">
+                  <select class="text-warning" style="background: #00ffff00; color: orange;border:0px">
+                    <option *ngFor="let item of getCitys" (change) = "changeCity()">{{item.name}}</option>
+                  </select>
+                  &nbsp; </div>
+                <div class="text-warning" style="cursor: pointer;" > &nbsp;
+                  <select class=" text-warning" style="margin-top: -30px; background: #00ffff00; color: orange;border:0px" [(ngModel)]="city">
+                    <option value="">Thanh Khê</option>
+                    <option>Cẩm Lệ</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-      
-      
-    
     </div>
     <div class="row">
       <div class="col-lg-4">
@@ -126,7 +124,7 @@
         </div>
       </div>
     </div>
-  
+
     <div class="row">
       <div class="col-3"></div>
       <div class="col-6">
@@ -157,7 +155,7 @@
       </div>
       <div class="col-3"></div>
     </div>
-  
+
     <div class="jumbotron text-center">
       <h2 class="home-text-big">Đăng kí đặt sân ASD Football Club trong 3 bước</h2>
       <div class="row mt-5">
@@ -193,7 +191,7 @@
         </div>
       </div>
     </div>
-  
+
     <h4 class="my-3 py-3 text-dark">Some presale Questions</h4>
   </div>
   <footer class="position-relative d-print-none mt-auto pt-5" style="background-color: #d0d0d052;">
@@ -213,22 +211,32 @@
           <div class="col-lg-3 mb-5 mb-lg-0">
             <div class="font-weight-bold text-uppercase text-dark mb-3">Thông tin liên hệ</div>
             <ul class="list-unstyled">
-              <li class="text-muted"><a href="https://www.facebook.com/sportavn/" target="_blank" title="facebook" class="text-muted text-hover-primary"><i class="fab fa-facebook"></i> /asdFootball</a></li>
-              <li class="text-muted"><a class="text-muted text-hover-primary" href="mailto:hello@sporta.vn"><i class="fas fa-envelope"></i> asdFootball@gmail.com</a></li>
+              <li class="text-muted"><a href="https://www.facebook.com/sportavn/" target="_blank" title="facebook"
+                  class="text-muted text-hover-primary"><i class="fab fa-facebook"></i> /asdFootball</a></li>
+              <li class="text-muted"><a class="text-muted text-hover-primary" href="mailto:hello@sporta.vn"><i
+                    class="fas fa-envelope"></i> asdFootball@gmail.com</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
             <h6 class="text-uppercase text-dark mb-3">Thanh toán</h6>
             <ul class="list-unstyled">
-              <li class="text-muted"><a class="text-muted text-hover-primary"><img style="height: 25px; margin-bottom: 10px" src="https://www.sporta.vn/assets/momo-f2c88c55af645265139d91c8ec6e31182b68283d335ef35dff10bc90da8ddb3b.png" alt="Momo"> Momo</a></li>
-              <li class="text-muted"><a class="text-muted text-hover-primary"><i class="fas fa-money-check-alt" style="font-size: 20px;"></i> Tiền mặt</a></li>
+              <li class="text-muted"><a class="text-muted text-hover-primary"><img
+                    style="height: 25px; margin-bottom: 10px"
+                    src="https://www.sporta.vn/assets/momo-f2c88c55af645265139d91c8ec6e31182b68283d335ef35dff10bc90da8ddb3b.png"
+                    alt="Momo"> Momo</a></li>
+              <li class="text-muted"><a class="text-muted text-hover-primary"><i class="fas fa-money-check-alt"
+                    style="font-size: 20px;"></i> Tiền mặt</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
             <h6 class="text-uppercase text-dark mb-3">Ứng dụng di động</h6>
             <ul class="list-unstyled">
-              <li><a href="https://apple.co/2TaO0x3"><img style="width: 150px" src="https://www.sporta.vn/assets/icon-appstore-0ac658e90248e413db2bdc584e50b25b06a8229f6a74efb816b93194d0491829.svg" alt="Icon appstore"></a></li>
-              <li><a href="https://bit.ly/sporta-capkeo-android"><img style="width: 150px" src="https://www.sporta.vn/assets/icon-googleplaystore-87014b724e646f2c8dce71506e67424975dd3f81a59b3e8f356ce501a0c6e458.svg" alt="Icon googleplaystore"></a></li>
+              <li><a href="https://apple.co/2TaO0x3"><img style="width: 150px"
+                    src="https://www.sporta.vn/assets/icon-appstore-0ac658e90248e413db2bdc584e50b25b06a8229f6a74efb816b93194d0491829.svg"
+                    alt="Icon appstore"></a></li>
+              <li><a href="https://bit.ly/sporta-capkeo-android"><img style="width: 150px"
+                    src="https://www.sporta.vn/assets/icon-googleplaystore-87014b724e646f2c8dce71506e67424975dd3f81a59b3e8f356ce501a0c6e458.svg"
+                    alt="Icon googleplaystore"></a></li>
             </ul>
           </div>
         </div>
@@ -240,7 +248,8 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-md-6 text-center text-md-center">
             <p class="text-sm mb-md-0"><span>© 2019 Bản quyền của Công Ty TNHH ASD Football Club</span><br>
-              <span>Giấy chứng nhận Đăng ký Thông qua số 0236 3842 139 do Trường Đại Học Sư Phạm cấp ngày 11/05/2020</span></p>
+              <span>Giấy chứng nhận Đăng ký Thông qua số 0236 3842 139 do Trường Đại Học Sư Phạm cấp ngày
+                11/05/2020</span></p>
           </div>
         </div>
       </div>
