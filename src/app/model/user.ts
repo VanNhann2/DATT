@@ -3,8 +3,8 @@ export interface User {  // khi sử lý dữ liệu thì cứ dùng interface c
     createdAt: Number;
     updatedAt:Number;
     email: String;
-    first_name:String;
-    last_name:String;
+    firstname:String;
+    lastname:String;
     phone:String;
     permission:String;
     password:String

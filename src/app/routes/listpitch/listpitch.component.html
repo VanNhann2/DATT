@@ -180,7 +180,7 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Form đăng kí</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Đặt sân</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -190,7 +190,7 @@
               <div class="card-header">
                 <div class="card-body">
                   <form class="form-horizontal" method="get" action="/">
-                    <fieldset>
+                    <!-- <fieldset>
                       <div class="form-group row">
                         <label class="col-md-2 col-form-label" for="input-id-1">Họ Và Tên <span
                             style="color: rgb(187, 0, 0);">*</span></label>
@@ -207,7 +207,7 @@
                           <input class="form-control" id="input-id-1" type="text" />
                         </div>
                       </div>
-                    </fieldset>
+                    </fieldset> -->
                     <!-- <fieldset>
                       <div class="form-group row">
                         <label class="col-md-2 col-form-label">Password</label>
@@ -272,18 +272,34 @@
                     <fieldset>
                       <div class="form-group row mb">
                           <label class="col-md-2 col-form-label">Datepicker</label>
-                          <div class="col-md-6">
+                          <div class="col-md-10">
                               <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" name="dp-basic" [bsConfig]="bsConfig" style="z-index: 1600;">
                           </div>
                       </div>
                   </fieldset>
+                  <fieldset>
+                    <div class="form-group row mb">
+                        <label class="col-md-2 col-form-label">Loại sân</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                  <div class="form-group row">
+                      <label class="col-md-2 col-form-label">Giá tiền</label>
+                      <div class="col-md-10">
+                          <input type="text" class="form-control">
+                      </div>
+                  </div>
+              </fieldset>
                   </form>
                 </div>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Đăng kí</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+              <button type="button" class="btn btn-primary">Đặt sân</button>
             </div>
           </div>
         </div>

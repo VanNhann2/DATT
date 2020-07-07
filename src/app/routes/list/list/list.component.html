@@ -16,16 +16,16 @@
     </div>
   </div>
 </div> -->
-<div class="mb-5 mt-3 ml-2 mr-2 row" style="margin:0; padding: 0;">
+<!-- <div class="mb-5 mt-3 ml-2 mr-2 row" style="margin:0; padding: 0;">
   <div class="search__container col-10">
     <input class="search__input" type="text" placeholder="Search">
   </div>
   <div class="search__container col-2"><button class="btn btn-outline-dark csSearch" >Tìm Kiếm</button></div>
-</div>
+</div> -->
 
 <div class="card card-default">
   <div class="card-header">
-      <div class="card-title">Danh Sách User Đặt Sân</div>
+      <div class="card-title">Danh Sách Đặt Sân</div>
   </div>
   <div class="card-body">
       <div class="row mb-4">
@@ -34,10 +34,12 @@
           </div>
       </div>
       <ngx-datatable #table class='bootstrap no-detail-row' [columns]="columns" [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='rowsFilter'>
-          <ngx-datatable-column name="Name" [width]="300"></ngx-datatable-column>
-          <ngx-datatable-column name="Gender"></ngx-datatable-column>
-          <ngx-datatable-column name="Age"></ngx-datatable-column>
-          <ngx-datatable-column name="Company" [width]="300"></ngx-datatable-column>
+          <ngx-datatable name="Sân"></ngx-datatable>
+          <ngx-datatable name="Sân con"></ngx-datatable>
+          <ngx-datatable name="Ngày đặt"></ngx-datatable>
+          <ngx-datatable name="Giờ đặt"></ngx-datatable>
+          <ngx-datatable name="Người đặt"></ngx-datatable>
+          <ngx-datatable name="Số điện thoại người đặt"></ngx-datatable>
       </ngx-datatable>
   </div>
 </div>

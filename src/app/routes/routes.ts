@@ -23,7 +23,7 @@ export const routes = [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             // { path: 'home', loadChildren: './home/home.module#HomeModule' },
             { path: 'home', loadChildren: './home/home.module#HomeModule' },
-            { path: 'list-user', loadChildren: './list/list.module#ListModule' },
+            { path: 'list-bookpitch', loadChildren: './list/list.module#ListModule' },
             { path: 'config', component: ConfigListComponent },
             { path: 'list-pitch', loadChildren: './widgets/widgets.module#WidgetsModule' },
             { path: 'createPitch',component:CreatePitchComponent},

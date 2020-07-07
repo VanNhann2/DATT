@@ -28,27 +28,22 @@ export class ListComponent implements OnInit {
     selected = [];
 
     columns = [
-        { prop: 'name' },
-        { name: 'Company' },
-        { name: 'Gender' }
+        { name: 'Sân' },
+        { name: 'Sân con' },
+        { name: 'Ngày đặt' },
+        { name: 'Giờ đặt' },
+        { name: 'Người đặt' },
+        { name: 'Số điện thoại người đặt' }
     ];
     columnsSort = [
-        { prop: 'name' },
-        { name: 'Company' },
-        { name: 'Gender' }
+        { name: 'Sân' },
+        { name: 'Sân con' },
+        { name: 'Ngày đặt' },
+        { name: 'Giờ đặt' },
     ];
     @ViewChild(DatatableComponent, { static: true }) table: DatatableComponent;
     @ViewChild('myTable', { static: true }) tableExp: any;
-    // orgs: UserOrganization[];
-    // userOrg: UserOrganization[];
-    // pageSize: number = 5;
-    // totalPageNumber: number = 0;
-    // filter: string = null;
-    // public loading = false;
-    // selectedIndex: number;
-    // x:number[]=[]
-    //  owner = {}
-
+    
     constructor(
         public colors: ColorsService, 
         // private orgService: OrganizationService

@@ -6,8 +6,8 @@ const Home = {
 };
 
 const Orgs = {
-    text: 'Danh Sách User',
-    link: '/list-user/',
+    text: 'Danh sách đặt sân',
+    link: '/list-bookpitch',
     icon: 'icon-grid',
     
 };
@@ -33,9 +33,9 @@ const Dashboard = {
 };
 
 const Widgets = {
-    text: 'Tạo Sân',
+    text: 'Danh sách sân',
     link: '/list-pitch',
-    icon: 'icon-grid'
+    icon: 'icon-note'
 };
 
 const Elements = {

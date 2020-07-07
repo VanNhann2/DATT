@@ -52,15 +52,13 @@ export class WidgetsComponent implements OnInit {
     };
     listPitch : Pitch[]
     request = {
-        page:1,
-        page_size : 20,
         user_id :localStorage.getItem('user_id')
     }
     constructor(public colors: ColorsService, private PitchService : PitchService) { 
         PitchService.listPitch(this.request).subscribe(
             res => {
                 console.log(res)
-                this.listPitch = res.infoPitchs
+                this.listPitch = res
             }
         )
     }
