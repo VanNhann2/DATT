@@ -16,13 +16,6 @@ export class LocationService {
     return this.http.get<any>(this.url +'city/')
   }
 
-  // getDbOrgById(orgId: String): Observable<DbOrganization> {
-  //   return this.http.get<DbOrganization>(this.getOrgURL + "/" + orgId).pipe(
-  //     tap(received => {
-  //     }),
-  //     catchError(err => of(null))
-  //   )
-  // }
   getDistrict(request) {
     return this.http.get<any>(this.url + 'district',{
       params: request

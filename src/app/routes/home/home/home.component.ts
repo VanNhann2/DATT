@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PitchService } from '../../../service/pitch.service'
 import { UserService } from '../../../service/user.service'
 import {Router} from "@angular/router"
+import { Chart } from 'chart.js';
 
 @Component({
     selector: 'app-home',
@@ -9,12 +10,10 @@ import {Router} from "@angular/router"
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    isAccOpen1 = false;
-    isAccOpen2 = false;
-    isAccOpen3 = false;
-    isAccOpen4 = false;
-    isAccOpen5 = false;
-    isAccOpen6 = false;
+    @ViewChild('canvas', {
+      static: true
+    }) canvas: ElementRef;
+    chart: Chart;
 
     search : any = {
       page : 1,
@@ -23,29 +22,32 @@ export class HomeComponent implements OnInit {
       district: null,
       city:null
     }
-
+    choosePitch
+    pitches
+    request = {
+      daystart:new Date(),
+      dayend:new Date()
+    }
     username = undefined
     constructor(private PitchService : PitchService, private UserService : UserService, private router: Router) {
-        this.UserService.getUser().subscribe(
-          res => {
-            console.log(res)
-            this.username = res.username
-            console.log(this.username)
-          },
-          err => this.router.navigate(['login'])
-        )
+        // this.UserService.getUser().subscribe(
+        //   res => {
+        //     console.log(res)
+        //     this.username = res.username
+        //     localStorage.setItem('user_id',res.user_id)
+        //     console.log(this.username)
+        //   },
+        //   err => this.router.navigate(['login'])
+        // )
      }
 
     ngOnInit() {
-      this.PitchService.findPitch(this.search).subscribe(
+      this.PitchService.listPitch({user_id :localStorage.getItem('user_id')}).subscribe(
         res => {
-          console.log(res)
+            console.log(res)
+            this.pitches = res
+            this.choosePitch = res[0]._id
         }
-      )
-      this.PitchService.getPitch("5e461330bc3dc82a0b7a07c1").subscribe(
-        res => {
-          console.log(res)
-        }
-      )
+    )
     }
 }

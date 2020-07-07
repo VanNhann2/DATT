@@ -14,19 +14,6 @@ export class PitchService {
   private url = environment.apiURL + "/pitch/"
   private urlOwner = environment.apiURL + "/manager/pitch/"
 
-  // findPitchQuick(pitch: String, date: Number, time: Number, district: String, city: String): Observable<any> {
-  //   return this.http.get<any>(this.url+ "find" + "?pitch=" + pitch + "&date=" + date + "&time=" + time + "&district=" + district + "&city" + city).pipe(
-  //     tap(received => received),
-  //     catchError(error => of([]))
-  //   )
-  // }
-
-  // findPitchQuick(request: any) {
-  //   return this.http.get<any>(this.url+"find", {
-  //     params: request
-  //   });
-  // }
-
   findPitch(request: any) {
     return this.http.get<any>(this.url+"list", {
       params: request

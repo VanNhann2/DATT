@@ -10,13 +10,13 @@ export class LayoutComponent implements OnInit {
   
       username = ""
       constructor(private UserService : UserService, private router: Router) {
-          this.UserService.getUser().subscribe(
-            res => {
-              this.username = res.username
-              localStorage.setItem('user_id',res.user_id)
-            },
-            err => this.router.navigate(['login'])
-          )
+          // this.UserService.getUser().subscribe(
+          //   res => {
+          //     this.username = res.username
+          //     localStorage.setItem('user_id',res.user_id)
+          //   },
+          //   err => this.router.navigate(['login'])
+          // )
        }
 
     ngOnInit() {

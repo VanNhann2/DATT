@@ -11,11 +11,18 @@ export class BookPitchService {
 
   constructor(private http: HttpClient) { }
   private url = environment.apiURL + "/pitch/"
+  private urlOwner = environment.apiURL + "/manager/pitch/"
 
   bookPitch(form) {
     return this.http.post<any>(this.url +'bookPitch', form);
   }
   historyBook(id) {
     return this.http.get<any>(this.url +'bookPitch/' + id);
+  }
+
+  //owner 
+ 
+  historyBookOwner() {
+    return this.http.get<any>(this.urlOwner +'history/'+ localStorage.getItem('user_id'))
   }
 }

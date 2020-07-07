@@ -20,8 +20,8 @@ export class SettingsService {
         // App Settings
         // -----------------------------------
         this.app = {
-            name: 'Angle',
-            description: 'Angular Bootstrap Admin Template',
+            name: 'ASD Football',
+            description: 'Bản quyền của Công Ty TNHH ASD Football Club Giấy chứng nhận Đăng ký Thông qua số 0236 3842 139 do Trường Đại Học Sư Phạm cấp ngày 11/05/2020',
             year: ((new Date()).getFullYear())
         };
 

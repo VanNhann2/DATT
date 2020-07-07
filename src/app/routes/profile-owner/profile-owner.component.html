@@ -14,6 +14,13 @@
               </div>
           </div>
       </div>
+      <div class="">
+        <div class="card">
+            <div class="card-body">
+                <img-cropper #cropper [image]="data1" [settings]="cropperSettings" (onCrop)="cropped($event)"></img-cropper>
+            </div>
+        </div>
+    </div>
   </div>
   <div class="col-lg-8">
       <div class="card card-default">

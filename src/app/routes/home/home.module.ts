@@ -3,6 +3,9 @@ import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { TotalComponent } from './total/total/total.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from "@angular/common";
+import { BsDatepickerModule, DatepickerModule } from 'ngx-bootstrap/datepicker';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -11,7 +14,11 @@ const routes: Routes = [
 @NgModule({
     imports: [
         TranslateModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        FormsModule,
+        CommonModule,
+        BsDatepickerModule.forRoot(),
+        DatepickerModule.forRoot()
     ],
     declarations: [
         HomeComponent,

@@ -1,4 +1,21 @@
 <!-- button next page -->
+<div class="form-group row">
+    <div class="col-xl-8 col-md-4 col-4"></div>
+    <div class="col-xl-2 col-4 col-md-4 form-group">
+        <input
+            placeholder="Datepicker"
+            class="form-control"
+            #dp="bsDatepicker"
+            [(ngModel)]="date"
+            (change) = "getTotal()"
+            bsDatepicker>
+    </div>
+    <div class="col-xl-2 col-md-4 col-5">
+        <select class="form-control" [(ngModel)]="choosePitch">
+            <option *ngFor="let item of pitches" value="{{ item._id}}">{{ item.name }}</option>
+        </select>
+    </div>
+</div>
 <div class="content-heading">
     <div>
         Số Liệu Hôm Nay!
@@ -17,7 +34,7 @@
             </div>
             <div class="col-8 py-3 bg-success rounded-right">
                 <div class="h2 mt-0 leadTotal" data-toggle="modal"
-                    data-target="#ModalOLC">10</div>
+                    data-target="#ModalOLC">{{totalBook}}</div>
                 <div class="text-uppercase">Số Lần Đặt Sân</div>
             </div>
         </div>
@@ -32,7 +49,7 @@
             </div>
             <div class="col-8 py-3 bg-danger rounded-right">
                 <div class="h2 mt-0"  data-toggle="modal" data-target="#ModalOLC">
-                    6
+                    {{totalUser.length}}
                     <!-- <small>GB</small> -->
                 </div>
                 <div class="text-uppercase">Số User Đã Đặt Sân</div>
@@ -48,7 +65,7 @@
             </div>
             <div class="col-8 py-3 bg-purple rounded-right">
                 <div class="h2 mt-0"  data-toggle="modal" data-target="#ModalDanhthu">
-                    1200000</div>
+                    {{totalRevenue}}</div>
                 <div class="text-uppercase">Doanh thu</div>
             </div>
         </div>

@@ -24,7 +24,8 @@ import { FormsModule } from '@angular/forms';
         PagesModule,
         ConfigListModule,
         ImageCropperModule,
-        FormsModule
+        FormsModule,
+        
     ],
     declarations: [CreatePitchComponent, ProfileOwnerComponent, HomepageComponent, ListpitchComponent, ProfileComponent],
     exports: [

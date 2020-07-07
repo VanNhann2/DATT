@@ -35,7 +35,16 @@ export class LoginComponent implements OnInit {
                 res => {
                     console.log(res)
                     localStorage.setItem('token',res.toString())
-                    this.router.navigate(['homepage'])
+                    this.UserService.getUser().subscribe(
+                        data => {
+                          localStorage.setItem('user_id',data.user_id)
+                          localStorage.setItem('permission',data.permission)
+                          if(data.permission === 'owner'){
+                            this.router.navigate(['home'])
+                          }else this.router.navigate(['homepage'])
+                        },
+                        err => this.router.navigate(['login'])
+                      )
                 },
                 error => (console.log(error))
             )

@@ -21,7 +21,6 @@ export class ListpitchComponent implements OnInit {
     constructor(private PitchService : PitchService, private UserService : UserService, private router: Router, private route: ActivatedRoute) {
         this.UserService.getUser().subscribe(
           res => {
-            console.log(res)
             this.username = res.username
             console.log(this.username)
           },
