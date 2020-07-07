@@ -27,6 +27,7 @@ export const routes = [
             { path: 'config', component: ConfigListComponent },
             { path: 'list-pitch', loadChildren: './widgets/widgets.module#WidgetsModule' },
             { path: 'createPitch',component:CreatePitchComponent},
+            { path: 'createPitch/:id',component:CreatePitchComponent},
             { path: 'profile-owner',component:ProfileOwnerComponent},
             // { path: 'config/:_id', component: ConfigListComponent },
 

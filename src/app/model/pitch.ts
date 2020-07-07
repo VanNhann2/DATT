@@ -5,10 +5,9 @@ export interface Pitch {  // khi sử lý dữ liệu thì cứ dùng interface 
   district: String;
   phone: Number;
   image: String;
+  desc: String;
+  user_id: String
   subPitch: Array<any>;
-  currentPage: Number;
-  totalPage: Number;
-  totalResults: Number;
   createdAt: Number;
   updatedAt:Number
 }

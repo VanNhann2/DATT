@@ -21,11 +21,11 @@ export class PitchService {
   //   )
   // }
 
-  findPitchQuick(request: any) {
-    return this.http.get<any>(this.url+"find", {
-      params: request
-    });
-  }
+  // findPitchQuick(request: any) {
+  //   return this.http.get<any>(this.url+"find", {
+  //     params: request
+  //   });
+  // }
 
   findPitch(request: any) {
     return this.http.get<any>(this.url+"list", {
@@ -34,6 +34,11 @@ export class PitchService {
   }
   
   //owner
+  listPitch(request) {
+    return this.http.get<any>(this.urlOwner + 'list',{
+      params:request
+    });
+  }
   getPitch(id) {
     return this.http.get<any>(this.urlOwner + 'list/'+ id + '/');
   }

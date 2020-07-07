@@ -31,8 +31,8 @@ export class UserService {
       params: new HttpParams().append('token',localStorage.getItem('token'))
     });
   }
-  getProfileUser(id) {
-    return this.http.get<any>(this.url + id);
+  getProfileUser() {
+    return this.http.get<any>(this.url + "getProfile");
   }
 
   updateUser(id, form) {
