@@ -8,14 +8,8 @@ import {PitchService} from '../../../../service/pitch.service'
     styleUrls: ['./total.component.scss']
 })
 export class TotalComponent implements OnInit {
-    //ngx-loading 
     public loading = false;
-    // bsValue = new Date();
-    // bsRangeValue: Date[];
-    // maxDate = new Date();
-    // bsConfig = {
-    //     containerClass: 'theme-angle'
-    // }
+
     totalBook = 0
     totalUser = 0
     totalRevenue = 0
@@ -52,8 +46,6 @@ export class TotalComponent implements OnInit {
                 this.getTotal()
             }
         )
-        // this.maxDate.setDate(this.maxDate.getDate() + 7);
-        // this.bsRangeValue = [this.bsValue, this.maxDate];
     }
 
 }

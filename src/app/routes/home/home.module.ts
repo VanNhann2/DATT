@@ -6,6 +6,7 @@ import { TotalComponent } from './total/total/total.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
 import { BsDatepickerModule, DatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ChartsModule } from 'ng2-charts';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
         FormsModule,
         CommonModule,
         BsDatepickerModule.forRoot(),
-        DatepickerModule.forRoot()
+        DatepickerModule.forRoot(),
+        ChartsModule
     ],
     declarations: [
         HomeComponent,

@@ -1,27 +1,13 @@
 <!-- button next page -->
 <div class="form-group row">
-    <div class="col-xl-8 col-md-4 col-4"></div>
-    <div class="col-xl-2 col-4 col-md-4 form-group">
-        <input
-            placeholder="Datepicker"
-            class="form-control"
-            #dp="bsDatepicker"
-            [(ngModel)]="date"
-            (change) = "getTotal()"
-            bsDatepicker>
-    </div>
-    <div class="col-xl-2 col-md-4 col-5">
-        <select class="form-control" [(ngModel)]="choosePitch">
+    <div class="col-xl-10 col-md-8 col-7"></div>
+    <!-- <div class="col-xl-2 col-md-4 col-5">
+        <select class="form-control" [(ngModel)]="choosePitch" (change)="getTotal()">
             <option *ngFor="let item of pitches" value="{{ item._id}}">{{ item.name }}</option>
         </select>
-    </div>
+    </div> -->
 </div>
-<div class="content-heading">
-    <div>
-        Số Liệu Hôm Nay!
-        <!-- <small>welcome to !!</small> -->
-    </div>
-</div>
+<h4>Số liệu hôm nay</h4>
 
 <!-- START cards box-->
 <div class="row">
