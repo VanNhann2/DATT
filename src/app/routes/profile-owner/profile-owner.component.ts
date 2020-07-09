@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FileService } from '../../service/file.service'
 import { UserService } from '../../service/user.service'
+import {DomSanitizer} from '@angular/platform-browser';
+import { ToasterService, ToasterConfig } from 'angular2-toaster';
+
 
 @Component({
   selector: 'app-profile-owner',
@@ -9,19 +12,30 @@ import { UserService } from '../../service/user.service'
 })
 export class ProfileOwnerComponent implements OnInit {
 
+  toaster: any;
+  toasterConfig: any;
+  toasterconfig: ToasterConfig = new ToasterConfig({
+    positionClass: 'toast-bottom-right',
+    showCloseButton: true
+  });
+
   name: string;
   image
-  avatar
   profileUser = {
     firstname: null,
     lastname: null,
     phone: null,
-    email: null,
-    avatar: null
+    email: null,  
+    avatar: '/assets/img/user/default.jpg'
   }
-  constructor(private FileService: FileService, private UserService: UserService) {
+  
+  constructor(private FileService: FileService, private UserService: UserService, private sanitizer:DomSanitizer, private toasterService: ToasterService) {
 
   }
+  sanitizeFunc(url:string){
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+  }
+  
   selectImage($event) {
     const formData = new FormData()
     if ($event.target.files.length > 0) {
@@ -32,17 +46,17 @@ export class ProfileOwnerComponent implements OnInit {
       console.log(formData)
       this.FileService.saveFile(formData).subscribe(
         res => {
-          console.log(res)
-          this.avatar = res.path
-
+          this.profileUser.avatar = res.path
         })
     }
-
   }
 
   updateProfile() {
     this.UserService.updateUser(localStorage.getItem('user_id'), this.profileUser).subscribe(
-      res => console.log(res)
+      res => {
+        console.log(res)
+        this.toasterService.pop('success', 'Cập nhật', 'Cập nhật thành công')
+      }
     )
   }
 
@@ -54,5 +68,4 @@ export class ProfileOwnerComponent implements OnInit {
       }
     )
   }
-
 }

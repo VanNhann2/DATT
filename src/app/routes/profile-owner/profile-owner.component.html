@@ -3,12 +3,12 @@
       <div class="card card-default">
           <div class="card-body text-center">
               <div class="py-4">
-                  <img class="img-fluid rounded-circle img-thumbnail thumb96" src="http://localhost:3026/uploads/QLTTKH_SD.png" alt="Contact" />
+                  <img class="img-fluid rounded-circle img-thumbnail thumb96" [src]="sanitizeFunc(profileUser.avatar)" alt="Contact" />
               </div>
               <h3 class="m-0 text-bold">{{profileUser.firstname}}</h3>
-              <div class="my-3">
+              <!-- <div class="my-3">
                   <p>Hello, I'm a just a dummy contact in your contact list and this is my presentation text. Have fun!</p>
-              </div>
+              </div> -->
               <div class="text-center">
                 <label for="image-input" class="file-upload">
                     <button class="btn btn-secondary btn-block">Thay đổi avatar</button>
@@ -17,13 +17,6 @@
               </div>
           </div>
       </div>
-      <!-- <div class="">
-        <div class="card">
-            <div class="card-body">
-                <img-cropper #cropper [image]="data1" [settings]="cropperSettings" (onCrop)="cropped($event)"></img-cropper>
-            </div>
-        </div>
-    </div> -->
   </div>
   <div class="col-lg-8">
       <div class="card card-default">
@@ -31,27 +24,6 @@
               <div class="d-flex justify-content-center col">
                   <div class="h4 m-0 text-center">Thông Tin Chủ Sân</div>
               </div>
-              <!-- <div class="d-flex justify-content-end">
-                  <div class="btn-group" dropdown>
-                      <button class="btn btn-link" dropdownToggle>
-                          <em class="fa fa-ellipsis-v fa-lg text-muted"></em>
-                      </button>
-                      <ul *dropdownMenu class="dropdown-menu dropdown-menu-right-forced animated fadeInLeft" role="menu">
-                          <a class="dropdown-item" href="#">
-                              <span>Send by message</span>
-                          </a>
-                          <a class="dropdown-item" href="#">
-                              <span>Share contact</span>
-                          </a>
-                          <a class="dropdown-item" href="#">
-                              <span>Block contact</span>
-                          </a>
-                          <a class="dropdown-item" href="#">
-                              <span class="text-warning">Delete contact</span>
-                          </a>
-                      </ul>
-                  </div>
-              </div> -->
           </div>
           <div class="card-body">
               <div class="row py-4 justify-content-center">
@@ -82,8 +54,9 @@
                               </div>
                           </div>
                           <div class="form-group row">
-                              <div class="col-md-10">
-                                  <button class="btn btn-info" type="submit" (click)="updateProfile()" pull-right>Lưu Thay Đổi</button>
+                              <div class="col-md-10"></div>
+                              <div class="col-md-2">
+                                  <button class="btn btn-info" type="submit" (click)="updateProfile()" pull-right>Lưu</button>
                               </div>
                           </div>
                       </div>
@@ -93,3 +66,4 @@
       </div>
   </div>
 </div>
+<toaster-container [toasterconfig]="toasterconfig"></toaster-container>

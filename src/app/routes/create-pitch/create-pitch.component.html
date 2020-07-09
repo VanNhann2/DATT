@@ -4,28 +4,16 @@
         <div class="card card-default">
             <div class="card-body text-center">
                 <div class="py-4">
-                    <img class="img-fluid rounded-circle img-thumbnail thumb96" src="https://conhantaogiagoc.com/wp-content/uploads/2016/04/thu-nhap-cao-nho-kinh-doanh-san-bong-da-co-nhan-tao.jpg"  [class.rounded-circle]="cropperSettings.rounded"  [src]="data1.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight" alt="Contact" />
-                </div>
-                <h3 class="m-0 text-bold">{{name}}</h3>
-                <div class="my-3">
-                    <p>{{decription}}</p>
+                    <img class="img-fluid" [src]="sanitizeFunc(form.image)"/>
                 </div>
                 <div class="text-center">
                   <label for="image-input" class="file-upload">
                       <button class="btn btn-secondary btn-block">Tải Ảnh Lên</button>
-                      <input id="image-input" type="file" (change)="fileChangeListener($event)">
+                      <input id="image-input" type="file" (change)="selectImage($event)">
                   </label>
                 </div>
             </div>
         </div>
-        
-        <div class="">
-          <div class="card">
-              <div class="card-body">
-                  <img-cropper #cropper [image]="data1" [settings]="cropperSettings" (onCrop)="cropped($event)"></img-cropper>
-              </div>
-          </div>
-      </div>
     </div>
     <div class="col-lg-8">
         <div class="card card-default">
@@ -33,54 +21,33 @@
                 <div class="d-flex justify-content-center col">
                     <div class="h4 m-0 text-center">Tạo Tên Sân Bóng </div>
                 </div>
-                <!-- <div class="d-flex justify-content-end">
-                    <div class="btn-group" dropdown>
-                        <button class="btn btn-link" dropdownToggle>
-                            <em class="fa fa-ellipsis-v fa-lg text-muted"></em>
-                        </button>
-                        <ul *dropdownMenu class="dropdown-menu dropdown-menu-right-forced animated fadeInLeft" role="menu">
-                            <a class="dropdown-item" href="#">
-                                <span>Send by message</span>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <span>Share contact</span>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <span>Block contact</span>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <span class="text-warning">Delete contact</span>
-                            </a>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
             <div class="card-body">
                 <div class="row py-4 justify-content-center">
                     <div class="col-12 col-sm-10">
-                        <form class="form-horizontal">
+                        <div class="form-horizontal">
                             <div class="form-group row">
                                 <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right">Tên</label>
                                 <div class="col-xl-10 col-md-9 col-8">
-                                    <input  class="form-control" type="text" name="name" placeholder="Nhập Tên" [(ngModel)]="form.name" [ngModelOptions]="{standalone: true}"/>
+                                    <input  class="form-control" type="text" name="name" placeholder="Nhập Tên" [(ngModel)]="form.name" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right">Địa Chỉ</label>
                                 <div class="col-xl-10 col-md-9 col-8">
-                                    <input class="form-control" type="text" name="address" placeholder="Enter address" [(ngModel)]="form.address" [ngModelOptions]="{standalone: true}"/>
+                                    <input class="form-control" type="text" name="address" placeholder="Enter address" [(ngModel)]="form.address" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right">Số điện thoại</label>
                                 <div class="col-xl-10 col-md-9 col-8">
-                                    <input class="form-control" type="text" placeholder="Enter phone number" [(ngModel)]="form.phone" [ngModelOptions]="{standalone: true}"/>
+                                    <input class="form-control" type="text" placeholder="Enter phone number" [(ngModel)]="form.phone_number" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact4">Thành phố</label>
                                 <div class="col-xl-10 col-md-9 col-8">
-                                    <select class="form-control" id="inputContact4" [(ngModel)]="form.city" [ngModelOptions]="{standalone: true}" (change)="changeCity()">
+                                    <select class="form-control" id="inputContact4" [(ngModel)]="form.city"  (change)="changeCity()">
                                         <option *ngFor="let item of city" value="{{ item._id}}">{{ item.name }}</option>
                                     </select>
                                 </div>
@@ -88,7 +55,7 @@
                             <div class="form-group row">
                                 <label class="text-bold col-xl-2 col-md-3 col-4 col-form-label text-right" for="inputContact5">Quận</label>
                                 <div class="col-xl-10 col-md-9 col-8">
-                                    <select class="form-control" id="inputContact4" [(ngModel)]="form.district" [ngModelOptions]="{standalone: true}">
+                                    <select class="form-control" id="inputContact4" [(ngModel)]="form.district" >
                                         <option *ngFor="let item of district" value="{{ item._id}}">{{ item.name }}</option>
                                     </select>
                                 </div>
@@ -101,7 +68,7 @@
                                         <div class="col-md-12">
                                           <div class="card">
                                             <div class="card-body mh0">
-                                              <textarea class="form-control note-editor note-editor-margin" rows="5" [(ngModel)]="form.desc" [ngModelOptions]="{standalone: true}"></textarea>
+                                              <textarea class="form-control note-editor note-editor-margin" rows="5" [(ngModel)]="form.desc" ></textarea>
                                             </div>
                                           </div>
                                         </div>
@@ -110,14 +77,22 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-md-10">
+                                <div class="col-8"></div>
+                                <div class="col-2">
+                                    <button class="btn btn-secondary" [routerLink] = "'/list-pitch'">Hủy</button>
+                                </div>
+                                <div class="col-2" *ngIf="route.snapshot.paramMap.get('id')" >
+                                    <button class="btn btn-info" (click)="update()" [routerLink] = "'/list-pitch'">Lưu</button>
+                                </div>
+                                <div class="col-2" *ngIf="!route.snapshot.paramMap.get('id')">
                                     <button class="btn btn-info" (click)="create()" [routerLink] = "'/list-pitch'">Tạo</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
   </div>
+  <toaster-container [toasterconfig]="toasterconfig"></toaster-container>

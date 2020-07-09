@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { UserService } from '../../../service/user.service'
 import { Router } from '@angular/router';
+import { ToasterConfig, ToasterService } from 'angular2-toaster';
 
 @Component({
     selector: 'app-login',
@@ -12,9 +13,16 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+    toaster: any;
+    toasterConfig: any;
+    toasterconfig: ToasterConfig = new ToasterConfig({
+        positionClass: 'toast-bottom-right',
+        showCloseButton: true
+    });
+
     valForm: FormGroup;
 
-    constructor(public settings: SettingsService, fb: FormBuilder, private UserService: UserService, private router: Router) {
+    constructor(public settings: SettingsService, fb: FormBuilder, private toasterService: ToasterService, private UserService: UserService, private router: Router) {
 
         this.valForm = fb.group({
             'username': [null, Validators.required],
@@ -34,19 +42,23 @@ export class LoginComponent implements OnInit {
             this.UserService.login(value).subscribe(
                 res => {
                     console.log(res)
-                    localStorage.setItem('token',res.toString())
+                    localStorage.setItem('token', res.toString())
                     this.UserService.getUser().subscribe(
                         data => {
-                          localStorage.setItem('user_id',data.user_id)
-                          localStorage.setItem('permission',data.permission)
-                          if(data.permission === 'owner'){
-                            this.router.navigate(['home'])
-                          }else this.router.navigate(['homepage'])
+                            localStorage.setItem('user_id', data.user_id)
+                            localStorage.setItem('permission', data.permission)
+                            if (data.permission === 'owner') {
+                                this.router.navigate(['home'])
+                            } else this.router.navigate(['homepage'])
                         },
-                        err => this.router.navigate(['login'])
-                      )
+                        err => {
+                          this.toasterService.pop('danger', 'Đăng nhập', 'Đăng nhập không thành công')
+                        }
+                    )
                 },
-                error => (console.log(error))
+                err => {
+                  this.toasterService.pop('danger', 'Đăng nhập', 'Đăng nhập không thành công')
+                }
             )
         }
     }

@@ -18,21 +18,29 @@ export class TotalComponent implements OnInit {
     }
     pitches
     choosePitch
-    date: Date;
+    date = new Date();
+    bsConfig = {
+        containerClass: 'theme-blue',
+        showWeekNumbers: false,
+        dateInputFormat: 'DD/MM/YYYY'
+      };
     constructor(
         private ReportService : ReportService, private PitchService : PitchService
         ) 
     {
-        this.date = new Date();
+
     }
     
     getTotal() {
-        this.ReportService.getTotal({pitch_id : this.choosePitch,date:this.date}).subscribe(
-            res => {
+        var dateConvert = (this.date.getMonth()+1)+'/'+this.date.getDate()+'/'+this.date.getFullYear()
+        this.ReportService.getTotal({pitch_id : this.choosePitch,date:dateConvert}).subscribe(
+            res => {    
                 console.log(res)
-                this.totalBook = res.total
-                this.totalRevenue =res.revenue
-                this.totalUser = res.users
+                if(res){
+                    this.totalBook = res.total
+                    this.totalRevenue =res.revenue
+                    this.totalUser = res.users.length
+                }
             }
         )
     }
@@ -41,9 +49,11 @@ export class TotalComponent implements OnInit {
         this.PitchService.listPitch(this.request).subscribe(
             res => {
                 console.log(res)
-                this.pitches = res
-                this.choosePitch = res[0]._id
-                this.getTotal()
+                if(res && res.length){
+                    this.pitches = res
+                    this.choosePitch = res[0]._id
+                    this.getTotal()
+                }
             }
         )
     }

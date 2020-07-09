@@ -38,6 +38,26 @@ export class HomeComponent implements OnInit {
     ]
   };
 
+  lineData1 = {
+    labels: [],
+    datasets: [
+      {
+        label: '',
+        data: []
+      }
+    ]
+  };
+
+  lineData2 = {
+    labels: [],
+    datasets: [
+      {
+        label: '',
+        data: []
+      }
+    ]
+  };
+
   lineColors = [
     {
       backgroundColor: 'rgba(114,102,186,0.2)',
@@ -79,13 +99,16 @@ export class HomeComponent implements OnInit {
         if (res && res.length) {
           this.pitches = res
           this.choosePitch = res[0]._id
-          //this.submit()   
         }
       }
     )
   }
 
   getChartHour() {
+    this.labels = []
+    this.revenue = []
+    this.total = []
+    this.users = []
     var dayendConvert = (this.dayend.getMonth()+1)+'/'+this.dayend.getDate()+'/'+this.dayend.getFullYear()
     var daystartConvert = (this.daystart.getMonth()+1)+'/'+this.daystart.getDate()+'/'+this.daystart.getFullYear()
     this.ReportService.getDataChatByHour({dayend:dayendConvert,daystart:daystartConvert,pitch_id:this.choosePitch}).subscribe(
@@ -94,16 +117,30 @@ export class HomeComponent implements OnInit {
         for(let i = 0 ; i < data.length ; i++){
           this.labels.push(data[i].hour)
           this.total.push(data[i].total)
+          this.users.push(data[i].users.length)
+          this.revenue.push(data[i].revenue)
         }
    
         this.lineData.labels = this.labels
         this.lineData.datasets[0].label = 'Số lần đặt sân'
         this.lineData.datasets[0].data = this.total
+
+        this.lineData1.labels = this.labels
+        this.lineData1.datasets[0].label = 'Số  tài khoản đặt'
+        this.lineData1.datasets[0].data = this.users
+
+        this.lineData2.labels = this.labels
+        this.lineData2.datasets[0].label = 'Doanh thu'
+        this.lineData2.datasets[0].data = this.revenue
       }
     )
   }
 
   getChartDay() {
+    this.labels = []
+    this.revenue = []
+    this.total = []
+    this.users = []
     var dayendConvert = (this.dayend.getMonth()+1)+'/'+this.dayend.getDate()+'/'+this.dayend.getFullYear()
     var daystartConvert = (this.daystart.getMonth()+1)+'/'+this.daystart.getDate()+'/'+this.daystart.getFullYear()
     
@@ -113,10 +150,20 @@ export class HomeComponent implements OnInit {
         for(let i = 0 ; i < data.length ; i++){
           this.labels.push(data[i].date)
           this.total.push(data[i].total)
+          this.users.push(data[i].users.length)
+          this.revenue.push(data[i].revenue)
         }
         this.lineData.labels = this.labels
         this.lineData.datasets[0].label = 'Số lần đặt sân'
         this.lineData.datasets[0].data = this.total
+
+        this.lineData1.labels = this.labels
+        this.lineData1.datasets[0].label = 'Số  tài khoản đặt'
+        this.lineData1.datasets[0].data = this.users
+
+        this.lineData2.labels = this.labels
+        this.lineData2.datasets[0].label = 'Doanh thu'
+        this.lineData2.datasets[0].data = this.revenue
       } 
     )
   }

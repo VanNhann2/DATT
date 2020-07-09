@@ -1,240 +1,130 @@
 <div class="wrapper" style="background: white;">
-  <!-- menu user-->
-  <div class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-white border-bottom shadow-sm pt-2">
-    <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;" src="../../../../assets/img//Untitled-3.png"  [routerLink]="'/homepage'">
-  </div>
+    <!-- menu user-->
+    <div class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-white border-bottom shadow-sm pt-2">
+        <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;"
+            src="../../../../assets/img//Untitled-3.png" [routerLink]="'/homepage'">
+    </div>
 
-  <div class="emp-profile">
-    <form method="post">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-img">
-                    <img  [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" alt=""/>
-                    <div class="file btn btn-lg btn-primary">
-                        Change Photo
-                        <input style="z-index: 100;" class="p-2" type="file" (change)="fileProgress($event)"/>
+    <div class="emp-profile">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" alt="" />
+                        <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input style="z-index: 100;" class="p-2" type="file" (change)="fileProgress($event)" />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="profile-head">
-                            <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
-                            <form class="card">
-                                <tabset [justified]="true" class="ie-fix-flex">
-                                    <tab>
-                                        <ng-template tabHeading>Thông Tin Người Dùng</ng-template >
-                                        <div>
-                                            <fieldset>
-                                                <div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label">Tên User</label>
-                                                    <div class="col-lg-10">
-                                                        <input class="form-control" type="text" placeholder="user name.." />
-                                                    </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
+                        <form class="card">
+                            <tabset [justified]="true" class="ie-fix-flex">
+                                <tab>
+                                    <ng-template tabHeading>Thông Tin Người Dùng</ng-template>
+                                    <div>
+                                        <fieldset>
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Tên User</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" type="text" placeholder="user name.." />
                                                 </div>
-                                            </fieldset>
-                                            <fieldset>
-                                                <div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label">Tên</label>
-                                                    <div class="col-lg-10">
-                                                        <input class="form-control" type="text" placeholder="firstname.." />
-                                                    </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Tên</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" type="text" placeholder="firstname.." />
                                                 </div>
-                                            </fieldset>
-                                            <fieldset>
-                                                <div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label">Họ</label>
-                                                    <div class="col-lg-10">
-                                                        <input class="form-control" type="text" placeholder="lastname.." />
-                                                    </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Họ</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" type="text" placeholder="lastname.." />
                                                 </div>
-                                            </fieldset>
-                                            <fieldset>
-                                                <div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label">Email</label>
-                                                    <div class="col-lg-10">
-                                                        <input class="form-control" type="text" placeholder="email.." />
-                                                    </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Email</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" type="text" placeholder="email.." />
                                                 </div>
-                                            </fieldset>
-                                            <fieldset>
-                                                <div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label">Số điện thoại</label>
-                                                    <div class="col-lg-10">
-                                                        <input class="form-control" type="text" placeholder="phone.." />
-                                                    </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Số điện thoại</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" type="text" placeholder="phone.." />
                                                 </div>
-                                            </fieldset>
-                                            <fieldset>
-                                                <div class="form-group row">
-                                                    <label class="col-lg-2 col-form-label">Ngày Tạo</label>
-                                                    <div class="col-lg-10">
-                                                        <div>25/05/1998</div>
-                                                    </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label">Ngày Tạo</label>
+                                                <div class="col-lg-10">
+                                                    <div>25/05/1998</div>
                                                 </div>
-                                            </fieldset>
-                                        </div>
-                                    </tab>
-                                    <tab>
-                                        <ng-template tabHeading>Lịch Sử Đặt Sân</ng-template >
-                                        <div>
-                                            <table class="table">
-                                                <thead>
-                                                  <tr>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </tab>
+                                <tab>
+                                    <ng-template tabHeading>Lịch Sử Đặt Sân</ng-template>
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
                                                     <th scope="col">Tên sân</th>
                                                     <th scope="col">Sân con</th>
                                                     <th scope="col">Ngày đặt</th>
                                                     <th scope="col">Giờ đặt</th>
                                                     <th scope="col">Giá tiền</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
                                                     <th scope="row">1</th>
                                                     <td>Chuyên Việt</td>
                                                     <td>Sân 1</td>
                                                     <td>04/07/2020</td>
                                                     <td>16</td>
                                                     <td>200000</td>
-                                                  </tr>
-                                                  <tr>
+                                                </tr>
+                                                <tr>
                                                     <th scope="row">2</th>
                                                     <td>Chuyên Việt</td>
                                                     <td>Sân 3</td>
                                                     <td>010/07/2020</td>
                                                     <td>7</td>
                                                     <td>120000</td>
-                                                  </tr>
-                                                  <tr>
+                                                </tr>
+                                                <tr>
                                                     <th scope="row">3</th>
                                                     <td>Bế Văn Đàng</td>
                                                     <td>Sân 1</td>
                                                     <td>04/06/2020</td>
                                                     <td>20</td>
                                                     <td>300000</td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                        </div>
-                                    </tab>
-                                </tabset>
-                            </form>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Lưu thay đổi"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <!-- <div class="col-md-4">
-                <div class="profile-work">
-                    <p>WORK LINK</p>
-                    <a href="">Website Link</a><br/>
-                    <a href="">Bootsnipp Profile</a><br/>
-                    <a href="">Bootply Profile</a>
-                    <p>SKILLS</p>
-                    <a href="">Web Designer</a><br/>
-                    <a href="">Web Developer</a><br/>
-                    <a href="">WordPress</a><br/>
-                    <a href="">WooCommerce</a><br/>
-                    <a href="">PHP, .Net</a><br/>
-                </div>
-            </div> -->
-            <!-- <div class="col-md-8">
-                <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>User Id</label>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <div class="col-md-6">
-                                        <p>Kshiti123</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Name</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Kshiti Ghelani</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Email</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>kshitighelani@gmail.com</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Phone</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>123 456 7890</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Profession</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Web Developer and Designer</p>
-                                    </div>
-                                </div>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Experience</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Expert</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Hourly Rate</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>10$/hr</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Total Projects</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>230</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>English Level</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Expert</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Availability</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>6 months</p>
-                                    </div>
-                                </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label>Your Bio</label><br/>
-                                <p>Your detail description</p>
-                            </div>
-                        </div>
+                                </tab>
+                            </tabset>
+                        </form>
                     </div>
                 </div>
-            </div> -->
-        </div>
-    </form>           
-</div>
+                <div class="col-md-2">
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Lưu thay đổi" />
+                </div>
+            </div>
+        </form>
+    </div>
 </div>

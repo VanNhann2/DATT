@@ -22,7 +22,9 @@ export class BookPitchService {
 
   //owner 
  
-  historyBookOwner() {
-    return this.http.get<any>(this.urlOwner +'history/'+ localStorage.getItem('user_id'))
+  historyBookOwner(request) {
+    return this.http.get<any>(this.urlOwner +'history/'+ localStorage.getItem('user_id'),{
+      params : request
+    })
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserblockService } from './userblock.service';
+import { UserService } from '../../../service/user.service'
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
     selector: 'app-userblock',
@@ -9,14 +11,25 @@ import { UserblockService } from './userblock.service';
 })
 export class UserblockComponent implements OnInit {
     user: any;
-    constructor(public userblockService: UserblockService) {
+    constructor(public userblockService: UserblockService, private UserService : UserService, private sanitizer:DomSanitizer) {
 
         this.user = {
-            picture: 'assets/img/user/02.jpg'
+            name:"Chủ sân",
+            avatar: 'assets/img/user/default.jpg'
         };
     }
 
+    sanitizeFunc(url:string){
+        return this.sanitizer.bypassSecurityTrustUrl(url);
+    }
+
     ngOnInit() {
+        this.UserService.getProfileUser().subscribe(
+            res => {
+                this.user.name = res.firstname + " " + res.lastname
+                this.user.avatar = res.avatar
+            }
+        )
     }
 
     userBlockIsVisible() {

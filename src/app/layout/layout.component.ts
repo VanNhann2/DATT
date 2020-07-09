@@ -17,10 +17,13 @@ export class LayoutComponent implements OnInit {
           //   },
           //   err => this.router.navigate(['login'])
           // )
+          if(localStorage.getItem('permission')!=="owner"){
+            this.router.navigate(['login'])
+          }
        }
 
     ngOnInit() {
-        console.log(1)
+        //console.log(1)
     }
 
 }

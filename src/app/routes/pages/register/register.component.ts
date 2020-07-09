@@ -63,10 +63,9 @@ export class RegisterComponent implements OnInit {
             this.UserService.register(value).subscribe(
                 res => {
                     console.log(res)
-                    this.toasterService.pop('success', 'haha', 'hehe')
                     this.router.navigate(['login'])
                 },
-                error => (this.toasterService.pop('error', 'haha', 'hehe'))
+                error => (this.toasterService.pop('success', 'Lỗi', 'Không thể tạo tài khoản'))
             )
         }
     }

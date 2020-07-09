@@ -16,7 +16,7 @@ export class ListpitchComponent implements OnInit {
    bsConfig = {
        containerClass: 'theme-angle'
    }
-// nho them nut logout khi dang nhap o trang user nha
+
   username = undefined
     constructor(private PitchService : PitchService, private UserService : UserService, private router: Router, private route: ActivatedRoute) {
         this.UserService.getUser().subscribe(
@@ -44,6 +44,4 @@ export class ListpitchComponent implements OnInit {
       }
     )
   }
-  
-
 }

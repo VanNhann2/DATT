@@ -15,7 +15,7 @@
                 <form [formGroup]="valForm" class="form-validate mb-3" role="form" name="loginForm" novalidate="" (submit)="submitForm($event, valForm.value)">
                     <div class="form-group">
                         <div class="input-group with-focus">
-                            <input class="form-control border-right-0" id="exampleInputusername1" type="username" name="username" placeholder="Enter username" autocomplete="off" formControlName="username" required="" />
+                            <input class="form-control border-right-0" id="exampleInputusername1" type="username" name="username" placeholder="Nhập tên tài khoản" autocomplete="off" formControlName="username" required="" />
                             <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
                                     <em class="fa fa-envelope"></em>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <div class="input-group with-focus">
-                            <input class="form-control border-right-0" id="exampleInputPassword1" type="password" name="password" placeholder="Password" formControlName="password" required="" />
+                            <input class="form-control border-right-0" id="exampleInputPassword1" type="password" name="password" placeholder="Nhập mật khảu" formControlName="password" required="" />
                             <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
                                     <em class="fa fa-lock"></em>
@@ -39,7 +39,6 @@
                     <button class="btn btn-block btn-primary mt-3" type="submit">Đăng Nhập</button>
                 </form>
                 <!-- <div class="alert alert-danger text-center" ></div> -->
-                <p class="pt-3 text-center">Bạn Cần Đăng Nhập?</p>
                 <a class="btn btn-block btn-secondary" [routerLink]="'/register'">Đăng Ký</a>
             </div>
         </div>

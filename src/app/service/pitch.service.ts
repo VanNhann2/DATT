@@ -27,12 +27,12 @@ export class PitchService {
     });
   }
   getPitch(id) {
-    return this.http.get<any>(this.urlOwner + 'list/'+ id + '/');
+    return this.http.get<any>(this.urlOwner + 'list/'+ id);
   }
   create(form) {
     return this.http.post<any>(this.urlOwner +'create', form);
   }
   update(id, form) {
-    return this.http.put<any>(this.urlOwner + 'update/'+ id + '/', form);
+    return this.http.put<any>(this.urlOwner + 'update/'+ id, form);
   }
 }

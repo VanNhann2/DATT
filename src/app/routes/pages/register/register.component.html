@@ -15,7 +15,7 @@
                     <div class="form-group">
                         <label class="text-muted mb-1">Địa Chỉ Email</label>
                         <div class="input-group with-focus">
-                            <input class="form-control border-right-0" type="email" name="account_email" placeholder="Enter email" autocomplete="off" formControlName="email" required="" />
+                            <input class="form-control border-right-0" type="email" name="account_email" placeholder="Nhập email" autocomplete="off" formControlName="email" required="" />
                             <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
                                     <em class="fa fa-envelope"></em>
@@ -28,49 +28,46 @@
                     <div class="form-group">
                         <label class="text-muted mb-1">Tên Đăng Nhập</label>
                         <div class="input-group with-focus">
-                            <input class="form-control border-right-0" type="text" name="username" placeholder="Enter username" autocomplete="off" formControlName="username" required="" />
+                            <input class="form-control border-right-0" type="text" name="username" placeholder="Nhập tài khoản" autocomplete="off" formControlName="username" required="" />
                             <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
-                                    <em class="fa fa-envelope"></em>
+                                    <em class="fa fa-user"></em>
                                 </span>
                             </div>
                         </div>
                         <div class="text-danger" *ngIf="valForm.controls['username'].hasError('required') && (valForm.controls['username'].dirty || valForm.controls['username'].touched)">Trường Này Là Bắt Buộc</div>
-                        <!-- <div class="text-danger" *ngIf="valForm.controls['email'].hasError('email') && (valForm.controls['email'].dirty || valForm.controls['email'].touched)">This field must be a valid email address</div> -->
                     </div>
                     <div class="form-group">
                         <label class="text-muted mb-1">Tên</label>
                         <div class="input-group with-focus">
-                            <input class="form-control border-right-0" type="text" name="firstname" placeholder="Enter firstname" autocomplete="off" formControlName="firstname" required="" />
+                            <input class="form-control border-right-0" type="text" name="firstname" placeholder="Nhập tên" autocomplete="off" formControlName="firstname" required="" />
                             <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
-                                    <em class="fa fa-envelope"></em>
+                                    <em class="fa fa-address-card"></em>
                                 </span>
                             </div>
                         </div>
                         <div class="text-danger" *ngIf="valForm.controls['firstname'].hasError('required') && (valForm.controls['firstname'].dirty || valForm.controls['firstname'].touched)">Trường Này Là Bắt Buộc</div>
-                        <!-- <div class="text-danger" *ngIf="valForm.controls['email'].hasError('email') && (valForm.controls['email'].dirty || valForm.controls['email'].touched)">This field must be a valid email address</div> -->
                     </div>
                     <div class="form-group">
                         <label class="text-muted mb-1">Họ</label>
                         <div class="input-group with-focus">
-                            <input class="form-control border-right-0" type="text" name="lastname" placeholder="Enter lastname" autocomplete="off" formControlName="lastname" required="" />
+                            <input class="form-control border-right-0" type="text" name="lastname" placeholder="Nhập họ" autocomplete="off" formControlName="lastname" required="" />
                             <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
-                                    <em class="fa fa-envelope"></em>
+                                    <em class="fa fa-address-card"></em>
                                 </span>
                             </div>
                         </div>
                         <div class="text-danger" *ngIf="valForm.controls['lastname'].hasError('required') && (valForm.controls['lastname'].dirty || valForm.controls['lastname'].touched)">Trường Này Là Bắt Buộc</div>
-                        <!-- <div class="text-danger" *ngIf="valForm.controls['email'].hasError('email') && (valForm.controls['email'].dirty || valForm.controls['email'].touched)">This field must be a valid email address</div> -->
                     </div>
                     <div class="form-group">
                         <label class="text-muted mb-1">Số Điện Thoại</label>
                         <div class="input-group with-focus">
-                            <input class="form-control border-right-0" type="text" name="phone" placeholder="Enter phone number" autocomplete="off" formControlName="phone" required="" />
+                            <input class="form-control border-right-0" type="text" name="phone" placeholder="Nhập số điện thoại" autocomplete="off" formControlName="phone" required="" />
                             <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
-                                    <em class="fa fa-envelope"></em>
+                                    <em class="fa fa-phone"></em>
                                 </span>
                             </div>
                         </div>
@@ -91,34 +88,32 @@
                             <div class="text-danger" *ngIf="valForm.get('passwordGroup.password').hasError('required') && (valForm.get('passwordGroup.password').dirty || valForm.get('passwordGroup.password').touched)">Trường Này Là Bắt Buộc</div>
                             <div class="text-danger" *ngIf="valForm.get('passwordGroup.password').hasError('pattern') && (valForm.get('passwordGroup.password').dirty || valForm.get('passwordGroup.password').touched)">Đầu vào phải khớp với 'a-zA-Z0-9' và chiều dài 6-10</div>
                         </div>
-                        <!-- <div class="form-group">
-                            <label class="text-muted mb-1">Retype Password</label>
+                        <div class="form-group">
+                            <label class="text-muted mb-1">Xác nhận mật khẩu</label>
                             <div class="input-group with-focus">
                                 <input class="form-control border-right-0" type="password" name="confirmPassword" formControlName="confirmPassword" [formControl]="valForm.get('passwordGroup.confirmPassword')" />
                                 <div class="input-group-append">
-                                    <span class="input-group-text text-muted bg-transparent border-left-0">
+                                    <span class="input-group-text text-muted bg-tr      ansparent border-left-0">
                                         <em class="fa fa-lock"></em>
                                     </span>
                                 </div>
                             </div>
                             <div class="text-danger" *ngIf="valForm.get('passwordGroup.confirmPassword').hasError('required') && (valForm.get('passwordGroup.confirmPassword').dirty || valForm.get('passwordGroup.confirmPassword').touched)">This field is required</div>
                             <div class="text-danger" *ngIf="valForm.get('passwordGroup.confirmPassword').hasError('equalTo')">Password does Not match</div>
-                        </div> -->
+                        </div>
                     </div>
-                    <!-- <div class="clearfix">
+                    <div class="clearfix">
                         <div class="checkbox c-checkbox float-left mt0">
                             <label>
                                 <input type="checkbox" required="" name="account_agreed" formControlName="accountagreed" />
-                                <span class="fa fa-check"></span>I agree with the
-                                <a href="#">terms</a>
+                                <span class="fa fa-check"></span>Bạn có đồng ý với 
+                                <a href="#">điều khoản</a>
                             </label>
                         </div>
                     </div>
-                    <span class="text-danger" *ngIf="valForm.controls['accountagreed'].hasError('required') && (valForm.controls['accountagreed'].dirty || valForm.controls['accountagreed'].touched)">You must agree the terms</span> -->
-                    <button class="btn btn-block btn-primary mt-3" type="submit">Tạo Tài Khoản.?</button>
+                    <span class="text-danger" *ngIf="valForm.controls['accountagreed'].hasError('required') && (valForm.controls['accountagreed'].dirty || valForm.controls['accountagreed'].touched)">You must agree the terms</span>
+                    <button class="btn btn-block btn-primary mt-3" type="submit">Tạo Tài Khoản</button>
                 </form>
-                <!-- <div class="alert alert-danger text-center"></div> -->
-                <p class="pt-3 text-center">Đã Có Tài Khoản</p>
                 <a class="btn btn-block btn-secondary" [routerLink]="'/login'">Đăng Nhập</a>
             </div>
             <toaster-container [toasterconfig]="toasterconfig"></toaster-container>
