@@ -36,7 +36,6 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
     this.getCity()
-    
     this.getDistrict()
   }
   @HostListener('window:scroll', ['$event'])
