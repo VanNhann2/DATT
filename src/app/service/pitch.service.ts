@@ -19,6 +19,9 @@ export class PitchService {
       params: request
     });
   }
+  getPitchUser(id) {
+    return this.http.get<any>(this.url + 'list/'+ id);
+  }
   
   //owner
   listPitch(request) {

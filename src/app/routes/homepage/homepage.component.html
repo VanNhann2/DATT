@@ -12,7 +12,7 @@
         <a class="p-2 text-white" href="#">Hỗ Trợ</a>
         <!-- <a class="p-2 text-white" href="#">Pricing</a> -->
       </nav>
-      <a class="btn btn-outline-primary" href="#">Đăng Nhập/Đăng Ký</a>
+      <a class="btn btn-outline-warning" href="#">Đăng Nhập/Đăng Ký</a>
     </div>
   
     <div class="" style="margin-top: -5%;">
@@ -34,11 +34,15 @@
               <div>
                 <div class="row find-pitch">
                   <div class="col-lg-4 col-10" style="margin-left: 0; margin-right: -25px; ">
-                    <input class="form-control custom-input-sm" type="text" placeholder="Tên sân"
-                      style="height: calc(1.5em + 0.625rem + 2px);" [(ngModel)]="search.name"  [ngModelOptions]="{standalone: true}" />
+                    <!-- <input class="form-control custom-input-sm" type="text" placeholder="Tên sân"
+                      style="height: calc(1.5em + 0.625rem + 2px);" [(ngModel)]="search.name"  [ngModelOptions]="{standalone: true}" /> -->
+                      <div class="form__group field">
+                        <input type="input" class="form__field" placeholder="Name" name="name" id='name' required  [(ngModel)]="search.name"  [ngModelOptions]="{standalone: true}"/>
+                        <label for="name" class="form__label">Nhập Tên Sân</label>
+                      </div> 
                   </div>
-                  <div class="col-lg-2 col-10" style="margin-left: 0; margin-right: -25px;">
-                    <button class="btn btn-info" [routerLink]="'/search-results'" (click)="findPitch()">Tìm Sân</button>
+                  <div class="col-lg-2 col-10" style="margin-left: 0; margin-right: -25px; margin-top: 40px;">
+                    <button class="btn btn-warning" (click)="findPitch()">Tìm Sân</button>
                   </div>
                 </div>
                 <div class="row mt-2 ml-1">
@@ -59,146 +63,227 @@
           </div>
         </div>
       </div>
-      <div class="row mt-5" style="margin-right: 0;">
-        <div class="col-lg-4">
-          <div class="card b">
-            <div class="card-header">
-              <h3>Quản lý hiệu quả</h3>
+
+      <div class="mt-5 container">
+        <div class="row" style="margin-right: 0;">
+          <div class="col-lg-4">
+            <h3 style="font-weight: 300;">Đặt Sân Ngay Hôm Nay!</h3>
+            <div class="mt-3" id="wrap" style="margin-right: 60px;">
+              <form action="" autocomplete="on">
+              <input id="search" name="search" type="text" placeholder="Tìm Sân"  [(ngModel)]="search.name"  [ngModelOptions]="{standalone: true}"><input id="search_submit" value="Rechercher" type="submit">
+              </form>
             </div>
-            <div class="card-body">
-              Giải pháp quản lý sân đơn giản, dễ dàng mọi lúc mọi nơi.
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card b">
-            <div class="card-header">
-              <h3>Tăng trưởng doanh thu</h3>
-            </div>
-            <div class="card-body">
-              Doanh thu tăng từ 10% trở lên! Cắt giảm chi phí, thời gian quản lý.
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card b">
-            <div class="card-header">
-              <h3>Quảng bá hiệu quả</h3>
-            </div>
-            <div class="card-body">
-              Trang thông tin sân bóng riêng biệt với hàng ngàn người truy cập hằng ngày!
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row" style="margin-right: 0;">
-        <div class="col-lg-4">
-          <div class="card b">
-            <div class="card-header">
-              <h3>Dễ dàng sử dụng</h3>
-            </div>
-            <div class="card-body">
-              Giao diện thân thiện, dễ dàng làm quen dễ dàng sử dụng.
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card b">
-            <div class="card-header">
-              <h3>An toàn tin cậy</h3>
-            </div>
-            <div class="card-body">
-              Đảm bảo hoạt động kinh doanh của bạn được thuận lợi là ưu tiên hàng đầu của chúng tôi.
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card b">
-            <div class="card-header">
-              <h3>Hỗ trợ 24/7</h3>
-            </div>
-            <div class="card-body">
-              Luôn luôn sẵn sàng hỗ trợ bạn bất cứ lúc nào ở đâu, bất cứ khi nào.
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="row" style="margin-right: 0;">
-        <div class="col-3"></div>
-        <div class="col-6">
-          <div class="container">
-            <div class="card b  ">
-              <div class="card-header text-center">
-                <h3>Tính năng</h3>
+            <button class="btn btn-sm btn-outline-warning mt-3" (click)="findPitch()">Tìm Sân</button>
+            <div class="row mt-2 ml-1">
+              <label class="text-dark">Tại &nbsp; </label>
+              <div class="text-warning" style="cursor: pointer;">
+                <select class="text-warning" style="background: #00ffff00; color: orange;border:0px"  (change) = "changeCity()" [(ngModel)]="search.city"  [ngModelOptions]="{standalone: true}">
+                  <option *ngFor="let item of getCitys" value ="{{item._id}}">{{item.name}}</option>
+                </select>
+                &nbsp; </div>
+              <div class="text-warning" style="cursor: pointer;" > &nbsp;
+                <select class=" text-warning" style="margin-top: -30px; background: #00ffff00; color: orange;border:0px" [(ngModel)]="search.district"  [ngModelOptions]="{standalone: true}">
+                  <option  *ngFor="let item of getDistricts" value ="{{item._id}}">{{item.name}}</option>
+                </select>
               </div>
-              <div class="card-body " style="line-height: 30px; font-size: 15px;">
-                <div class="row">
-                  <div class="col-2"></div>
-                  <div class="col-8">
-                    <div><em class=" mr-2 fas fa-check"></em>Nhận lịch đặt sân online</div>
-                    <div><em class=" mr-2 fas fa-check"></em> Quản lý lịch đặt sân</div>
-                    <div><em class=" mr-2 fas fa-check"></em> Tùy chỉnh giá theo ngày giờ</div>
-                    <div><em class=" mr-2 fas fa-check"></em> Hỗ trợ tìm kiếm với người chơi mới</div>
-                    <div><em class=" mr-2 fas fa-check"></em> Kết nối với khách hàng thân thiết</div>
-                    <div><em class=" mr-2 fas fa-check"></em> Thống kê, báo cáo doanh thu</div>
-                    <div><em class=" mr-2 fas fa-check"></em> Miễn phí sử dụng</div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-center">
+            <img style="height: 181px;" src="https://botstar.com/wp-content/uploads/2019/03/visual-editor-1.png">
+            <h3 style="font-weight: 300;">Quảng bá hiệu quả</h3>
+            <label style="font-weight: 300;">Trang thông tin sân bóng riêng biệt với hàng ngàn người truy cập hằng ngày!</label>
+          </div>
+          <div class="col-lg-4 text-center">
+            <img style="height: 181px;" src="https://botstar.com/wp-content/uploads/2019/03/installation-1.png">
+            <h3 style="font-weight: 300;">Dễ dàng sử dụng</h3>
+            <label style="font-weight: 300;">Giao diện thân thiện, dễ dàng làm quen dễ dàng sử dụng.</label>
+          </div>
+        </div>
+      </div>
+   
+      <div class="mt-5 container">
+        <div class="row" style="margin-right: 0;">
+          <div class="col-lg-4 text-center">
+            <img style="height: 181px;" src="https://botstar.com/wp-content/uploads/2019/03/visual-editor-1.png">
+            <h3 style="font-weight: 300;">Quảng bá hiệu quả</h3>
+            <label style="font-weight: 300;">Trang thông tin sân bóng riêng biệt với hàng ngàn người truy cập hằng ngày!</label>
+          </div>
+          <div class="col-lg-4 text-center">
+            <img style="height: 181px;" src="https://botstar.com/wp-content/uploads/2019/03/installation-1.png">
+            <h3 style="font-weight: 300;">Dễ dàng sử dụng</h3>
+            <label style="font-weight: 300;">Giao diện thân thiện, dễ dàng làm quen dễ dàng sử dụng.</label>
+          </div>
+          
+          <div class="col-lg-4 text-center" style="font-weight: 100;    line-height: 2.5;">
+            <h3 style="font-weight: 300;">Tính năng</h3>
+                    <div> Quản lý lịch đặt sân</div>
+                    <div> Tùy chỉnh giá theo ngày giờ</div>
+                    <div> Hỗ trợ tìm kiếm với người chơi mới</div>
+                    <div> Kết nối với khách hàng thân thiết</div>
+                    <div> Thống kê, báo cáo doanh thu</div>
+                    <div> Miễn phí sử dụng</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container container-md mt-5" style="font-weight: 100;">
+        <div class="text-center my-3 py-4">
+          <div class="h2" style="font-weight: 300;">Native styles</div>
+          <p>Example plan table using card for demonstration</p>
+      </div>
+      <!-- START PLAN TABLE-->
+      <div class="row">
+          <!-- PLAN-->
+          <div class="col-lg-4">
+              <div class="card b">
+                  <div class="card-body text-center bb">
+                      <div class="text-bold">STARTER</div>
+                      <h3 class="my-3">
+                          <sup>$</sup>
+                          <span class="text-lg">17</span>
+                          <span>/mo</span>
+                      </h3>
                   </div>
-                  <div class="col-2"></div>
-                </div>
+                  <div class="card-body">
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Unlimited Styles</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>RTL &amp; Translation</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Customer support</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Free Updates</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Limited to one client</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-times fa-fw text-warning mr-2"></em>
+                          <span>Multiple installation</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-times fa-fw text-warning mr-2"></em>
+                          <span>Not ready for resale</span>
+                      </p>
+                  </div>
+                  <div class="card-body text-center">
+                      <a class="btn btn-secondary btn-lg" href="">Select this plan</a>
+                  </div>
               </div>
-              <div class="btn btn-primary text-center" style="cursor: pointer;" data-toggle="modal"
-                data-target="#exampleModal">Tìm Sân Ngay</div>
-            </div>
           </div>
-        </div>
-        <div class="col-3"></div>
+          <!-- PLAN-->
+          <div class="col-lg-4">
+              <div class="card b">
+                  <div class="card-body text-center bg-green">
+                      <div class="text-bold">IDEAL</div>
+                      <h3 class="my-3">
+                          <sup>$</sup>
+                          <span class="text-lg">49</span>
+                          <span>/mo</span>
+                      </h3>
+                  </div>
+                  <div class="card-body">
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Unlimited Styles</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>RTL &amp; Translation</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Customer support</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Free Updates</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Limited to one client</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Multiple installation</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-times fa-fw text-warning mr-2"></em>
+                          <span>Not ready for resale</span>
+                      </p>
+                  </div>
+                  <div class="card-body text-center">
+                      <a class="btn btn-danger btn-lg" href="">Select this plan</a>
+                  </div>
+              </div>
+          </div>
+          <!-- PLAN-->
+          <div class="col-lg-4">
+              <div class="card b">
+                  <div class="card-body text-center bb">
+                      <div class="text-bold">PREMIUM</div>
+                      <h3 class="my-3">
+                          <sup>$</sup>
+                          <span class="text-lg">95</span>
+                          <span>/mo</span>
+                      </h3>
+                  </div>
+                  <div class="card-body">
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Unlimited Styles</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>RTL &amp; Translation</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Customer support</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Free Updates</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Limited to one client</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Multiple installation</span>
+                      </p>
+                      <p>
+                          <em class="fa fa-check fa-fw text-green mr-2"></em>
+                          <span>Ready for resale*</span>
+                      </p>
+                  </div>
+                  <div class="card-body text-center">
+                      <a class="btn btn-secondary btn-lg" href="">Select this plan</a>
+                  </div>
+              </div>
+          </div>
       </div>
-  
-      <div class="jumbotron text-center">
-        <h2 class="home-text-big">Đăng kí đặt sân ASD Football Club trong 3 bước</h2>
-        <div class="row mt-5">
-          <div class="col-lg-4">
-            <div class="">
-              <div class="card-header" style="background: mediumpurple; color: white;">
-                <h3>Bước 1</h3>
-              </div>
-              <div class="card-body">
-                Điền thông tin đầy đủ và chính xác.
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="">
-              <div class="card-header" style="background: mediumpurple; color: white;">
-                <h3>Bước 2</h3>
-              </div>
-              <div class="card-body">
-                ASD Football Club liên hệ và xác nhận thông tin.
-              </div>
-            </div> 
-          </div>
-          <div class="col-lg-4">
-            <div class="">
-              <div class="card-header" style="background: mediumpurple; color: white;">
-                <h3>Bước 3</h3>
-              </div>
-              <div class="card-body">
-                Đợi tìm kiếm đối thủ.
-              </div>
-            </div>
-          </div>
-        </div>
+      <p class="text-center text-muted">
+          <small>* Subject to specific license terms. Price and features listed for demo only.</small>
+      </p>
       </div>
-  
-      <h4 class="my-3 py-3 text-dark">Some presale Questions</h4>
+      
     </div>
     <footer class="position-relative d-print-none mt-auto pt-5" style="background-color: #d0d0d052;">
       <!-- Main block - menus, subscribe form-->
       <div class="py-5 bg-gray-200 text-muted">
         <div class="container">
           <div class="row">
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
               <h6 class="text-uppercase text-dark mb-3">Về ASD Football Club</h6>
               <ul class="list-unstyled">
                 <li><a href="/pages/about-us" class="text-muted">Giới thiệu Về ASD Football Club</a></li>
@@ -207,7 +292,7 @@
                 <li><a href="/pages/chinh-sach-bao-mat" class="text-muted">Chính sách bảo mật</a></li>
               </ul>
             </div>
-            <div class="col-lg-3 mb-5 mb-lg-0">
+            <div class="col-lg-4 mb-5 mb-lg-0">
               <div class="font-weight-bold text-uppercase text-dark mb-3">Thông tin liên hệ</div>
               <ul class="list-unstyled">
                 <li class="text-muted"><a href="https://www.facebook.com/sportavn/" target="_blank" title="facebook"
@@ -216,7 +301,7 @@
                       class="fas fa-envelope"></i> asdFootball@gmail.com</a></li>
               </ul>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
               <h6 class="text-uppercase text-dark mb-3">Thanh toán</h6>
               <ul class="list-unstyled">
                 <li class="text-muted"><a class="text-muted text-hover-primary"><img
@@ -225,17 +310,6 @@
                       alt="Momo"> Momo</a></li>
                 <li class="text-muted"><a class="text-muted text-hover-primary"><i class="fas fa-money-check-alt"
                       style="font-size: 20px;"></i> Tiền mặt</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-              <h6 class="text-uppercase text-dark mb-3">Ứng dụng di động</h6>
-              <ul class="list-unstyled">
-                <li><a href="https://apple.co/2TaO0x3"><img style="width: 150px"
-                      src="https://www.sporta.vn/assets/icon-appstore-0ac658e90248e413db2bdc584e50b25b06a8229f6a74efb816b93194d0491829.svg"
-                      alt="Icon appstore"></a></li>
-                <li><a href="https://bit.ly/sporta-capkeo-android"><img style="width: 150px"
-                      src="https://www.sporta.vn/assets/icon-googleplaystore-87014b724e646f2c8dce71506e67424975dd3f81a59b3e8f356ce501a0c6e458.svg"
-                      alt="Icon googleplaystore"></a></li>
               </ul>
             </div>
           </div>

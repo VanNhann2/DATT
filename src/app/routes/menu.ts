@@ -258,132 +258,10 @@ const Blog = {
     ]
 }
 
-const Ecommerce = {
-    text: 'Ecommerce',
-    link: '/ecommerce',
+const ViewUser = {
+    text: 'Giao diện người dùng',
+    link: '/homepage',
     icon: 'icon-basket-loaded',
-    submenu: [
-        {
-            text: 'Orders',
-            link: '/ecommerce/orders'
-        },
-        {
-            text: 'Order View',
-            link: '/ecommerce/orderview'
-        },
-        {
-            text: 'Products',
-            link: '/ecommerce/products'
-        },
-        {
-            text: 'Product View',
-            link: '/ecommerce/productview'
-        },
-        {
-            text: 'Checkout',
-            link: '/ecommerce/checkout'
-        }
-    ]
-}
-
-const Extras = {
-    text: 'Extras',
-    link: '/extras',
-    icon: 'icon-cup',
-    submenu: [
-        {
-            text: 'Contacts',
-            link: '/extras/contacts'
-        },
-        {
-            text: 'Contact details',
-            link: '/extras/contactdetails'
-        },
-        {
-            text: 'Projects',
-            link: '/extras/projects'
-        },
-        {
-            text: 'Projects details',
-            link: '/extras/projectsdetails'
-        },
-        {
-            text: 'Team Viewer',
-            link: '/extras/teamviewer'
-        },
-        {
-            text: 'Social Board',
-            link: '/extras/socialboard'
-        },
-        {
-            text: 'Vote links',
-            link: '/extras/votelinks'
-        },
-        {
-            text: 'Bug tracker',
-            link: '/extras/bugtracker'
-        },
-        {
-            text: 'Faq',
-            link: '/extras/faq'
-        },
-        {
-            text: 'Help center',
-            link: '/extras/helpcenter'
-        },
-        {
-            text: 'Followers',
-            link: '/extras/followers'
-        },
-        {
-            text: 'Settings',
-            link: '/extras/settings'
-        },
-        {
-            text: 'Plans',
-            link: '/extras/plans'
-        },
-        {
-            text: 'File manager',
-            link: '/extras/filemanager'
-        },
-        {
-            text: 'Forum',
-            link: '/extras/forum'
-        },
-        {
-            text: 'Mailbox',
-            link: '/extras/mailbox'
-        },
-        {
-            text: 'Timeline',
-            link: '/extras/timeline'
-        },
-        {
-            text: 'Calendar',
-            link: '/extras/calendar'
-        },
-        {
-            text: 'Invoice',
-            link: '/extras/invoice'
-        },
-        {
-            text: 'Search',
-            link: '/extras/search'
-        },
-        {
-            text: 'Todo list',
-            link: '/extras/todolist'
-        },
-        {
-            text: 'Profile',
-            link: '/extras/profile'
-        },
-        {
-            text: 'Code editor',
-            link: '/extras/codeeditor'
-        }
-    ]
 }
 
 
@@ -407,6 +285,7 @@ export const menu = [
     Home,
     Orgs,
     Widgets,
+    ViewUser,
     // Dashboard,
     // Widgets,
     // headingComponents,
