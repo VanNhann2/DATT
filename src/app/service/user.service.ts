@@ -32,7 +32,9 @@ export class UserService {
     });
   }
   getProfileUser() {
-    return this.http.get<any>(this.url + "getProfile");
+    return this.http.get<any>(this.url + "getProfile",{
+      params:{user_id : localStorage.getItem('user_id')}
+    });
   }
 
   updateUser(id, form) {

@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ImageCropperComponent, CropperSettings, Bounds } from 'ng2-img-cropper';
+import { FileService } from '../../service/file.service'
+import { UserService } from '../../service/user.service'
+
 @Component({
   selector: 'app-profile-owner',
   templateUrl: './profile-owner.component.html',
@@ -8,58 +10,49 @@ import { ImageCropperComponent, CropperSettings, Bounds } from 'ng2-img-cropper'
 export class ProfileOwnerComponent implements OnInit {
 
   name: string;
-  data1: any;
-  cropperSettings: CropperSettings;
+  image
+  avatar
+  profileUser = {
+    firstname: null,
+    lastname: null,
+    phone: null,
+    email: null,
+    avatar: null
+  }
+  constructor(private FileService: FileService, private UserService: UserService) {
 
-  @ViewChild('cropper', undefined) cropper: ImageCropperComponent;
+  }
+  selectImage($event) {
+    const formData = new FormData()
+    if ($event.target.files.length > 0) {
+      const file = $event.target.files[0]
+      this.image = file
 
-  constructor() { 
-    this.name = 'Tên Sân';
-      this.cropperSettings = new CropperSettings();
+      formData.append('file', this.image)
+      console.log(formData)
+      this.FileService.saveFile(formData).subscribe(
+        res => {
+          console.log(res)
+          this.avatar = res.path
 
-      this.cropperSettings.noFileInput = true;
+        })
+    }
 
-      this.cropperSettings.width = 100;
-      this.cropperSettings.height = 100;
-
-      this.cropperSettings.croppedWidth = 100;
-      this.cropperSettings.croppedHeight = 100;
-
-      this.cropperSettings.canvasWidth = 300;
-      this.cropperSettings.canvasHeight = 240;
-
-      this.cropperSettings.minWidth = 50;
-      this.cropperSettings.minHeight = 50;
-
-      this.cropperSettings.cropperDrawSettings.strokeColor = 'rgba(0,0,0,.25)';
-      this.cropperSettings.cropperDrawSettings.strokeWidth = 2;
-
-      this.cropperSettings.rounded = false;
-
-      this.data1 = {};
   }
 
-  setRoundedMethod(value: boolean) {
-    this.cropperSettings.rounded = value;
-}
+  updateProfile() {
+    this.UserService.updateUser(localStorage.getItem('user_id'), this.profileUser).subscribe(
+      res => console.log(res)
+    )
+  }
 
-cropped(bounds: Bounds) {
-    console.log(bounds);
-}
-
-fileChangeListener($event) {
-    let image: any = new Image();
-    let file: File = $event.target.files[0];
-    let myReader: FileReader = new FileReader();
-    let that = this;
-    myReader.onloadend = function(loadEvent: any) {
-        image.src = loadEvent.target.result;
-        that.cropper.setImage(image);
-    };
-
-    myReader.readAsDataURL(file);
-}
   ngOnInit() {
+    this.UserService.getProfileUser().subscribe(
+      res => {
+        console.log(res)
+        this.profileUser = res
+      }
+    )
   }
 
 }

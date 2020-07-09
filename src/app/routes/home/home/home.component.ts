@@ -63,6 +63,12 @@ export class HomeComponent implements OnInit {
   typeData = [{type:0,name:"Số  lần đặt sân"}, {type:1,name:"Số  tài khoản đặt sân"} ,{type:2,name:"Doanh thu"}]
   typeTimes = [{type:0,name:'Giờ'}, {type:1,name:'Ngày'}]
 
+  bsConfig = {
+    containerClass: 'theme-blue',
+    showWeekNumbers: false,
+    dateInputFormat: 'DD/MM/YYYY'
+  };
+
   constructor(private PitchService: PitchService, private UserService: UserService, private router: Router, private ReportService: ReportService) {
     
   }

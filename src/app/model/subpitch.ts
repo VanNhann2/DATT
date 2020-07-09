@@ -1,13 +1,108 @@
-export interface SubPitch {  // khi sử lý dữ liệu thì cứ dùng interface cho đơn giản, còn dùng class khi trong đó có sử lý thêm các function
+export interface SubPitch {  // khi sử lý dữ liệu thì cứ dùng interface cho đơn giản; còn dùng class khi trong đó có sử lý thêm các function
     name: String;
     pitch_id:String;
     active:boolean;
     subpitch_type:Number;
-    createdAt: Number;
-    updatedAt:Number
+    // createdAt: Number;
+    // updatedAt:Number;
+    time: Time
 }
 
 class Time {
-    price: Number;
-    enable : boolean
+    1:{
+        price:Number;
+        enable:Boolean
+    };
+    2:{
+        price:Number;
+        enable:Boolean
+    };
+    3:{
+        price:Number;
+        enable:Boolean
+    };
+    4:{
+        price:Number;
+        enable:Boolean
+    };
+    5:{
+        price:Number;
+        enable:Boolean
+    };
+    6:{
+        price:Number;
+        enable:Boolean
+    };
+    7:{
+        price:Number;
+        enable:Boolean
+    };
+    8:{
+        price:Number;
+        enable:Boolean
+    };
+    9:{
+        price:Number;
+        enable:Boolean
+    };
+    10:{
+        price:Number;
+        enable:Boolean
+    };
+    11:{
+        price:Number;
+        enable:Boolean
+    };
+    12:{
+        price:Number;
+        enable:Boolean
+    };
+    13:{
+        price:Number;
+        enable:Boolean
+    };
+    14:{
+        price:Number;
+        enable:Boolean
+    };
+    15:{
+        price:Number;
+        enable:Boolean
+    };
+    16:{
+        price:Number;
+        enable:Boolean
+    };
+    17:{
+        price:Number;
+        enable:Boolean
+    };
+    18:{
+        price:Number;
+        enable:Boolean
+    };
+    19:{
+        price:Number;
+        enable:Boolean
+    };
+    20:{
+        price:Number;
+        enable:Boolean
+    };
+    21:{
+        price:Number;
+        enable:Boolean
+    };
+    22:{
+        price:Number;
+        enable:Boolean
+    };
+    23:{
+        price:Number;
+        enable:Boolean
+    };
+    24:{
+        price:Number;
+        enable:Boolean
+    };
 }

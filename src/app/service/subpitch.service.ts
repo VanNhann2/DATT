@@ -13,14 +13,14 @@ export class SubpitchService{
   private url = environment.apiURL + "/manager/subpitch/"
 
   getSubPitch(id) {
-    return this.http.get<any>(this.url + 'list/'+ id + '/');
+    return this.http.get<any>(this.url + 'list/'+ id);
   }
   //owner
   create(form) {
     return this.http.post<any>(this.url +'create', form);
   }
   update(id, form) {
-    return this.http.put<any>(this.url + 'update/'+ id + '/', form);
+    return this.http.put<any>(this.url + 'update/'+ id , form);
   }
   delete(id) {
     return this.http.delete<any>(this.url + 'delete/'+ id);
