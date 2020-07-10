@@ -2,18 +2,28 @@
     <!-- menu user-->
     <div class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-white border-bottom shadow-sm pt-2">
         <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;"
-            src="../../../../assets/img//Untitled-3.png" [routerLink]="'/homepage'">
+            src="../../../../assets/img//logohome.png" [routerLink]="'/homepage'">
     </div>
 
     <div class="emp-profile">
         <form method="post">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="profile-img">
-                        <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" alt="" />
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input style="z-index: 100;" class="p-2" type="file" (change)="fileProgress($event)" />
+                    <div class="card card-default">
+                        <div class="card-body text-center">
+                            <div class="py-4">
+                                <img class="img-fluid rounded-circle img-thumbnail thumb96" [src]="sanitizeFunc(profileUser.avatar)" alt="Contact" />
+                            </div>
+                            <!-- <h3 class="m-0 text-bold">{{username.username}}</h3> -->
+                            <!-- <div class="my-3">
+                                <p>Hello, I'm a just a dummy contact in your contact list and this is my presentation text. Have fun!</p>
+                            </div> -->
+                            <div class="text-center">
+                              <label for="image-input" class="file-upload">
+                                  <button class="btn btn-secondary btn-block">Thay đổi avatar</button>
+                                  <input id="image-input" type="file" (change)="selectImage($event)">
+                              </label>
+                            </div>
                         </div>
                     </div>
                 </div>

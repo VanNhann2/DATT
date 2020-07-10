@@ -1,18 +1,27 @@
 <div class="wrapper" style="background: white;" (scroll)="onWindowScroll($event);">
   <!-- menu user-->
-  <div
-    class="d-flex flex-column flex-md-row align-items-center px-md-4 border-bottom shadow-sm pt-2 animated fadeInDown"
-    id="navbar">
-    <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;"
-      src="../../../assets/img/logohome.png" [routerLink]="'/home-page'">
-    <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" [routerLink]="'/profile'" href="#">Hồ Sơ</a>
-      <!-- <a class="p-2 text-white" href="#">Enterprise</a> -->
-      <a class="p-2 text-dark" href="#">Hỗ Trợ</a>
-      <!-- <a class="p-2 text-white" href="#">Pricing</a> -->
-    </nav>
-    <a class="btn btn-outline-warning" href="#">Đăng Nhập/Đăng Ký</a>
-  </div>
+  <div class="d-flex flex-column flex-md-row align-items-center px-md-4 border-bottom shadow-sm pt-2 animated fadeInDown"
+      id="navbar">
+      <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;"
+        src="../../../../assets/img/Untitled-1.png" [routerLink]="'/home-page'">
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-white" [routerLink]="'/profile'" href="#">Hồ Sơ</a>
+        <!-- <a class="p-2 text-white" href="#">Enterprise</a> -->
+        <a class="p-2 text-white" href="#">Hỗ Trợ</a>
+        <!-- <a class="p-2 text-white" href="#">Pricing</a> -->
+      </nav>
+      <div class="mr-2">
+        <!-- START button group-->
+        <div class="btn-group" dropdown>
+          <img *ngIf="!checksession" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" dropdownToggle class="avatar" style="vertical-align: middle; width: 40px; height: 40px;  border-radius: 50%;">
+            <div *dropdownMenu class="dropdown-menu animated fadeIn pull-right dropdown-menu-right" role="menu">
+                <a class="dropdown-item" href="#" (click)="logout()">Đăng Xuất</a>
+            </div>
+        </div>
+        <!-- END button group-->
+    </div>
+      <a *ngIf="checksession" class="btn btn-outline-warning" href="#">Đăng Nhập/Đăng Ký</a>
+    </div>
 
 
 
@@ -65,22 +74,28 @@
       <li class="d-flex mb-2 venue-item bg-light row shadow" *ngFor="let item of listPitch.infoPitchs">
         <div class="col-8 row m-3">
           <div class="p-2 venue-item-image col-4">
-            <img *ngIf="!item.image_url" class="img-fluid"
+            <img class="img-fluid"
               src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-football-field-icon-png-image_3760316.jpg">
-            <img *ngIf="item.image_url" class="img-fluid" src="{{item.image_url}}">
+            <!-- <img *ngIf="!item.image_url" class="img-fluid"
+              src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-football-field-icon-png-image_3760316.jpg"> -->
+            <!-- <img *ngIf="item.image_url" class="img-fluid" src="{{item.image_url}}"> -->
           </div>
           <div class="p-1 col-8">
             <div class="venue-item__name venue-item__link mb-1">
-              <a href="/dhnonglam?check_day=2020-05-06" class="text-decoration-none">Sân bóng {{item.name}}</a>
+              <a href="/dhnonglam?check_day=2020-05-06" class="text-decoration-none" style="font-size: 20px;">Sân bóng {{item.name}}</a>
             </div>
             <div class="venue-item__address venue-item__link mb-2">
-              <!-- <i class="fas fa-map-marker-alt"></i> {{item.address}}, {{item.district}}, {{item.city}} -->
+              <i class="fas fa-map-marker-alt"></i> {{item.address}}
             </div>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center"  *ngIf="!checksession">
               <div class="fas fa-mobile-alt mr-2"></div>
               <span class="text-muted">
                 <a><i>{{item.phone_number}}</i></a>
               </span>
+            </div>
+            <div class="d-flex align-items-center"  *ngIf="checksession">
+              <div class="fas fa-mobile-alt mr-2"></div>
+              <div class="text-warning">đăng nhập để xem!</div>
             </div>
           </div>
         </div>
@@ -89,13 +104,23 @@
             <div class="venue-item venue-item-actions__btn">
               <!-- <a (click)="toggle(item)" class="btn btn-warning btn-block btn_type_primary" data-toggle="modal" data-target="#exampleModal"
                   href="">Đặt Sân</a> -->
-              <a (click)="toggle(item); getdataBookPitch(item._id)" class="btn btn-warning btn-block btn_type_primary">Đặt Sân</a>
+              <a *ngIf="!checksession" (click)="toggle(item); getdataBookPitch(item._id)" class="btn btn-warning btn-block btn_type_primary text-white">Đặt Sân</a>
             </div>
           </div>
         </div>
         <div *ngIf="!!item.show" class="" style="width: 100%;">
           <hr>
           <div class="form-horizontal m-3" *ngFor="let book of bookPitch">
+            <fieldset>
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">Sân <span style="color: rgb(187, 0, 0);">*</span></label>
+                <div class="col-md-10">
+                  <select class="custom-select custom-select-sm" (change)="changeSubpitch()" [(ngModel)]="formBookPitch.subpitch_id">
+                    <option *ngFor="let i of book.subpitchDetail" value="{{i._id}}">{{i.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
             <fieldset class="last-child">
               <div class="form-group row">
                 <label class="col-md-2 col-form-label">Chọn Khung Giờ <span
@@ -104,16 +129,6 @@
                   <select class="custom-select custom-select-sm" (change)="changeTime()" [(ngModel)]=formBookPitch.hour>
                     <option selected="">Khung Giờ</option>
                     <option *ngFor="let time of arrTime" value="{{time.hour}}">{{time.hour}}</option>
-                  </select>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset>
-              <div class="form-group row">
-                <label class="col-md-2 col-form-label">Sân <span style="color: rgb(187, 0, 0);">*</span></label>
-                <div class="col-md-10">
-                  <select class="custom-select custom-select-sm" (change)="changeSubpitch()" [(ngModel)]="formBookPitch.subpitch_id">
-                    <option *ngFor="let i of book.subpitchDetail" value="{{i._id}}">{{i.name}}</option>
                   </select>
                 </div>
               </div>

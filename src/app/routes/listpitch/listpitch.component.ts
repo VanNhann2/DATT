@@ -7,6 +7,8 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 import { LocationService } from '../../service/location.service'
 import { SubPitch } from 'src/app/model/subpitch';
 import { BookPitchService } from '../../service/book-pitch.service'
+const swal = require('sweetalert');
+
 @Component({
   selector: 'app-listpitch',
   templateUrl: './listpitch.component.html',
@@ -151,6 +153,7 @@ export class ListpitchComponent implements OnInit {
     user_id: localStorage.getItem('user_id')
 
   }
+  buttonName: string;
   constructor(private PitchService: PitchService, private BookPitchService: BookPitchService, private UserService: UserService, private router: Router, private locationService: LocationService, private route: ActivatedRoute, @Inject(DOCUMENT) document) {
     this.UserService.getUser().subscribe(
       res => {
@@ -171,6 +174,7 @@ export class ListpitchComponent implements OnInit {
         this.search.page = params.page
         this.search.page_size = params.page_size
         this.findPitch()
+        var checksession = localStorage.getItem('user_id')
       }
     )
     this.getCity()
@@ -186,18 +190,29 @@ export class ListpitchComponent implements OnInit {
       element.classList.remove('sticky');
     }
   }
-  buttonName
+  
   toggle(item) {
     item.show = !item.show;
     if (item.show)
       this.buttonName = "Show";
-    else
+    else{
       this.buttonName = "Hide";
-
+    }
+      
   }
-
+  logout(){
+    this.UserService.logout().subscribe(
+        res => {
+            console.log("Log out")
+            localStorage.removeItem('token');
+            localStorage.removeItem('user_id');
+            localStorage.removeItem('permission');
+            this.router.navigate(['login'])
+        }
+    )
+}
   getDistrict() {
-    this.locationService.getDistrict({ city_id: this.search.city }).subscribe(
+    this.locationService.getDistrict({ city: '5eaefbe3b822cc8a2df19be4' }).subscribe(
       res => {
         if (res && res.length) {
           this.search.district = res[0]._id
@@ -246,6 +261,9 @@ export class ListpitchComponent implements OnInit {
       data => {
         this.bookPitch = data
         console.log(this.bookPitch);
+        if(this.bookPitch == null || this.bookPitch.length == 0){
+          swal('Không có sân!');
+        }
       }
     )
   }
@@ -283,6 +301,7 @@ export class ListpitchComponent implements OnInit {
       var convertDate = (this.formBookPitch.date.getMonth() + 1) + '/' + this.formBookPitch.date.getDate() + '/' + this.formBookPitch.date.getFullYear() + " " + this.formBookPitch.hour + ":00:00"
       this.BookPitchService.bookPitch({subpitch_id:this.formBookPitch.subpitch_id, price:this.formBookPitch.price, user_id:this.formBookPitch.user_id,time:+new Date(convertDate)}).subscribe(
         res => {
+          swal('Đặt Sân Thành Công!');
           console.log(res)
         }
       )

@@ -7,6 +7,7 @@ import { DOCUMENT } from '@angular/common';
 import { trigger, state, transition, style, animate } from '@angular/animations';
 
 // import {PitchService} from '../../service/pitch.service'
+
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -23,6 +24,8 @@ export class HomepageComponent implements OnInit {
     district: null,
     city: null
   }
+  
+  
   constructor(private PitchService: PitchService, private UserService: UserService, private router: Router, private locationService: LocationService, @Inject(DOCUMENT) document) {
     this.UserService.getUser().subscribe(
       res => {
@@ -30,13 +33,20 @@ export class HomepageComponent implements OnInit {
         this.username = res.username
         console.log(this.username)
       },
-      err => this.router.navigate(['login'])
+      err => this.router.navigate(['homapage'])
     )
   }
 
   ngOnInit() {
     this.getCity()
     this.getDistrict()
+    var checksession = localStorage.getItem('user_id')
+    console.log(4, checksession);
+    this.UserService.getUser().subscribe(res => {
+      console.log(res);
+      this.username = res.username;
+      console.log(this.username);
+  }, err => this.router.navigate(['login']));
   }
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e) {
@@ -48,8 +58,19 @@ export class HomepageComponent implements OnInit {
       element.classList.remove('sticky');
     }
   }
+  logout(){
+    this.UserService.logout().subscribe(
+        res => {
+            console.log("Log out")
+            localStorage.removeItem('token');
+            localStorage.removeItem('user_id');
+            localStorage.removeItem('permission');
+            this.router.navigate(['login'])
+        }
+    )
+}
   getDistrict() {
-    this.locationService.getDistrict({ city_id: this.search.city }).subscribe(
+    this.locationService.getDistrict({ city: '5eaefbe3b822cc8a2df19be4' }).subscribe(
       res => {
         this.getDistricts = res
         if (res && res.length) {

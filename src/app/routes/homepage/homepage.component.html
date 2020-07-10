@@ -1,8 +1,7 @@
 <!-- <div >   -->
   <div class="web_homePage" (scroll)="onWindowScroll($event);">
     <!-- menu user-->
-    <div
-      class="d-flex flex-column flex-md-row align-items-center px-md-4 border-bottom shadow-sm pt-2 animated fadeInDown"
+    <div class="d-flex flex-column flex-md-row align-items-center px-md-4 border-bottom shadow-sm pt-2 animated fadeInDown"
       id="navbar">
       <img class="my-0 mr-md-auto" style="width: 20%; height:auto; cursor: pointer;"
         src="../../../../assets/img/Untitled-1.png" [routerLink]="'/home-page'">
@@ -12,7 +11,17 @@
         <a class="p-2 text-white" href="#">Hỗ Trợ</a>
         <!-- <a class="p-2 text-white" href="#">Pricing</a> -->
       </nav>
-      <a class="btn btn-outline-warning" href="#">Đăng Nhập/Đăng Ký</a>
+      <div class="mr-2">
+        <!-- START button group-->
+        <div class="btn-group" dropdown>
+          <img *ngIf="!checksession" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" dropdownToggle class="avatar" style="vertical-align: middle; width: 40px; height: 40px;  border-radius: 50%;">
+            <div *dropdownMenu class="dropdown-menu animated fadeIn pull-right dropdown-menu-right" role="menu">
+                <a class="dropdown-item" href="#" (click)="logout()">Đăng Xuất</a>
+            </div>
+        </div>
+        <!-- END button group-->
+    </div>
+      <a *ngIf="checksession" class="btn btn-outline-warning" href="#">Đăng Nhập/Đăng Ký</a>
     </div>
   
     <div class="" style="margin-top: -5%;">
@@ -37,7 +46,7 @@
                     <!-- <input class="form-control custom-input-sm" type="text" placeholder="Tên sân"
                       style="height: calc(1.5em + 0.625rem + 2px);" [(ngModel)]="search.name"  [ngModelOptions]="{standalone: true}" /> -->
                       <div class="form__group field">
-                        <input type="input" class="form__field" placeholder="Name" name="name" id='name' required  [(ngModel)]="search.name"  [ngModelOptions]="{standalone: true}"/>
+                        <input style="font-weight: 300;" type="input" class="form__field" placeholder="Name" name="name" id='name' required  [(ngModel)]="search.name"  [ngModelOptions]="{standalone: true}"/>
                         <label for="name" class="form__label">Nhập Tên Sân</label>
                       </div> 
                   </div>
@@ -49,12 +58,12 @@
                   <label style="color: white;">Tại &nbsp; </label>
                   <div class="text-warning" style="cursor: pointer;">
                     <select class="text-warning" style="background: #00ffff00; color: orange;border:0px"  (change) = "changeCity()" [(ngModel)]="search.city"  [ngModelOptions]="{standalone: true}">
-                      <option *ngFor="let item of getCitys" value ="{{item._id}}">{{item.name}}</option>
+                      <option *ngFor="let item of getCitys"  value ="{{item._id}}">{{item.name}}</option>
                     </select>
                     &nbsp; </div>
                   <div class="text-warning" style="cursor: pointer;" > &nbsp;
                     <select class=" text-warning" style="margin-top: -30px; background: #00ffff00; color: orange;border:0px" [(ngModel)]="search.district"  [ngModelOptions]="{standalone: true}">
-                      <option  *ngFor="let item of getDistricts" value ="{{item._id}}">{{item.name}}</option>
+                      <option [attr.selected]="search.district==item.name ? true : null"  *ngFor="let item of getDistricts" value ="{{item._id}}">{{item.name}}</option>
                     </select>
                   </div>
                 </div>
@@ -126,157 +135,6 @@
         </div>
       </div>
 
-      <div class="container container-md mt-5" style="font-weight: 100;">
-        <div class="text-center my-3 py-4">
-          <div class="h2" style="font-weight: 300;">Native styles</div>
-          <p>Example plan table using card for demonstration</p>
-      </div>
-      <!-- START PLAN TABLE-->
-      <div class="row">
-          <!-- PLAN-->
-          <div class="col-lg-4">
-              <div class="card b">
-                  <div class="card-body text-center bb">
-                      <div class="text-bold">STARTER</div>
-                      <h3 class="my-3">
-                          <sup>$</sup>
-                          <span class="text-lg">17</span>
-                          <span>/mo</span>
-                      </h3>
-                  </div>
-                  <div class="card-body">
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Unlimited Styles</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>RTL &amp; Translation</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Customer support</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Free Updates</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Limited to one client</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-times fa-fw text-warning mr-2"></em>
-                          <span>Multiple installation</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-times fa-fw text-warning mr-2"></em>
-                          <span>Not ready for resale</span>
-                      </p>
-                  </div>
-                  <div class="card-body text-center">
-                      <a class="btn btn-secondary btn-lg" href="">Select this plan</a>
-                  </div>
-              </div>
-          </div>
-          <!-- PLAN-->
-          <div class="col-lg-4">
-              <div class="card b">
-                  <div class="card-body text-center bg-green">
-                      <div class="text-bold">IDEAL</div>
-                      <h3 class="my-3">
-                          <sup>$</sup>
-                          <span class="text-lg">49</span>
-                          <span>/mo</span>
-                      </h3>
-                  </div>
-                  <div class="card-body">
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Unlimited Styles</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>RTL &amp; Translation</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Customer support</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Free Updates</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Limited to one client</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Multiple installation</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-times fa-fw text-warning mr-2"></em>
-                          <span>Not ready for resale</span>
-                      </p>
-                  </div>
-                  <div class="card-body text-center">
-                      <a class="btn btn-danger btn-lg" href="">Select this plan</a>
-                  </div>
-              </div>
-          </div>
-          <!-- PLAN-->
-          <div class="col-lg-4">
-              <div class="card b">
-                  <div class="card-body text-center bb">
-                      <div class="text-bold">PREMIUM</div>
-                      <h3 class="my-3">
-                          <sup>$</sup>
-                          <span class="text-lg">95</span>
-                          <span>/mo</span>
-                      </h3>
-                  </div>
-                  <div class="card-body">
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Unlimited Styles</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>RTL &amp; Translation</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Customer support</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Free Updates</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Limited to one client</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Multiple installation</span>
-                      </p>
-                      <p>
-                          <em class="fa fa-check fa-fw text-green mr-2"></em>
-                          <span>Ready for resale*</span>
-                      </p>
-                  </div>
-                  <div class="card-body text-center">
-                      <a class="btn btn-secondary btn-lg" href="">Select this plan</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <p class="text-center text-muted">
-          <small>* Subject to specific license terms. Price and features listed for demo only.</small>
-      </p>
-      </div>
-      
     </div>
     <footer class="position-relative d-print-none mt-auto pt-5" style="background-color: #d0d0d052;">
       <!-- Main block - menus, subscribe form-->
