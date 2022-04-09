@@ -55,7 +55,7 @@
     "libphonenumber-js": "^1.7.54",
     "lodash": "4.17.11",
     "modernizr": "3.7.1",
-    "moment": "2.22.2",
+    "moment": "2.29.2",
     "ng-bootstrap-modal": "^1.1.19",
     "ng-dialog": "^1.4.0",
     "ng2-charts": "1.6.0",
